@@ -1,6 +1,7 @@
-import React from "react";
-import { Text, View } from "react-native";
-import { FONTS, COLORS } from "../constants";
+import React, { useState } from "react";
+import { Image, Text, View } from "react-native";
+import { LargeButton, SelectCard, SmallButton } from "../components";
+import { FONTS, COLORS, images } from "../constants";
 
 const Select = ({ navigation }) => {
   function renderWelcomeTitle() {
@@ -33,6 +34,8 @@ const Select = ({ navigation }) => {
   }
 
   function renderSelectCard() {
+    const [isActive, setIsActive] = useState(false);
+
     return (
       <View
         style={{
@@ -40,10 +43,31 @@ const Select = ({ navigation }) => {
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
+          marginTop: 20,
         }}
       >
-        <Text>Card1</Text>
-        <Text>Card2</Text>
+        <SelectCard
+          img={images.student}
+          isactive={!isActive}
+          onPress={() => setIsActive((isActive) => !isActive)}
+        >
+          Student
+        </SelectCard>
+        <SelectCard
+          img={images.developer}
+          isactive={isActive}
+          onPress={() => setIsActive((isActive) => !isActive)}
+        >
+          Developer
+        </SelectCard>
+      </View>
+    );
+  }
+
+  function renderNextButton() {
+    return (
+      <View style={{ marginTop: 189, marginBottom: 60 }}>
+        <LargeButton onPress={() => navigation.navigate("SelectCountry")} />
       </View>
     );
   }
@@ -64,6 +88,9 @@ const Select = ({ navigation }) => {
 
       {/* Select Card */}
       {renderSelectCard()}
+
+      {/* Next Button */}
+      {renderNextButton()}
     </View>
   );
 };
