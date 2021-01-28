@@ -3,7 +3,7 @@ import { View, Text, Image } from "react-native";
 import { SmallButton } from "../components";
 import { COLORS, FONTS, SIZES, icons, images } from "../constants";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   function renderLoginIllustration() {
     return (
       <View
@@ -74,12 +74,14 @@ const Home = () => {
           textColor={COLORS.dark02}
           text="Google"
           icon={icons.google}
+          onPress={() => navigation.navigate("Select")}
         />
         <SmallButton
           bgcolor={COLORS.Light05}
           textColor={COLORS.dark02}
           text="Github"
           icon={icons.github}
+          onPress={() => console.log("New Button")}
         />
       </View>
     );

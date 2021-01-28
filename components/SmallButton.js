@@ -1,15 +1,12 @@
 import React from "react";
 import { Image, View, Text } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import { FONTS, SIZES, COLORS } from "../constants";
 
-const SmallButton = ({ icon, text, textColor, bgcolor }) => {
+const SmallButton = ({ icon, text, textColor, bgcolor, onPress }) => {
   return (
     <View
       style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
         borderRadius: SIZES.borderRadius,
         backgroundColor: bgcolor,
         width: 154,
@@ -18,8 +15,17 @@ const SmallButton = ({ icon, text, textColor, bgcolor }) => {
         paddingHorizontal: 34,
       }}
     >
-      <Image source={icon} style={{ marginRight: 12 }} />
-      <Text style={{ color: textColor, ...FONTS.h2 }}>{text}</Text>
+      <TouchableOpacity
+        onPress={onPress}
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
+        <Image source={icon} style={{ marginRight: 12 }} />
+        <Text style={{ color: textColor, ...FONTS.h2 }}>{text}</Text>
+      </TouchableOpacity>
     </View>
   );
 };
