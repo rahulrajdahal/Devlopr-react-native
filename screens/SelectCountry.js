@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, StyleSheet, Image } from "react-native";
+import { Text, View, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { COLORS, FONTS, icons, images, SIZES } from "../constants";
 import { SmallButton } from "../components";
@@ -106,7 +106,7 @@ const SelectCountry = ({ navigation }) => {
           text="Go Back"
           textColor={COLORS.primary}
           bgcolor="rgba(70, 109, 232, 0.1)"
-          onPress={() => console.log("Go Back")}
+          onPress={() => navigation.navigate("Select")}
         />
 
         <SmallButton
@@ -128,7 +128,7 @@ const SelectCountry = ({ navigation }) => {
         paddingHorizontal: 24,
         backgroundColor: COLORS.white,
         height: "100%",
-        width: "100%", 
+        width: "100%",
       }}
     >
       {/* Skip Button */}
@@ -148,64 +148,5 @@ const SelectCountry = ({ navigation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "space-between",
-    alignItems: "center",
-    backgroundColor: COLORS.Light05,
-    borderRadius: 10,
-    width: 327,
-    height: 60,
-  },
-  titleText: {
-    color: "#fff",
-    fontSize: 25,
-    marginBottom: 25,
-    fontWeight: "bold",
-  },
-  pickerTitleStyle: {
-    justifyContent: "center",
-    flexDirection: "row",
-    alignSelf: "center",
-    fontWeight: "bold",
-    flex: 1,
-    marginLeft: 10,
-    fontSize: 16,
-    color: COLORS.dark03,
-    ...FONTS.body1,
-  },
-  pickerStyle: {
-    height: 60,
-    width: 250,
-    marginBottom: 10,
-    justifyContent: "center",
-    padding: 10,
-    borderWidth: 2,
-    borderColor: "#303030",
-    backgroundColor: "white",
-  },
-  selectedCountryTextStyle: {
-    paddingLeft: 5,
-    paddingRight: 5,
-    color: "#000",
-    textAlign: "right",
-  },
-
-  countryNameTextStyle: {
-    paddingLeft: 10,
-    color: "#000",
-    textAlign: "right",
-  },
-
-  searchBarStyle: {
-    flex: 1,
-    justifyContent: "center",
-    flexDirection: "row",
-    marginLeft: 8,
-    marginRight: 10,
-  },
-});
 
 export default SelectCountry;
