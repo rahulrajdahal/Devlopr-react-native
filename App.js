@@ -3,7 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 
 import {
-  Home,
+  Article,
   Login,
   Select,
   SelectCountry,
@@ -46,10 +46,14 @@ const App = () => {
           component={SelectInterests}
           options={{ headerShown: false }}
         />
-
         <Stack.Screen
           name="BottomNavTab"
           component={BottomNavTab}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Article"
+          component={Article}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

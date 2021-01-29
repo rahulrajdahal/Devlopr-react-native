@@ -1,9 +1,17 @@
 import React from "react";
-import { render } from "react-dom";
 import { View, Text, Image } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import { COLORS, FONTS, icons, images } from "../constants";
 
-const TopCard = ({ avatar, category, likesCount, title, poster, date }) => {
+const TopCard = ({
+  avatar,
+  category,
+  likesCount,
+  title,
+  poster,
+  date,
+  onPress,
+}) => {
   function renderCardHeader() {
     return (
       <View
@@ -98,7 +106,8 @@ const TopCard = ({ avatar, category, likesCount, title, poster, date }) => {
   }
 
   return (
-    <View
+    <TouchableOpacity
+      onPress={onPress}
       style={{
         backgroundColor: COLORS.white,
         maxWidth: 164,
@@ -122,7 +131,7 @@ const TopCard = ({ avatar, category, likesCount, title, poster, date }) => {
 
       {/* Poster Info */}
       {renderPosterInfo()}
-    </View>
+    </TouchableOpacity>
   );
 };
 

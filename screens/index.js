@@ -6,8 +6,10 @@ import Home from "./Home";
 import Explore from "./Explore";
 import Store from "./Store";
 import Friends from "./Friends";
+import Article from "./Article";
 
 export {
+  Article,
   Store,
   Friends,
   Explore,

@@ -1,8 +1,7 @@
 import React from "react";
-import { render } from "react-dom";
 import { Image, Text, View } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
-import { BottomNavTab, SmallButton, TopCard } from "../components";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
+import { SmallButton, TopCard } from "../components";
 import { icons, FONTS, COLORS, images, SIZES } from "../constants";
 
 const Home = ({ navigation }) => {
@@ -122,6 +121,9 @@ const Home = ({ navigation }) => {
         poster: "Pablo Gurrero",
         date: "24 Oct 2020",
         avatar: images.poster_profile,
+        jumbotron: images.vuejs,
+        content:
+          "Vue 3 isn’t officially released yet, but the Vue team has released the Alpha version for us developers to use some of the features that will be shipped with Vue 3.At the time of writing this article, we have the (Alpha-10) version available to experiment with.Though this isn’t ready to be used in production yet, it’s always good to learn new features in advance so that when the stable version is released, we can directly start using it or migrate",
       },
       {
         _id: 2,
@@ -131,6 +133,9 @@ const Home = ({ navigation }) => {
         poster: "Katy Willizms",
         date: "23 Oct 2020",
         avatar: images.post_two,
+        jumbotron: images.vuejs,
+        content:
+          "Vue 3 isn’t officially released yet, but the Vue team has released the Alpha version for us developers to use some of the features that will be shipped with Vue 3.At the time of writing this article, we have the (Alpha-10) version available to experiment with.Though this isn’t ready to be used in production yet, it’s always good to learn new features in advance so that when the stable version is released, we can directly start using it or migrate",
       },
       {
         _id: 3,
@@ -140,6 +145,9 @@ const Home = ({ navigation }) => {
         poster: "Tanya Singh",
         date: "23 Oct 2020",
         avatar: images.post_three,
+        jumbotron: images.vuejs,
+        content:
+          "Vue 3 isn’t officially released yet, but the Vue team has released the Alpha version for us developers to use some of the features that will be shipped with Vue 3.At the time of writing this article, we have the (Alpha-10) version available to experiment with.Though this isn’t ready to be used in production yet, it’s always good to learn new features in advance so that when the stable version is released, we can directly start using it or migrate",
       },
       {
         _id: 4,
@@ -149,6 +157,9 @@ const Home = ({ navigation }) => {
         poster: "Sike Dahl",
         date: "22 Oct 2020",
         avatar: images.post_four,
+        jumbotron: images.vuejs,
+        content:
+          "Vue 3 isn’t officially released yet, but the Vue team has released the Alpha version for us developers to use some of the features that will be shipped with Vue 3.At the time of writing this article, we have the (Alpha-10) version available to experiment with.Though this isn’t ready to be used in production yet, it’s always good to learn new features in advance so that when the stable version is released, we can directly start using it or migrate",
       },
     ];
 
@@ -176,6 +187,7 @@ const Home = ({ navigation }) => {
             date={post.date}
             avatar={post.avatar}
             likesCount={post.likes}
+            onPress={() => navigation.navigate("Article", { article: post })}
           />
         ))}
       </View>

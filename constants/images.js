@@ -7,8 +7,10 @@ export const poster_profile = require("../assets/images/poster-profile.png");
 export const post_two = require("../assets/images/2.png");
 export const post_three = require("../assets/images/3.png");
 export const post_four = require("../assets/images/4.png");
+export const vuejs = require("../assets/images/vuejs.png");
 
 export default {
+  vuejs,
   post_two,
   post_three,
   post_four,
