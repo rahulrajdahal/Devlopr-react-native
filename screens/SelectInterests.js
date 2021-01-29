@@ -127,7 +127,7 @@ const SelectInterests = ({ navigation }) => {
           text="Finish"
           textColor={COLORS.white}
           bgcolor={COLORS.primary}
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.navigate("BottomNavTab")}
         />
       </View>
     );

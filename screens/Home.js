@@ -83,7 +83,7 @@ const Home = ({ navigation }) => {
             text="Join Challenge"
             textColor={COLORS.white}
             bgcolor={COLORS.primary}
-            onPress={() => console.log("Join Challenge")}
+            onPress={() => navigation.navigate("Challenge")}
           />
         </View>
         <View style={{ position: "relative", bottom: 0, top: 10 }}>

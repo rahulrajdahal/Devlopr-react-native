@@ -1,6 +1,6 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
-import { Home, Article } from "../screens";
+import { Home, Article, Challenge } from "../screens";
 
 const HomeStack = createStackNavigator();
 
@@ -15,6 +15,11 @@ const HomeStackScreen = () => {
       <HomeStack.Screen
         name="Article"
         component={Article}
+        options={{ headerShown: false }}
+      />
+      <HomeStack.Screen
+        name="Challenge"
+        component={Challenge}
         options={{ headerShown: false }}
       />
     </HomeStack.Navigator>

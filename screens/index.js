@@ -7,8 +7,10 @@ import Explore from "./Explore";
 import Store from "./Store";
 import Friends from "./Friends";
 import Article from "./Article";
+import Challenge from "./Challenge";
 
 export {
+  Challenge,
   Article,
   Store,
   Friends,

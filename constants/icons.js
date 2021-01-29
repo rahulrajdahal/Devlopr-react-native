@@ -11,8 +11,10 @@ export const discovery = require("../assets/icons/Discovery.png");
 export const bag = require("../assets/icons/bag.png");
 export const users = require("../assets/icons/users.png");
 export const home = require("../assets/icons/Home.png");
+export const bullet = require("../assets/icons/bullet.png");
 
 export default {
+  bullet,
   users,
   home,
   bag,
