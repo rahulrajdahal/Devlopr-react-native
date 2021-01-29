@@ -30,7 +30,12 @@ const TopCard = ({ avatar, category, likesCount, title, poster, date }) => {
         >
           <Image source={icons.love} />
           <Text
-            style={{ color: COLORS.dark04, ...FONTS.body4, fontWeight: "500" }}
+            style={{
+              color: COLORS.dark04,
+              ...FONTS.body4,
+              fontWeight: "500",
+              marginLeft: 2.83,
+            }}
           >
             {likesCount}
           </Text>

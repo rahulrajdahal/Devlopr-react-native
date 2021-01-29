@@ -1,7 +1,8 @@
 import React from "react";
 import { render } from "react-dom";
 import { Image, Text, View } from "react-native";
-import { SmallButton, TopCard } from "../components";
+import { ScrollView } from "react-native-gesture-handler";
+import { BottomNavTab, SmallButton, TopCard } from "../components";
 import { icons, FONTS, COLORS, images, SIZES } from "../constants";
 
 const Home = ({ navigation }) => {
@@ -174,6 +175,7 @@ const Home = ({ navigation }) => {
             poster={post.poster}
             date={post.date}
             avatar={post.avatar}
+            likesCount={post.likes}
           />
         ))}
       </View>
@@ -181,7 +183,7 @@ const Home = ({ navigation }) => {
   }
 
   return (
-    <View
+    <ScrollView
       style={{
         display: "flex",
         flexDirection: "column",
@@ -202,7 +204,7 @@ const Home = ({ navigation }) => {
 
       {/* Top Posts */}
       {renderTopPosts()}
-    </View>
+    </ScrollView>
   );
 };
 

@@ -8,7 +8,7 @@ const SelectInterests = ({ navigation }) => {
   function renderSkipButton() {
     return (
       <View style={{ position: "absolute", top: 32, right: 24, marginTop: 32 }}>
-        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+        <TouchableOpacity onPress={() => navigation.navigate("BottomNavTab")}>
           <Text
             style={{ color: COLORS.primary, ...FONTS.h3, fontWeight: "500" }}
           >

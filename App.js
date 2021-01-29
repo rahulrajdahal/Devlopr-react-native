@@ -9,6 +9,7 @@ import {
   SelectCountry,
   SelectInterests,
 } from "./screens/";
+import { BottomNavTab } from "./components";
 
 const theme = {
   ...DefaultTheme,
@@ -47,8 +48,8 @@ const App = () => {
         />
 
         <Stack.Screen
-          name="Home"
-          component={Home}
+          name="BottomNavTab"
+          component={BottomNavTab}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

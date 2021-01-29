@@ -3,5 +3,13 @@ import SelectCard from "./SelectCard";
 import LargeButton from "./LargeButton";
 import IconCard from "./IconCard";
 import TopCard from "./TopCard";
+import BottomNavTab from "./BotttomNavTab";
 
-export { TopCard, SmallButton, SelectCard, LargeButton, IconCard };
+export {
+  BottomNavTab,
+  TopCard,
+  SmallButton,
+  SelectCard,
+  LargeButton,
+  IconCard,
+};
