@@ -12,8 +12,12 @@ export const bag = require("../assets/icons/bag.png");
 export const users = require("../assets/icons/users.png");
 export const home = require("../assets/icons/Home.png");
 export const bullet = require("../assets/icons/bullet.png");
+export const settings = require("../assets/icons/settings.png");
+export const arrow_right = require("../assets/icons/arrow-right.png");
 
 export default {
+  arrow_right,
+  settings,
   bullet,
   users,
   home,
