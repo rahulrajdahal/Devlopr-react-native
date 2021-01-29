@@ -10,7 +10,9 @@ const SelectCard = ({ img, isactive, children, onPress }) => {
         style={{
           width: 156,
           height: 186,
-          backgroundColor: isactive ? COLORS.primary : COLORS.dark02,
+          backgroundColor: isactive
+            ? COLORS.primary
+            : "rgba(68, 99, 140, 0.05);",
           opacity: isactive ? 1 : 0.5,
           borderRadius: 20,
           borderStyle: isactive ? "solid" : "dashed",
