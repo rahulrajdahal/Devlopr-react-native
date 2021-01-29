@@ -1,63 +1,10 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { Image, Text, View } from "react-native";
 import { SmallButton } from "../components";
-import { COLORS, FONTS, SIZES, icons, images } from "../constants";
+import { icons, FONTS, COLORS, images, SIZES } from "../constants";
 
 const Home = ({ navigation }) => {
-  function renderLoginIllustration() {
-    return (
-      <View
-        style={{
-          width: 375,
-          height: 156,
-          marginTop: 148,
-        }}
-      >
-        <Image source={images.loginIllustration} />
-      </View>
-    );
-  }
-
-  function renderWelcomeTitle() {
-    return (
-      <View style={{ width: 153, height: 76, marginTop: 68 }}>
-        <Text style={{ fontWeight: "300", color: COLORS.dark01, ...FONTS.h1 }}>
-          Welcome to
-        </Text>
-        <Text
-          style={{
-            color: COLORS.dark01,
-            ...FONTS.largeTitle,
-            fontWeight: "300",
-          }}
-        >
-          Devlopr
-        </Text>
-      </View>
-    );
-  }
-
-  function renderWelcomeBody() {
-    return (
-      <View
-        style={{
-          width: 327,
-          height: 120,
-          marginTop: 16,
-        }}
-      >
-        <Text style={{ color: COLORS.dark03, ...FONTS.body1, lineHeight: 24 }}>
-          Meet Devlopr - an all in one hub for aspiring developers to learn
-          programming and get expert advice on the industry.
-        </Text>
-        <Text style={{ color: COLORS.dark03, ...FONTS.body1, marginTop: 16 }}>
-          All for FREE.
-        </Text>
-      </View>
-    );
-  }
-
-  function renderRowButtons() {
+  function renderNavbar() {
     return (
       <View
         style={{
@@ -65,24 +12,56 @@ const Home = ({ navigation }) => {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
-          marginTop: 108,
-          marginBottom: 60,
+          marginTop: 32,
         }}
       >
-        <SmallButton
-          bgcolor={COLORS.Light05}
-          textColor={COLORS.dark02}
-          text="Google"
-          icon={icons.google}
-          onPress={() => navigation.navigate("Select")}
-        />
-        <SmallButton
-          bgcolor={COLORS.Light05}
-          textColor={COLORS.dark02}
-          text="Github"
-          icon={icons.github}
-          onPress={() => console.log("New Button")}
-        />
+        <Image source={icons.category} />
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <Image source={icons.notification} style={{ marginRight: 27.5 }} />
+          <Image source={images.profile} />
+        </View>
+      </View>
+    );
+  }
+
+  function renderChallengeBoard() {
+    return (
+      <View
+        style={{
+          marginTop: 34.67,
+          width: 327,
+          width: "100%",
+          height: 210,
+          backgroundColor: COLORS.Light05,
+          borderRadius: SIZES.borderRadius,
+          display: "flex",
+          justifyContent: "space-between",
+          flexDirection: "row",
+        }}
+      >
+        <View>
+          <Text>TItle</Text>
+          <Text>Body</Text>
+          <SmallButton
+            text="Join Challenge"
+            textColor={COLORS.white}
+            bgcolor={COLORS.primary}
+            onPress={() => console.log("Join Challenge")}
+          />
+        </View>
+        <View>
+          <Image
+            source={images.home}
+            style={{ position: "absolute", bottom: 0, right: 0 }}
+          />
+        </View>
       </View>
     );
   }
@@ -90,24 +69,19 @@ const Home = ({ navigation }) => {
   return (
     <View
       style={{
-        flex: 1,
+        display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
+        paddingHorizontal: 20,
         backgroundColor: COLORS.white,
-        paddingHorizontal: SIZES.paddingHorizontal,
+        width: "100%",
+        height: "100%",
       }}
     >
-      {/* Illustration Icon */}
-      {renderLoginIllustration()}
+      {/* Navbar */}
+      {renderNavbar()}
 
-      {/* Welcome Title */}
-      {renderWelcomeTitle()}
-
-      {/* Welcome Body */}
-      {renderWelcomeBody()}
-
-      {/* Row Buttons */}
-      {renderRowButtons()}
+      {/* Challenge board */}
+      {renderChallengeBoard()}
     </View>
   );
 };

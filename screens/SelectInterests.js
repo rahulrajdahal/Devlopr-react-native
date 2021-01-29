@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { COLORS, FONTS } from "../constants";
-import { IconCard } from "../components";
-import { useState } from "react";
+import { IconCard, SmallButton } from "../components";
 
-const SelectInterests = () => {
+const SelectInterests = ({ navigation }) => {
   function renderSkipButton() {
     return (
       <View style={{ position: "absolute", top: 32, right: 24, marginTop: 32 }}>
-        <TouchableOpacity onPress={() => console.log("Skip")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
           <Text
             style={{ color: COLORS.primary, ...FONTS.h3, fontWeight: "500" }}
           >
@@ -50,9 +49,7 @@ const SelectInterests = () => {
   }
 
   function renderInterestCards() {
-    const [isActive, setIsActive] = useState(false);
-
-    const interestesTitles = [
+    const interestsTitles = [
       {
         _id: 1,
         title: "Web Development",
@@ -100,9 +97,38 @@ const SelectInterests = () => {
           flexWrap: "wrap",
         }}
       >
-        {interestesTitles.map((interestesTitle) => (
-          <IconCard text={interestesTitle.title} />
+        {interestsTitles.map((interestsTitle) => (
+          <IconCard key={interestsTitle._id} text={interestsTitle.title} />
         ))}
+      </View>
+    );
+  }
+
+  function renderRowButtons() {
+    return (
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          marginTop: 135,
+          marginBottom: 60,
+        }}
+      >
+        <SmallButton
+          text="Go Back"
+          textColor={COLORS.primary}
+          bgcolor="rgba(70, 109, 232, 0.1)"
+          onPress={() => navigation.goBack()}
+        />
+
+        <SmallButton
+          text="Finish"
+          textColor={COLORS.white}
+          bgcolor={COLORS.primary}
+          onPress={() => navigation.navigate("Home")}
+        />
       </View>
     );
   }
@@ -129,6 +155,9 @@ const SelectInterests = () => {
 
       {/* Interest Cards */}
       {renderInterestCards()}
+
+      {/* RowButtons */}
+      {renderRowButtons()}
     </View>
   );
 };

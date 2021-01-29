@@ -2,7 +2,13 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 
-import { Home, Select, SelectCountry, SelectInterests } from "./screens/";
+import {
+  Home,
+  Login,
+  Select,
+  SelectCountry,
+  SelectInterests,
+} from "./screens/";
 
 const theme = {
   ...DefaultTheme,
@@ -19,14 +25,16 @@ const App = () => {
     <NavigationContainer theme={theme}>
       <Stack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName={"Home"}
+        initialRouteName={"Login"}
       >
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Login" component={Login} />
+
         <Stack.Screen
           name="Select"
           component={Select}
           options={{ headerShown: false }}
         />
+
         <Stack.Screen
           name="SelectCountry"
           component={SelectCountry}
@@ -35,6 +43,12 @@ const App = () => {
         <Stack.Screen
           name="SelectInterests"
           component={SelectInterests}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="Home"
+          component={Home}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

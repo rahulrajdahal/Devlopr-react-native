@@ -8,7 +8,7 @@ const SelectCountry = ({ navigation }) => {
   function renderSkipButton() {
     return (
       <View style={{ position: "absolute", top: 32, right: 24, marginTop: 32 }}>
-        <TouchableOpacity onPress={() => console.log("Skip")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
           <Text
             style={{ color: COLORS.primary, ...FONTS.h3, fontWeight: "500" }}
           >
