@@ -160,10 +160,8 @@ const Explore = () => {
             alignItems: "center",
             justifyContent: "space-between",
             backgroundColor: COLORS.Light04,
-            maxWidth: 113,
-            // width: "100%",
-            maxHeight: 152,
-            // height: "100%",
+            width: 113,
+            height: 152,
             borderRadius: SIZES.borderRadius,
             paddingHorizontal: 21,
             paddingVertical: 30,
@@ -171,9 +169,33 @@ const Explore = () => {
           }}
         >
           <Image source={item.logo} />
-          <View>
-            <Text>{item.title}</Text>
-            <Text numberOfLines={1}>{`${item.topicCount}+topics`}</Text>
+          <View
+            style={{
+              marginTop: 12,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <Text
+              style={{
+                color: COLORS.dark02,
+                ...FONTS.body2,
+                fontWeight: "500",
+              }}
+            >
+              {item.title}
+            </Text>
+            <Text
+              numberOfLines={1}
+              style={{
+                marginTop: 6,
+                color: COLORS.dark03,
+                ...FONTS.body3,
+                fontWeight: "500",
+              }}
+            >{`${item.topicCount}+topics`}</Text>
           </View>
         </View>
       );
@@ -208,6 +230,20 @@ const Explore = () => {
     );
   }
 
+  function renderTopDevelopers() {
+    return (
+      <View style={{ marginTop: 32 }}>
+        <Text style={{ color: COLORS.dark02, ...FONTS.h3, fontWeight: "500" }}>
+          Top Developers
+        </Text>
+
+        <View>
+          <Text>Developer</Text>
+        </View>
+      </View>
+    );
+  }
+
   return (
     <View
       style={{
@@ -231,6 +267,9 @@ const Explore = () => {
 
       {/* Top Topics By Category */}
       {renderTopPicks()}
+
+      {/* Top Developers */}
+      {renderTopDevelopers()}
     </View>
   );
 };
