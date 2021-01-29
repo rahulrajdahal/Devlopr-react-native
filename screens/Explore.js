@@ -75,6 +75,7 @@ const Explore = () => {
           height: "100%",
           backgroundColor: COLORS.Light05,
           borderRadius: SIZES.borderRadius,
+          alignSelf: "center",
         }}
       >
         <View
@@ -237,15 +238,117 @@ const Explore = () => {
           Top Developers
         </Text>
 
-        <View>
-          <Text>Developer</Text>
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginTop: 12,
+          }}
+        >
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <Image source={images.top_dev} />
+            <View
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                marginLeft: 8,
+              }}
+            >
+              <Text
+                style={{
+                  color: COLORS.dark02,
+                  ...FONTS.body2,
+                  fontWeight: "600",
+                }}
+              >
+                Pablo Gurrero
+              </Text>
+              <Text
+                style={{
+                  color: COLORS.dark03,
+                  ...FONTS.body3,
+                  fontWeight: "300",
+                }}
+              >
+                12.5k followers
+              </Text>
+            </View>
+          </View>
+
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <View
+              style={{
+                padding: 9.33,
+                backgroundColor: COLORS.Light04,
+                borderRadius: 12,
+                width: 32,
+                height: 32,
+                marginRight: 8,
+              }}
+            >
+              <Image
+                source={icons.github}
+                width="13"
+                style={{ alignSelf: "center" }}
+              />
+            </View>
+            <View
+              style={{
+                padding: 9.33,
+                backgroundColor: COLORS.Light04,
+                borderRadius: 12,
+                width: 32,
+                height: 32,
+                marginRight: 8,
+              }}
+            >
+              <Image
+                source={icons.google}
+                width="13"
+                style={{ alignSelf: "center" }}
+              />
+            </View>
+            <View
+              style={{
+                padding: 9.33,
+                backgroundColor: COLORS.Light04,
+                borderRadius: 12,
+                width: 32,
+                height: 32,
+                marginRight: 8,
+              }}
+            >
+              <Image
+                source={icons.insta}
+                width="13"
+                style={{ alignSelf: "center" }}
+              />
+            </View>
+          </View>
         </View>
       </View>
     );
   }
 
   return (
-    <View
+    <ScrollView
       style={{
         display: "flex",
         flexDirection: "column",
@@ -270,7 +373,7 @@ const Explore = () => {
 
       {/* Top Developers */}
       {renderTopDevelopers()}
-    </View>
+    </ScrollView>
   );
 };
 

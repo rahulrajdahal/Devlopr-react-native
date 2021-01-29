@@ -11,8 +11,10 @@ export const vuejs = require("../assets/images/vuejs.png");
 export const vue_logo = require("../assets/images/vue-logo.png");
 export const python_logo = require("../assets/images/python-logo.png");
 export const html_logo = require("../assets/images/html-logo.png");
+export const top_dev = require("../assets/images/top-dev.png");
 
 export default {
+  top_dev,
   vue_logo,
   python_logo,
   html_logo,
