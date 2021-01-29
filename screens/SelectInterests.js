@@ -3,6 +3,7 @@ import { View, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { COLORS, FONTS } from "../constants";
 import { IconCard } from "../components";
+import { useState } from "react";
 
 const SelectInterests = () => {
   function renderSkipButton() {
@@ -49,9 +50,59 @@ const SelectInterests = () => {
   }
 
   function renderInterestCards() {
+    const [isActive, setIsActive] = useState(false);
+
+    const interestesTitles = [
+      {
+        _id: 1,
+        title: "Web Development",
+      },
+      {
+        _id: 2,
+        title: "Backend",
+      },
+      {
+        _id: 3,
+        title: "Frontend",
+      },
+      {
+        _id: 4,
+        title: "Artificial Intelligence",
+      },
+      {
+        _id: 5,
+        title: "Machine Learning",
+      },
+      {
+        _id: 6,
+        title: "Database",
+      },
+      {
+        _id: 7,
+        title: "Design",
+      },
+      {
+        _id: 8,
+        title: "Internet of Things",
+      },
+    ];
+
     return (
-      <View>
-        <IconCard />
+      <View
+        style={{
+          marginTop: 20,
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          maxWidth: 325,
+          width: "100%",
+          flexWrap: "wrap",
+        }}
+      >
+        {interestesTitles.map((interestesTitle) => (
+          <IconCard text={interestesTitle.title} />
+        ))}
       </View>
     );
   }
