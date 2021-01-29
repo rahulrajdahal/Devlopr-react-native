@@ -12,8 +12,18 @@ export const vue_logo = require("../assets/images/vue-logo.png");
 export const python_logo = require("../assets/images/python-logo.png");
 export const html_logo = require("../assets/images/html-logo.png");
 export const top_dev = require("../assets/images/top-dev.png");
+export const shopping = require("../assets/images/shopping.png");
+export const github_shirt = require("../assets/images/github-shirt.png");
+export const coffee_mug = require("../assets/images/coffee-mug.png");
+export const ocotocat_figurine = require("../assets/images/ocotocat-figurine.png");
+export const gaming_chair = require("../assets/images/gaming-chair.png");
 
 export default {
+  gaming_chair,
+  github_shirt,
+  coffee_mug,
+  ocotocat_figurine,
+  shopping,
   top_dev,
   vue_logo,
   python_logo,
