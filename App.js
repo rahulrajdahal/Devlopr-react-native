@@ -32,6 +32,11 @@ const App = () => {
           component={SelectCountry}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="SelectInterests"
+          component={SelectInterests}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

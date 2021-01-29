@@ -113,7 +113,7 @@ const SelectCountry = ({ navigation }) => {
           text="Next"
           textColor={COLORS.white}
           bgcolor={COLORS.primary}
-          onPress={() => console.log("Next")}
+          onPress={() => navigation.navigate("SelectInterests")}
         />
       </View>
     );
