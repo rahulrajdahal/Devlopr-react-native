@@ -1,6 +1,6 @@
 import React from "react";
 import { Image, Text, View } from "react-native";
-import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
+import { ScrollView } from "react-native-gesture-handler";
 import { SmallButton, TopCard } from "../components";
 import { icons, FONTS, COLORS, images, SIZES } from "../constants";
 
@@ -123,7 +123,7 @@ const Home = ({ navigation }) => {
         avatar: images.poster_profile,
         jumbotron: images.vuejs,
         content:
-          "Vue 3 isn’t officially released yet, but the Vue team has released the Alpha version for us developers to use some of the features that will be shipped with Vue 3.At the time of writing this article, we have the (Alpha-10) version available to experiment with.Though this isn’t ready to be used in production yet, it’s always good to learn new features in advance so that when the stable version is released, we can directly start using it or migrate",
+          "Vue 3 isn’t officially released yet, but the Vue team has released the Alpha version for us developers to use some of the features that will be shipped with Vue 3. At the time of writing this article, we have the (Alpha-10) version available to experiment with.Though this isn’t ready to be used in production yet, it’s always good to learn new features in advance so that when the stable version is released, we can directly start using it or migrate",
       },
       {
         _id: 2,

@@ -51,11 +51,6 @@ const App = () => {
           component={BottomNavTab}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
-          name="Article"
-          component={Article}
-          options={{ headerShown: false }}
-        />
       </Stack.Navigator>
     </NavigationContainer>
   );

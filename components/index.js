@@ -3,7 +3,7 @@ import SelectCard from "./SelectCard";
 import LargeButton from "./LargeButton";
 import IconCard from "./IconCard";
 import TopCard from "./TopCard";
-import BottomNavTab from "./BotttomNavTab";
+import BottomNavTab from "../navigations/BotttomNavTab";
 
 export {
   BottomNavTab,

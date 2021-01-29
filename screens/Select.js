@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Image, Text, View } from "react-native";
-import { LargeButton, SelectCard, SmallButton } from "../components";
+import { LargeButton, SelectCard } from "../components";
 import { FONTS, COLORS, images } from "../constants";
 
 const Select = ({ navigation }) => {
