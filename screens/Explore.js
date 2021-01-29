@@ -1,5 +1,7 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
+import { FlatList, ScrollView } from "react-native-gesture-handler";
+import { ExploreCard } from "../components";
 import { COLORS, FONTS, icons, images, SIZES } from "../constants";
 
 const Explore = () => {
@@ -127,6 +129,85 @@ const Explore = () => {
     );
   }
 
+  function renderTopPicks() {
+    const topics = [
+      {
+        _id: 1,
+        logo: images.vue_logo,
+        title: "VueJS",
+        topicCount: "1200",
+      },
+      {
+        _id: 2,
+        logo: images.python_logo,
+        title: "Python",
+        topicCount: "800",
+      },
+      {
+        _id: 3,
+        logo: images.html_logo,
+        title: "HTML5",
+        topicCount: "700",
+      },
+    ];
+
+    const renderItem = ({ item }) => {
+      return (
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "space-between",
+            backgroundColor: COLORS.Light04,
+            maxWidth: 113,
+            // width: "100%",
+            maxHeight: 152,
+            // height: "100%",
+            borderRadius: SIZES.borderRadius,
+            paddingHorizontal: 21,
+            paddingVertical: 30,
+            marginRight: 12,
+          }}
+        >
+          <Image source={item.logo} />
+          <View>
+            <Text>{item.title}</Text>
+            <Text numberOfLines={1}>{`${item.topicCount}+topics`}</Text>
+          </View>
+        </View>
+      );
+    };
+
+    return (
+      <View style={{ marginTop: 32 }}>
+        <Text style={{ color: COLORS.dark02, ...FONTS.h3, fontWeight: "500" }}>
+          Top Topics by Category
+        </Text>
+
+        <View
+          style={{
+            marginTop: 12,
+            marginRight: 12,
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            width: "100%",
+          }}
+        >
+          <FlatList
+            data={topics}
+            renderItem={renderItem}
+            keyExtractor={(item) => `${item._id}`}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+          />
+        </View>
+      </View>
+    );
+  }
+
   return (
     <View
       style={{
@@ -147,6 +228,9 @@ const Explore = () => {
 
       {/* header*/}
       {renderHeader()}
+
+      {/* Top Topics By Category */}
+      {renderTopPicks()}
     </View>
   );
 };

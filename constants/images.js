@@ -8,8 +8,14 @@ export const post_two = require("../assets/images/2.png");
 export const post_three = require("../assets/images/3.png");
 export const post_four = require("../assets/images/4.png");
 export const vuejs = require("../assets/images/vuejs.png");
+export const vue_logo = require("../assets/images/vue-logo.png");
+export const python_logo = require("../assets/images/python-logo.png");
+export const html_logo = require("../assets/images/html-logo.png");
 
 export default {
+  vue_logo,
+  python_logo,
+  html_logo,
   vuejs,
   post_two,
   post_three,
