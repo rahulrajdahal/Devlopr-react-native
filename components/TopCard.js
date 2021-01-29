@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { View, Text, Image } from "react-native";
 import { COLORS, FONTS, icons, images } from "../constants";
 
-const TopCard = () => {
+const TopCard = ({ avatar, category, likesCount, title, poster, date }) => {
   function renderCardHeader() {
     return (
       <View
@@ -15,7 +15,11 @@ const TopCard = () => {
           marginTop: 24,
         }}
       >
-        <Text>Web Dev</Text>
+        <Text
+          style={{ color: COLORS.primary, ...FONTS.body3, fontWeight: "500" }}
+        >
+          {category}
+        </Text>
         <View
           style={{
             display: "flex",
@@ -25,7 +29,11 @@ const TopCard = () => {
           }}
         >
           <Image source={icons.love} />
-          <Text>32</Text>
+          <Text
+            style={{ color: COLORS.dark04, ...FONTS.body4, fontWeight: "500" }}
+          >
+            {likesCount}
+          </Text>
         </View>
       </View>
     );
@@ -43,7 +51,7 @@ const TopCard = () => {
           fontWeight: "500",
         }}
       >
-        What's new in VueJS 3?
+        {title}
       </Text>
     );
   }
@@ -59,7 +67,7 @@ const TopCard = () => {
           marginBottom: 18,
         }}
       >
-        <Image source={images.poster_profile} />
+        <Image source={avatar} />
         <View
           style={{
             display: "flex",
@@ -72,12 +80,12 @@ const TopCard = () => {
           <Text
             style={{ color: COLORS.dark03, fontWeight: "500", ...FONTS.body3 }}
           >
-            Pablo Guerrero
+            {poster}
           </Text>
           <Text
             style={{ color: COLORS.dark04, fontWeight: "500", ...FONTS.body4 }}
           >
-            24 Oct 2020
+            {date}
           </Text>
         </View>
       </View>
