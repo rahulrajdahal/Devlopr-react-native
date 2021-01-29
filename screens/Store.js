@@ -213,6 +213,29 @@ const Store = () => {
     );
   }
 
+  function renderCartButton() {
+    return (
+      <View
+        style={{
+          width: 60,
+          height: 60,
+          backgroundColor: COLORS.primary,
+          borderRadius: SIZES.borderRadius * 2,
+          position: "absolute",
+          bottom: 18,
+          right: 19,
+          alignItems: "center",
+          justifyContent: "center",
+          shadowColor: "rgba(70, 109, 232, 0.8)",
+          shadowRadius: 50,
+          elevation: 15,
+        }}
+      >
+        <Image source={icons.cart} />
+      </View>
+    );
+  }
+
   return (
     <ScrollView
       style={{
@@ -238,6 +261,9 @@ const Store = () => {
         {/* Shop Items */}
         {renderItems()}
       </View>
+
+      {/* Cart Button*/}
+      {renderCartButton()}
     </ScrollView>
   );
 };
