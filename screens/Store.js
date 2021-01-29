@@ -181,18 +181,35 @@ const Store = () => {
 
   function renderItems() {
     const products = [
-      { _id: 1, image: images.gaming_chair, price: 79.99 },
-      { _id: 2, image: images.github_shirt, price: 9.99 },
-      { _id: 3, image: images.coffee_mug, price: 2.99 },
-      { _id: 4, image: images.ocotocat_figurine, price: 6.45 },
+      { _id: 1, name: "Astra Chair", image: images.gaming_chair, price: 79.99 },
+      { _id: 2, name: "Github Shirt", image: images.github_shirt, price: 9.99 },
+      { _id: 3, name: "Coffee Mug", image: images.coffee_mug, price: 2.99 },
+      {
+        _id: 4,
+        name: "Octocat Figurine",
+        image: images.ocotocat_figurine,
+        price: 6.45,
+      },
     ];
 
     return (
-      <>
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          flexWrap: "wrap",
+          alignSelf: "center",
+        }}
+      >
         {products.map((product) => (
-          <StoreCard image={prodocut.image} />
+          <StoreCard
+            key={product._id}
+            name={product.name}
+            image={product.image}
+            price={product.price}
+          />
         ))}
-      </>
+      </View>
     );
   }
 
@@ -217,8 +234,10 @@ const Store = () => {
       {/* Header */}
       {renderHeader()}
 
-      {/* Shop Items */}
-      {renderItems()}
+      <View style={{ marginTop: 32 }}>
+        {/* Shop Items */}
+        {renderItems()}
+      </View>
     </ScrollView>
   );
 };

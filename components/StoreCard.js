@@ -1,15 +1,8 @@
 import React from "react";
 import { Text, View, Image } from "react-native";
-import { COLORS, icons, SIZES } from "../constants";
+import { COLORS, FONTS, icons, SIZES } from "../constants";
 
-const StoreCard = () => {
-  const products = [
-    { _id: 1, image: images.gaming_chair, price: 79.99 },
-    { _id: 2, image: images.github_shirt, price: 9.99 },
-    { _id: 3, image: images.coffee_mug, price: 2.99 },
-    { _id: 4, image: images.ocotocat_figurine, price: 6.45 },
-  ];
-
+const StoreCard = ({ image, name, price }) => {
   return (
     <View
       style={{
@@ -19,6 +12,9 @@ const StoreCard = () => {
         height: "100%",
         borderWidth: 1,
         borderColor: COLORS.Light05,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
       }}
     >
       <View
@@ -27,14 +23,68 @@ const StoreCard = () => {
           borderRadius: SIZES.borderRadius,
           width: 20,
           height: 20,
+          display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
+          position: "absolute",
+          top: 10,
+          right: 10,
         }}
       >
-        <Image source={icons.love} />
+        <Image source={icons.love} style={{ alignSelf: "center" }} />
       </View>
 
-      <Image source={} />
+      <Image source={image} style={{ alignSelf: "center" }} />
+
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          position: "relative",
+          top: 11,
+          left: 12,
+          bottom: 12,
+        }}
+      >
+        <Text
+          style={{
+            color: COLORS.primary_text,
+            ...FONTS.body2,
+            fontWeight: "normal",
+          }}
+        >
+          {name}
+        </Text>
+        <Text
+          style={{
+            color: COLORS.dark03,
+            ...FONTS.body3,
+            fontWeight: "normal",
+          }}
+        >
+          $ {price}
+        </Text>
+      </View>
+
+      <View
+        style={{
+          width: 32,
+          height: 32,
+          borderRadius: 12,
+          backgroundColor: COLORS.white,
+          shadowColor: "rgba(64, 72, 95, 0.14)",
+          elevation: 12,
+          shadowRadius: 5,
+          alignItems: "center",
+          justifyContent: "center",
+          position: "absolute",
+          right: 12,
+          bottom: 13,
+        }}
+      >
+        <Image source={icons.plus} />
+      </View>
     </View>
   );
 };

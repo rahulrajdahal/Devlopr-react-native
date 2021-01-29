@@ -15,8 +15,10 @@ export const bullet = require("../assets/icons/bullet.png");
 export const settings = require("../assets/icons/settings.png");
 export const arrow_right = require("../assets/icons/arrow-right.png");
 export const insta = require("../assets/icons/insta.png");
+export const plus = require("../assets/icons/plus.png");
 
 export default {
+  plus,
   arrow_right,
   insta,
   settings,
