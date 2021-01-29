@@ -21,7 +21,10 @@ const SmallButton = ({ icon, text, textColor, bgcolor, onPress }) => {
       }}
     >
       {icon ? <Image source={icon} style={{ marginRight: 12 }} /> : null}
-      <Text style={{ color: textColor, ...FONTS.h2, fontWeight: "500" }}>
+      <Text
+        numberOfLines={1}
+        style={{ color: textColor, ...FONTS.h2, fontWeight: "500" }}
+      >
         {text}
       </Text>
     </TouchableOpacity>

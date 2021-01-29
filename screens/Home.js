@@ -1,6 +1,7 @@
 import React from "react";
+import { render } from "react-dom";
 import { Image, Text, View } from "react-native";
-import { SmallButton } from "../components";
+import { SmallButton, TopCard } from "../components";
 import { icons, FONTS, COLORS, images, SIZES } from "../constants";
 
 const Home = ({ navigation }) => {
@@ -46,9 +47,38 @@ const Home = ({ navigation }) => {
           flexDirection: "row",
         }}
       >
-        <View>
-          <Text>TItle</Text>
-          <Text>Body</Text>
+        <View
+          style={{
+            marginTop: 24,
+            marginLeft: 24,
+            width: 161,
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <Text
+            style={{
+              color: COLORS.primary_text,
+              ...FONTS.h2,
+              lineHeight: 22,
+              fontWeight: "500",
+            }}
+          >
+            BootStrap 5 Website Design Challenge
+          </Text>
+          <Text
+            style={{
+              marginTop: 7,
+              color: COLORS.primary_text,
+              ...FONTS.body3,
+              lineHeight: 16,
+              fontWeight: "400",
+              marginBottom: 20,
+            }}
+          >
+            Win Exciting Prizes from our sponsers at Github, Gitlab, Icons8 and
+            AWS.
+          </Text>
           <SmallButton
             text="Join Challenge"
             textColor={COLORS.white}
@@ -56,12 +86,44 @@ const Home = ({ navigation }) => {
             onPress={() => console.log("Join Challenge")}
           />
         </View>
-        <View>
+        <View style={{ position: "relative", bottom: 0, top: 10 }}>
           <Image
             source={images.home}
             style={{ position: "absolute", bottom: 0, right: 0 }}
           />
         </View>
+      </View>
+    );
+  }
+
+  function renderTopTitle() {
+    return (
+      <Text
+        style={{
+          marginTop: 32,
+          color: COLORS.dark02,
+          ...FONTS.h3,
+          fontWeight: "500",
+        }}
+      >
+        Top This Week
+      </Text>
+    );
+  }
+
+  function renderTopPosts() {
+    return (
+      <View
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: "row",
+          flexWrap: "wrap",
+        }}
+      >
+        <TopCard />
+        <TopCard />
       </View>
     );
   }
@@ -82,6 +144,12 @@ const Home = ({ navigation }) => {
 
       {/* Challenge board */}
       {renderChallengeBoard()}
+
+      {/* Top Title */}
+      {renderTopTitle()}
+
+      {/* Top Posts */}
+      {renderTopPosts()}
     </View>
   );
 };
