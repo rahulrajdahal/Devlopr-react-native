@@ -106,7 +106,7 @@ const SelectCountry = ({ navigation }) => {
           text="Go Back"
           textColor={COLORS.primary}
           bgcolor="rgba(70, 109, 232, 0.1)"
-          onPress={() => navigation.navigate("Select")}
+          onPress={() => navigation.goBack()}
         />
 
         <SmallButton
