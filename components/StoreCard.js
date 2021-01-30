@@ -89,9 +89,13 @@ const StoreCard = ({ image, name, price }) => {
             shadowRadius: 5,
             elevation: 5,
             borderRadius: 12,
+            width: 32,
+            height: 32,
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          <Image source={icons.plus} style={{ marginRight: 12 }} />
+          <Image source={icons.plus} />
         </View>
       </View>
     );
