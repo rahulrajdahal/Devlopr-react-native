@@ -1,5 +1,6 @@
 import React from "react";
 import { ScrollView, Text, Image, View } from "react-native";
+import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import { StoreCard } from "../components";
 import { COLORS, FONTS, images, icons, SIZES } from "../constants";
 
@@ -190,28 +191,62 @@ const Store = () => {
         image: images.ocotocat_figurine,
         price: 6.45,
       },
+      {
+        _id: 5,
+        name: "Octocat Figurine",
+        image: images.ocotocat_figurine,
+        price: 6.45,
+      },
     ];
 
-    return (
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-          // maxWidth: 328,
-          // width: "100%",
-          alignSelf: "center",
-        }}
-      >
-        {products.map((product) => (
+    const renderItem = ({ item }) => {
+      return (
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            flexWrap: "wrap",
+            maxWidth: 328,
+            width: "100%",
+            alignSelf: "center",
+          }}
+        >
           <StoreCard
-            key={product._id}
-            name={product.name}
-            image={product.image}
-            price={product.price}
+            key={item._id}
+            name={item.name}
+            image={item.image}
+            price={item.price}
           />
-        ))}
-      </View>
+        </View>
+      );
+    };
+
+    return (
+      // <View
+      //   style={{
+      //     display: "flex",
+      //     flexDirection: "row",
+      //     flexWrap: "wrap",
+      //     maxWidth: 328,
+      //     width: "100%",
+      //     alignSelf: "center",
+      //   }}
+      // >
+      //   {products.map((product) => (
+      //     <StoreCard
+      //       key={product._id}
+      //       name={product.name}
+      //       image={product.image}
+      //       price={product.price}
+      //     />
+      //   ))}
+      // </View>
+
+      <FlatList
+        data={products}
+        renderItem={renderItem}
+        keyExtractor={(item) => `${item._id}`}
+      />
     );
   }
 
@@ -224,8 +259,9 @@ const Store = () => {
           backgroundColor: COLORS.primary,
           borderRadius: SIZES.borderRadius * 2,
           position: "absolute",
-          bottom: 18,
+          bottom: 90,
           right: 19,
+          display: "flex",
           alignItems: "center",
           justifyContent: "center",
           shadowColor: "rgba(70, 109, 232, 0.8)",
@@ -233,7 +269,10 @@ const Store = () => {
           elevation: 15,
         }}
       >
-        <Image source={icons.cart} />
+        <Image
+          source={icons.cart}
+          style={{ resizeMode: "contain", width: 17.27, height: 17.5 }}
+        />
       </View>
     );
   }
