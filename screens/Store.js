@@ -198,6 +198,8 @@ const Store = () => {
           display: "flex",
           flexDirection: "row",
           flexWrap: "wrap",
+          // maxWidth: 328,
+          // width: "100%",
           alignSelf: "center",
         }}
       >
