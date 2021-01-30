@@ -199,54 +199,34 @@ const Store = () => {
       },
     ];
 
-    const renderItem = ({ item }) => {
-      return (
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",
-            maxWidth: 328,
-            width: "100%",
-            alignSelf: "center",
-          }}
-        >
-          <StoreCard
-            key={item._id}
-            name={item.name}
-            image={item.image}
-            price={item.price}
-          />
-        </View>
-      );
-    };
-
     return (
-      // <View
-      //   style={{
-      //     display: "flex",
-      //     flexDirection: "row",
-      //     flexWrap: "wrap",
-      //     maxWidth: 328,
-      //     width: "100%",
-      //     alignSelf: "center",
-      //   }}
-      // >
-      //   {products.map((product) => (
-      //     <StoreCard
-      //       key={product._id}
-      //       name={product.name}
-      //       image={product.image}
-      //       price={product.price}
-      //     />
-      //   ))}
-      // </View>
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          flexWrap: "wrap",
+          minWidth: 328,
+          width: "100%",
+          alignSelf: "center",
+        }}
+      >
+        {products.map((product) => (
+          <StoreCard
+            key={product._id}
+            name={product.name}
+            image={product.image}
+            price={product.price}
+          />
+        ))}
 
-      <FlatList
-        data={products}
-        renderItem={renderItem}
-        keyExtractor={(item) => `${item._id}`}
-      />
+        {/* <FlatList
+          data={products}
+          renderItem={renderItem}
+          keyExtractor={(item) => `${item._id}`}
+          horizontal={false}
+          showsVerticalScrollIndicator={false}
+        /> */}
+      </View>
     );
   }
 

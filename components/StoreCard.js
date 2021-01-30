@@ -3,7 +3,7 @@ import { Text, View, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { COLORS, FONTS, icons, images, SIZES } from "../constants";
 
-const StoreCard = ({ image, name, price }) => {
+const StoreCard = ({ image, name, price, onPress }) => {
   function renderLoveIcon() {
     return (
       <View
@@ -103,6 +103,7 @@ const StoreCard = ({ image, name, price }) => {
 
   return (
     <TouchableOpacity
+      onPress={onPress}
       style={{
         minWidth: 164,
         width: "100%",
