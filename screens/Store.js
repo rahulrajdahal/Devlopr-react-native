@@ -191,74 +191,79 @@ const Store = () => {
         image: images.ocotocat_figurine,
         price: 6.45,
       },
+      { _id: 5, name: "Astra Chair", image: images.gaming_chair, price: 79.99 },
+      { _id: 6, name: "Github Shirt", image: images.github_shirt, price: 9.99 },
+      { _id: 7, name: "Coffee Mug", image: images.coffee_mug, price: 2.99 },
       {
-        _id: 5,
+        _id: 8,
         name: "Octocat Figurine",
         image: images.ocotocat_figurine,
         price: 6.45,
       },
     ];
 
+    const numColumns = 2;
+
+    const renderItem = ({ item }) => {
+      return (
+        <StoreCard
+          key={item._id}
+          name={item.name}
+          image={item.image}
+          price={item.price}
+        />
+      );
+    };
+
     return (
       <View
         style={{
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-          minWidth: 328,
+          minWidth: 327,
           width: "100%",
-          alignSelf: "center",
+          minHeight: 327,
+          height: "100%",
+          flex: 1,
         }}
       >
-        {products.map((product) => (
-          <StoreCard
-            key={product._id}
-            name={product.name}
-            image={product.image}
-            price={product.price}
-          />
-        ))}
-
-        {/* <FlatList
+        <FlatList
           data={products}
           renderItem={renderItem}
           keyExtractor={(item) => `${item._id}`}
-          horizontal={false}
-          showsVerticalScrollIndicator={false}
-        /> */}
-      </View>
-    );
-  }
-
-  function renderCartButton() {
-    return (
-      <View
-        style={{
-          width: 60,
-          height: 60,
-          backgroundColor: COLORS.primary,
-          borderRadius: SIZES.borderRadius * 2,
-          position: "absolute",
-          bottom: 90,
-          right: 19,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          shadowColor: "rgba(70, 109, 232, 0.8)",
-          shadowRadius: 50,
-          elevation: 15,
-        }}
-      >
-        <Image
-          source={icons.cart}
-          style={{ resizeMode: "contain", width: 17.27, height: 17.5 }}
+          numColumns={numColumns}
         />
       </View>
     );
   }
 
+  // function renderCartButton() {
+  //   return (
+  //     <View
+  //       style={{
+  //         width: 60,
+  //         height: 60,
+  //         backgroundColor: COLORS.primary,
+  //         borderRadius: SIZES.borderRadius * 2,
+  //         position: "absolute",
+  //         bottom: 90,
+  //         right: 19,
+  //         display: "flex",
+  //         alignItems: "center",
+  //         justifyContent: "center",
+  //         shadowColor: "rgba(70, 109, 232, 0.8)",
+  //         shadowRadius: 50,
+  //         elevation: 15,
+  //       }}
+  //     >
+  //       <Image
+  //         source={icons.cart}
+  //         style={{ resizeMode: "contain", width: 17.27, height: 17.5 }}
+  //       />
+  //     </View>
+  //   );
+  // }
+
   return (
-    <ScrollView
+    <View
       style={{
         display: "flex",
         flexDirection: "column",
@@ -284,8 +289,8 @@ const Store = () => {
       </View>
 
       {/* Cart Button*/}
-      {renderCartButton()}
-    </ScrollView>
+      {/* {renderCartButton()} */}
+    </View>
   );
 };
 

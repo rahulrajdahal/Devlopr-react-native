@@ -114,6 +114,7 @@ const StoreCard = ({ image, name, price, onPress }) => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        flex: 1,
         justifyContent: "space-between",
       }}
     >
