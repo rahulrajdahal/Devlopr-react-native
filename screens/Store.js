@@ -4,7 +4,7 @@ import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import { StoreCard } from "../components";
 import { COLORS, FONTS, images, icons, SIZES } from "../constants";
 
-const Store = () => {
+const Store = ({ navigation }) => {
   function renderNavbar() {
     return (
       <View
@@ -211,6 +211,7 @@ const Store = () => {
           name={item.name}
           image={item.image}
           price={item.price}
+          onPress={() => navigation.navigate("ItemDetail")}
         />
       );
     };

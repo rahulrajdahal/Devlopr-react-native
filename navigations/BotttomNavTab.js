@@ -4,7 +4,8 @@ import { Image, View } from "react-native";
 import { COLORS, icons } from "../constants";
 
 import { Explore, Friends, Store } from "../screens";
-import { HomeStackScreen, StoreStackScreen } from "../navigations";
+import HomeStackScreen from "./HomeStackScreen";
+import StoreScreenStack from "./StoreStackScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -50,7 +51,7 @@ const BottomNavTab = () => {
       />
       <Tab.Screen
         name="StoreStackScreen"
-        component={StoreStackScreen}
+        component={StoreScreenStack}
         options={{
           tabBarLabel: "",
           tabBarIcon: () => <Image source={icons.bag} />,
