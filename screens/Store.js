@@ -235,32 +235,58 @@ const Store = () => {
     );
   }
 
-  // function renderCartButton() {
-  //   return (
-  //     <View
-  //       style={{
-  //         width: 60,
-  //         height: 60,
-  //         backgroundColor: COLORS.primary,
-  //         borderRadius: SIZES.borderRadius * 2,
-  //         position: "absolute",
-  //         bottom: 90,
-  //         right: 19,
-  //         display: "flex",
-  //         alignItems: "center",
-  //         justifyContent: "center",
-  //         shadowColor: "rgba(70, 109, 232, 0.8)",
-  //         shadowRadius: 50,
-  //         elevation: 15,
-  //       }}
-  //     >
-  //       <Image
-  //         source={icons.cart}
-  //         style={{ resizeMode: "contain", width: 17.27, height: 17.5 }}
-  //       />
-  //     </View>
-  //   );
-  // }
+  function renderCartButton() {
+    return (
+      <View
+        style={{
+          width: 60,
+          height: 60,
+          backgroundColor: COLORS.primary,
+          borderRadius: SIZES.borderRadius * 2,
+          position: "absolute",
+          bottom: 90,
+          right: 19,
+          alignItems: "center",
+          justifyContent: "center",
+          shadowColor: "rgba(70, 109, 232, 0.8)",
+          shadowRadius: 50,
+          elevation: 15,
+        }}
+      >
+        <View
+          style={{
+            width: 21,
+            height: 21,
+            backgroundColor: COLORS.white,
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: SIZES.borderRadius * 2,
+            elevation: 5,
+            shadowRadius: 15,
+            shadowColor: "rgba(0, 0, 0, 0.15)",
+            position: "absolute",
+            bottom: 39,
+            right: 41,
+          }}
+        >
+          <Text
+            style={{
+              fontWeight: "bold",
+              fontSize: 8,
+              color: COLORS.dark02,
+              lineHeight: 8,
+            }}
+          >
+            03
+          </Text>
+        </View>
+        <Image
+          source={icons.cart}
+          style={{ resizeMode: "contain", width: 17.27, height: 17.5 }}
+        />
+      </View>
+    );
+  }
 
   return (
     <View
@@ -289,7 +315,7 @@ const Store = () => {
       </View>
 
       {/* Cart Button*/}
-      {/* {renderCartButton()} */}
+      {renderCartButton()}
     </View>
   );
 };

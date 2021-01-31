@@ -8,8 +8,10 @@ import Store from "./Store";
 import Friends from "./Friends";
 import Article from "./Article";
 import Challenge from "./Challenge";
+import ItemDetail from "./ItemDetail";
 
 export {
+  ItemDetail,
   Challenge,
   Article,
   Store,
