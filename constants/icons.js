@@ -48,5 +48,7 @@ import Github from "../assets/icons/github.svg";
 import Google from "../assets/icons/google.svg";
 import UK from "../assets/icons/uk.svg";
 import Close from "../assets/icons/close.svg";
+import Coupon from "../assets/icons/coupon.svg";
+import ArrowRight from "../assets/icons/arrow-right.svg";
 
-export { ArrowLeft, Check, Github, Google, UK, Close };
+export { ArrowRight, Coupon, ArrowLeft, Check, Github, Google, UK, Close };

@@ -1,11 +1,17 @@
-import React from "react";
-import { View, Text, Image } from "react-native";
-import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
+import React, { useState } from "react";
+import { View, Text, Image, TextInput } from "react-native";
+import {
+  FlatList,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native-gesture-handler";
 import Svg, { Path } from "react-native-svg";
 import { COLORS, icons, FONTS, images } from "../constants";
-import { ArrowLeft, Close } from "../constants/icons";
+import { ArrowRight, ArrowLeft, Close, Coupon } from "../constants/icons";
 
 const Cart = ({ navigation }) => {
+  const [discount, setDiscount] = useState("");
+
   function renderHeader() {
     return (
       <View
@@ -43,6 +49,7 @@ const Cart = ({ navigation }) => {
     const renderItem = ({ item }) => {
       return (
         <View
+          key={item._id}
           style={{
             display: "flex",
             flexDirection: "row",
@@ -157,11 +164,78 @@ const Cart = ({ navigation }) => {
         price: "14.99",
         quantity: "01",
       },
+      {
+        _id: 31,
+        image: images.gaming_chair,
+        name: "Astra Chair",
+        price: "79.99",
+        quantity: "01",
+      },
+      {
+        _id: 22,
+        image: images.github_shirt,
+        name: "Github Shirt",
+        price: "9.99",
+        quantity: "01",
+      },
+      {
+        _id: 13,
+        image: images.coffee_mug,
+        name: "Coffe Mug",
+        price: "4.99",
+        quantity: "01",
+      },
+      {
+        _id: 44,
+        image: images.ocotocat_figurine,
+        name: "Octocat Figurines",
+        price: "14.99",
+        quantity: "01",
+      },
+      {
+        _id: 14,
+        image: images.gaming_chair,
+        name: "Astra Chair",
+        price: "79.99",
+        quantity: "01",
+      },
+      {
+        _id: 32,
+        image: images.github_shirt,
+        name: "Github Shirt",
+        price: "9.99",
+        quantity: "01",
+      },
+      {
+        _id: 23,
+        image: images.coffee_mug,
+        name: "Coffe Mug",
+        price: "4.99",
+        quantity: "01",
+      },
+      {
+        _id: 114,
+        image: images.ocotocat_figurine,
+        name: "Octocat Figurines",
+        price: "14.99",
+        quantity: "01",
+      },
     ];
 
     return (
-      <View style={{ marginTop: 32, minWidth: 329, width: "100%" }}>
-        <FlatList data={products} renderItem={renderItem} />
+      <View
+        style={{
+          marginTop: 32,
+          minWidth: 329,
+          width: "100%",
+          maxHeight: 394,
+        }}
+      >
+        <FlatList
+          data={products}
+          renderItem={renderItem}
+          keyExtractor={(item) => `${item._id}`}
+        />
 
         <View
           style={{
@@ -169,6 +243,7 @@ const Cart = ({ navigation }) => {
             flexDirection: "row",
             alignItems: "center",
             marginBottom: 24,
+            marginTop: 24,
           }}
         >
           <View
@@ -232,10 +307,138 @@ const Cart = ({ navigation }) => {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
+          marginTop: 32,
         }}
       >
-        <Text>Discount Form</Text>
-        <Text>Button</Text>
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            backgroundColor: COLORS.Light04,
+            maxWidth: 219,
+            width: "100%",
+            maxHeight: 48,
+            height: "100%",
+            borderRadius: 10,
+            paddingVertical: 17,
+            paddingLeft: 20,
+          }}
+        >
+          <Coupon width="11.67" height="10.5" />
+          <TextInput
+            placeholder="Discount Coupon"
+            onChangeText={(discount) => setDiscount(discount)}
+            defaultValue={discount}
+            style={{
+              marginLeft: 9.17,
+              width: "100%",
+              color: COLORS.dark02,
+              ...FONTS.body2,
+              fontWeight: "normal",
+            }}
+          />
+        </View>
+        <View
+          style={{
+            backgroundColor: "rgba(70, 109, 232, 0.2)",
+            minWidth: 96,
+            minHeight: 48,
+            borderRadius: 10,
+            paddingHorizontal: 30,
+            paddingVertical: 17,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Text
+            style={{
+              alignSelf: "center",
+              ...FONTS.body2,
+              fontWeight: "500",
+              color: COLORS.primary,
+            }}
+          >
+            Apply
+          </Text>
+        </View>
+      </View>
+    );
+  }
+
+  function renderTotalAndCheckout() {
+    return (
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          marginTop: 112,
+          marginBottom: 24,
+        }}
+      >
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <Text
+            style={{
+              ...FONTS.h3,
+              color: COLORS.dark01,
+              fontWeight: "600",
+              width: 11,
+              height: 16,
+              position: "relative",
+              bottom: 4,
+              left: 4,
+            }}
+          >
+            $
+          </Text>
+          <Text
+            style={{
+              fontSize: 32,
+              lineHeight: 32,
+              color: COLORS.dark01,
+              fontWeight: "600",
+              marginLeft: 4,
+            }}
+          >
+            109.96
+          </Text>
+        </View>
+        <View
+          style={{
+            width: 152,
+            height: 48,
+            backgroundColor: COLORS.primary,
+            borderRadius: 10,
+            paddingVertical: 17,
+            paddingHorizontal: 36,
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-evenly",
+          }}
+        >
+          <Text
+            style={{
+              color: COLORS.white,
+              ...FONTS.body2,
+              fontWeight: "500",
+              alignSelf: "center",
+            }}
+          >
+            Checkout
+          </Text>
+          <ArrowRight width="9.33" height="9.07" />
+        </View>
       </View>
     );
   }
@@ -257,6 +460,9 @@ const Cart = ({ navigation }) => {
       {renderCartItems()}
       {/* Discount Coupon Form */}
       {renderDiscountForm()}
+
+      {/* Total And Checkout */}
+      {renderTotalAndCheckout()}
     </View>
   );
 };
