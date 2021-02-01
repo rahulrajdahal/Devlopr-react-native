@@ -108,18 +108,38 @@ const ItemDetail = ({ route }) => {
           {item.desc}
         </Text>
 
-        {bullets.map((bullet) => (
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-            }}
-          >
-            <Image source={icons.bullets} />
-            <Text>{bullet.desc}</Text>
-          </View>
-        ))}
+        <View style={{ marginTop: 16 }}>
+          {/* {bullets.map((bullet) => (
+            <View
+              key={bullet._id}
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                marginBottom: 12,
+              }}
+            >
+              <Image source={icons.bullet} style={{ marginRight: 13.33 }} />
+              <Text
+                style={{
+                  color: COLORS.dark03,
+                  ...FONTS.body1,
+                  fontWeight: "normal",
+                }}
+              >
+                {bullet.desc}
+              </Text>
+            </View>
+          ))} */}
+        </View>
+      </View>
+    );
+  }
+
+  function renderAddToCart() {
+    return (
+      <View>
+        <Text>Add To Cart Button</Text>
       </View>
     );
   }
@@ -140,12 +160,13 @@ const ItemDetail = ({ route }) => {
       {renderNavbar()}
       {/* Product Image  */}
       {renderImage()}
-
       {/* Product Name And Price */}
       {renderNameAndPrice()}
-
       {/* Product Description And Bullets */}
       {renderDescription()}
+
+      {/* Add To Card Button */}
+      {renderAddToCart()}
     </View>
   );
 };
