@@ -17,8 +17,10 @@ export const github_shirt = require("../assets/images/github-shirt.png");
 export const coffee_mug = require("../assets/images/coffee-mug.png");
 export const ocotocat_figurine = require("../assets/images/ocotocat-figurine.png");
 export const gaming_chair = require("../assets/images/gaming-chair.png");
+export const delivery = require("../assets/images/delivery.png");
 
 export default {
+  delivery,
   gaming_chair,
   github_shirt,
   coffee_mug,
