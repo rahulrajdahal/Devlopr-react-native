@@ -17,8 +17,10 @@ export const arrow_right = require("../assets/icons/arrow-right.png");
 export const insta = require("../assets/icons/insta.png");
 export const plus = require("../assets/icons/plus.png");
 export const cart = require("../assets/icons/cart.png");
+export const arrow_left = require("../assets/icons/arrow-left.svg");
 
 export default {
+  arrow_left,
   cart,
   plus,
   arrow_right,
@@ -39,3 +41,7 @@ export default {
   arrow_down,
   check,
 };
+
+import ArrowLeft from "../assets/icons/arrow-left.svg";
+
+export { ArrowLeft };
