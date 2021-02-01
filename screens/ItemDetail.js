@@ -4,7 +4,7 @@ import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import { SmallButton } from "../components";
 import { COLORS, FONTS, icons, images, SIZES } from "../constants";
 
-const ItemDetail = ({ route, onPress }) => {
+const ItemDetail = ({ route, onPress, navigation }) => {
   const [addToCart, setAddToCart] = useState(false);
 
   const [item, setItem] = useState(1);
@@ -184,53 +184,54 @@ const ItemDetail = ({ route, onPress }) => {
 
   function renderCartButton() {
     return (
-      <View
-        style={{
-          width: 60,
-          height: 60,
-          backgroundColor: COLORS.primary,
-          borderRadius: SIZES.borderRadius * 2,
-          position: "absolute",
-          bottom: 90,
-          right: 19,
-          alignItems: "center",
-          justifyContent: "center",
-          shadowColor: "rgba(70, 109, 232, 0.8)",
-          shadowRadius: 50,
-          elevation: 15,
-        }}
-      >
-        <View
+      <View style={{ position: "absolute", bottom: 18, right: 19 }}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Cart")}
           style={{
-            width: 21,
-            height: 21,
-            backgroundColor: COLORS.white,
-            alignItems: "center",
-            justifyContent: "center",
+            width: 60,
+            height: 60,
+            backgroundColor: COLORS.primary,
             borderRadius: SIZES.borderRadius * 2,
-            elevation: 5,
-            shadowRadius: 15,
-            shadowColor: "rgba(0, 0, 0, 0.15)",
-            position: "absolute",
-            bottom: 39,
-            right: 41,
+            alignSelf: "flex-end",
+            justifyContent: "center",
+            alignItems: "center",
+            shadowColor: "rgba(70, 109, 232, 0.8)",
+            shadowRadius: 50,
+            elevation: 15,
           }}
         >
-          <Text
+          <View
             style={{
-              fontWeight: "bold",
-              fontSize: 8,
-              color: COLORS.dark02,
-              lineHeight: 8,
+              width: 21,
+              height: 21,
+              backgroundColor: COLORS.white,
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: SIZES.borderRadius * 2,
+              elevation: 5,
+              shadowRadius: 15,
+              shadowColor: "rgba(0, 0, 0, 0.15)",
+              position: "absolute",
+              bottom: 39,
+              right: 41,
             }}
           >
-            03
-          </Text>
-        </View>
-        <Image
-          source={icons.cart}
-          style={{ resizeMode: "contain", width: 17.27, height: 17.5 }}
-        />
+            <Text
+              style={{
+                fontWeight: "bold",
+                fontSize: 8,
+                color: COLORS.dark02,
+                lineHeight: 8,
+              }}
+            >
+              03
+            </Text>
+          </View>
+          <Image
+            source={icons.cart}
+            style={{ resizeMode: "contain", width: 17.27, height: 17.5 }}
+          />
+        </TouchableOpacity>
       </View>
     );
   }
