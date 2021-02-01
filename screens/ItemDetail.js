@@ -5,6 +5,8 @@ import { SmallButton } from "../components";
 import { COLORS, FONTS, icons, images, SIZES } from "../constants";
 
 const ItemDetail = ({ route, onPress }) => {
+  const [addToCart, setAddToCart] = useState(false);
+
   const [item, setItem] = useState(1);
 
   useEffect(() => {
@@ -143,7 +145,7 @@ const ItemDetail = ({ route, onPress }) => {
         style={{
           marginTop: 58,
           marginBottom: 24,
-          backgroundColor: COLORS.white,
+          backgroundColor: addToCart ? COLORS.primary : COLORS.white,
           width: 179,
           height: 48,
           elevation: 5,
@@ -158,14 +160,25 @@ const ItemDetail = ({ route, onPress }) => {
           paddingVertical: 14,
           alignSelf: "center",
         }}
-        onPress={onPress}
+        onPress={() => setAddToCart((addToCart) => !addToCart)}
       >
-        <Image source={icons.plus} style={{ marginRight: 9.21 }} />
-        <Text
-          style={{ color: COLORS.primary, ...FONTS.body1, fontWeight: "500" }}
-        >
-          Add to Cart
-        </Text>
+        <Image
+          source={addToCart ? icons.check_active : icons.plus}
+          style={{ marginRight: 9.21 }}
+        />
+        {addToCart ? (
+          <Text
+            style={{ color: COLORS.Light01, ...FONTS.body1, fontWeight: "500" }}
+          >
+            Added to Cart
+          </Text>
+        ) : (
+          <Text
+            style={{ color: COLORS.primary, ...FONTS.body1, fontWeight: "500" }}
+          >
+            Added to Cart
+          </Text>
+        )}
       </TouchableOpacity>
     );
   }
