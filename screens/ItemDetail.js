@@ -4,7 +4,7 @@ import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import { SmallButton } from "../components";
 import { COLORS, FONTS, icons, images, SIZES } from "../constants";
 
-const ItemDetail = ({ route }) => {
+const ItemDetail = ({ route, onPress }) => {
   const [item, setItem] = useState(1);
 
   useEffect(() => {
@@ -137,11 +137,12 @@ const ItemDetail = ({ route }) => {
     );
   }
 
-  function renderAddToCart() {
+  function renderAddToCartButton() {
     return (
-      <View
+      <TouchableOpacity
         style={{
           marginTop: 58,
+          marginBottom: 24,
           backgroundColor: COLORS.white,
           width: 179,
           height: 48,
@@ -157,6 +158,7 @@ const ItemDetail = ({ route }) => {
           paddingVertical: 14,
           alignSelf: "center",
         }}
+        onPress={onPress}
       >
         <Image source={icons.plus} style={{ marginRight: 9.21 }} />
         <Text
@@ -164,7 +166,7 @@ const ItemDetail = ({ route }) => {
         >
           Add to Cart
         </Text>
-      </View>
+      </TouchableOpacity>
     );
   }
 
@@ -243,7 +245,7 @@ const ItemDetail = ({ route }) => {
       {renderDescription()}
 
       {/* Add To Card Button */}
-      {renderAddToCart()}
+      {renderAddToCartButton()}
 
       {/* Cart Button*/}
       {renderCartButton()}
