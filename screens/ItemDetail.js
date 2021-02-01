@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, Image } from "react-native";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
-import { COLORS, FONTS, icons, images } from "../constants";
+import { SmallButton } from "../components";
+import { COLORS, FONTS, icons, images, SIZES } from "../constants";
 
 const ItemDetail = ({ route }) => {
   const [item, setItem] = useState(1);
@@ -138,8 +139,31 @@ const ItemDetail = ({ route }) => {
 
   function renderAddToCart() {
     return (
-      <View>
-        <Text>Add To Cart Button</Text>
+      <View
+        style={{
+          marginTop: 58,
+          backgroundColor: COLORS.white,
+          width: 179,
+          height: 48,
+          elevation: 5,
+          shadowRadius: 55,
+          shadowColor: "rgba(64, 72, 95, 0.14)",
+          borderRadius: SIZES.borderRadius,
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          paddingHorizontal: 37,
+          paddingVertical: 14,
+          alignSelf: "center",
+        }}
+      >
+        <Image source={icons.plus} style={{ marginRight: 9.21 }} />
+        <Text
+          style={{ color: COLORS.primary, ...FONTS.body1, fontWeight: "500" }}
+        >
+          Add to Cart
+        </Text>
       </View>
     );
   }
