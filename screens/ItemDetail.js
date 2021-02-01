@@ -14,6 +14,8 @@ const ItemDetail = ({ route, onPress }) => {
     setItem(item);
   }, [item]);
 
+  const { bullets } = item;
+
   function renderNavbar() {
     return (
       <View
@@ -95,8 +97,6 @@ const ItemDetail = ({ route, onPress }) => {
   }
 
   function renderDescription() {
-    const { bullets } = item;
-
     return (
       <View style={{ marginTop: 24 }}>
         <Text
@@ -111,8 +111,8 @@ const ItemDetail = ({ route, onPress }) => {
           {item.desc}
         </Text>
 
-        <View style={{ marginTop: 16 }}>
-          {/* {bullets.map((bullet) => (
+        {/* <View style={{ marginTop: 16 }}>
+          {bullets.map((bullet) => (
             <View
               key={bullet._id}
               style={{
@@ -133,8 +133,8 @@ const ItemDetail = ({ route, onPress }) => {
                 {bullet.desc}
               </Text>
             </View>
-          ))} */}
-        </View>
+          ))}
+        </View> */}
       </View>
     );
   }
@@ -155,7 +155,6 @@ const ItemDetail = ({ route, onPress }) => {
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
-          justifyContent: "space-between",
           paddingHorizontal: 37,
           paddingVertical: 14,
           alignSelf: "center",
@@ -176,7 +175,7 @@ const ItemDetail = ({ route, onPress }) => {
           <Text
             style={{ color: COLORS.primary, ...FONTS.body1, fontWeight: "500" }}
           >
-            Added to Cart
+            Add to Cart
           </Text>
         )}
       </TouchableOpacity>
@@ -245,7 +244,6 @@ const ItemDetail = ({ route, onPress }) => {
         backgroundColor: COLORS.white,
         width: "100%",
         height: "100%",
-        marginTop: 40,
       }}
     >
       {/* Navbar */}

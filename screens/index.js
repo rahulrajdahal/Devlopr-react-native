@@ -9,8 +9,10 @@ import Friends from "./Friends";
 import Article from "./Article";
 import Challenge from "./Challenge";
 import ItemDetail from "./ItemDetail";
+import Cart from "./Cart";
 
 export {
+  Cart,
   ItemDetail,
   Challenge,
   Article,

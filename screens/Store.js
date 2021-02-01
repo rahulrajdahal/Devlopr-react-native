@@ -328,7 +328,6 @@ const Store = ({ navigation }) => {
       style={{
         display: "flex",
         flexDirection: "column",
-        marginTop: 32,
         paddingHorizontal: 24,
         backgroundColor: COLORS.white,
         width: "100%",
