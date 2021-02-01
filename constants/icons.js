@@ -43,5 +43,10 @@ export default {
 };
 
 import ArrowLeft from "../assets/icons/arrow-left.svg";
+import Check from "../assets/icons/check.svg";
+import Github from "../assets/icons/github.svg";
+import Google from "../assets/icons/google.svg";
+import UK from "../assets/icons/uk.svg";
+import Close from "../assets/icons/close.svg";
 
-export { ArrowLeft };
+export { ArrowLeft, Check, Github, Google, UK, Close };

@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
 import Svg, { Path } from "react-native-svg";
-import { COLORS, icons } from "../constants";
+import { COLORS, icons, FONTS } from "../constants";
 import { ArrowLeft } from "../constants/icons";
 
 const Cart = ({ navigation }) => {
@@ -15,8 +15,24 @@ const Cart = ({ navigation }) => {
           alignItems: "center",
         }}
       >
-        <ArrowLeft />
-        <Text>Render Header</Text>
+        <ArrowLeft
+          style={{
+            marginRight: 103,
+            color: COLORS.dark02,
+          }}
+          width="16"
+          height="15.56"
+        />
+        <Text
+          style={{
+            color: COLORS.dark01,
+            ...FONTS.h1,
+            fontWeight: "500",
+            alignSelf: "center",
+          }}
+        >
+          My Cart
+        </Text>
       </View>
     );
   }
