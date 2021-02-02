@@ -1,8 +1,9 @@
 import React from "react";
-import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 import { COLORS, FONTS, images } from "../constants";
 import { ArrowLeft, Check, CheckActive, Tick } from "../constants/icons";
 import { LargeButton } from "../components";
+import { FlatList } from "react-native-gesture-handler";
 
 const Checkout = ({ navigation }) => {
   function renderHeader() {
@@ -53,80 +54,99 @@ const Checkout = ({ navigation }) => {
       {
         _id: 2,
         image: images.office,
-        type: "home",
+        type: "office",
         street: "Bulko Street, Townsroad",
         state: "Victoria, Australia",
       },
     ];
 
-    return (
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-evenly",
-          backgroundColor: COLORS.Light04,
-          borderRadius: 10,
-          minWidth: 327,
-          width: "100%",
-          minHeight: 100,
-          marginBottom: 16,
-        }}
-      >
-        <Image
-          source={images.home_address}
-          style={{ maxWidth: 48, maxHeight: 48 }}
-          width="48"
-          height="48"
-        />
+    const renderItem = ({ item }) => {
+      return (
         <View
           style={{
             display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            justifyContent: "space-between",
-          }}
-        >
-          <Text
-            style={{ color: COLORS.dark01, ...FONTS.h3, fontWeight: "500" }}
-          >
-            Home Address
-          </Text>
-          <Text
-            style={{
-              color: COLORS.dark03,
-              ...FONTS.body2,
-              fontWeight: "normal",
-              lineHeight: 18,
-            }}
-          >
-            Burgundy Street 123
-          </Text>
-          <Text
-            style={{
-              color: COLORS.dark03,
-              ...FONTS.body2,
-              fontWeight: "normal",
-              lineHeight: 18,
-            }}
-          >
-            Victoria, Australia
-          </Text>
-        </View>
-        <View
-          style={{
-            backgroundColor: COLORS.primary,
-            width: 28,
-            height: 28,
-            justifyContent: "center",
+            flexDirection: "row",
             alignItems: "center",
-            borderRadius: 50,
+            justifyContent: "space-evenly",
+            backgroundColor: COLORS.Light04,
+            borderRadius: 10,
+            minWidth: 327,
+            width: "100%",
+            minHeight: 100,
+            marginBottom: 16,
           }}
         >
-          <Tick />
+          <Image
+            source={item.image}
+            style={{ maxWidth: 48, maxHeight: 48 }}
+            width="48"
+            height="48"
+          />
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              justifyContent: "space-between",
+            }}
+          >
+            <Text
+              style={{
+                textTransform: "capitalize",
+                color: COLORS.dark01,
+                ...FONTS.h3,
+                fontWeight: "500",
+              }}
+            >
+              {item.type} Address
+            </Text>
+            <Text
+              style={{
+                color: COLORS.dark03,
+                ...FONTS.body2,
+                fontWeight: "normal",
+                lineHeight: 18,
+                textTransform: "capitalize",
+              }}
+            >
+              {item.street}
+            </Text>
+            <Text
+              style={{
+                color: COLORS.dark03,
+                ...FONTS.body2,
+                fontWeight: "normal",
+                lineHeight: 18,
+                textTransform: "capitalize",
+              }}
+            >
+              {item.state}
+            </Text>
+          </View>
+          <View
+            style={{
+              backgroundColor: COLORS.primary,
+              width: 28,
+              height: 28,
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: 50,
+            }}
+          >
+            <Tick />
+          </View>
         </View>
-      </View>
+      );
+    };
+
+    return (
+      <>
+        <FlatList
+          data={addresses}
+          renderItem={renderItem}
+          keyExtractor={(item) => `${item._id}`}
+        />
+      </>
     );
   }
 
@@ -186,7 +206,6 @@ const Checkout = ({ navigation }) => {
       {/*  Back Button And Page Title */}
       {renderHeader()}
       {/* Shipping Adresses */}
-      {renderAddress()}
       {renderAddress()}
 
       {/* Add New Shipping Address */}
