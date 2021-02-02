@@ -10,8 +10,10 @@ import Article from "./Article";
 import Challenge from "./Challenge";
 import ItemDetail from "./ItemDetail";
 import Cart from "./Cart";
+import Checkout from "./Checkout";
 
 export {
+  Checkout,
   Cart,
   ItemDetail,
   Challenge,

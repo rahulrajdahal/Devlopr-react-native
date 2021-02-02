@@ -1,11 +1,7 @@
 import React, { useState } from "react";
-import { View, Text, Image, TextInput } from "react-native";
-import {
-  FlatList,
-  ScrollView,
-  TouchableOpacity,
-} from "react-native-gesture-handler";
-import Svg, { Path } from "react-native-svg";
+import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import { FlatList, ScrollView } from "react-native-gesture-handler";
+
 import { COLORS, icons, FONTS, images } from "../constants";
 import { ArrowRight, ArrowLeft, Close, Coupon } from "../constants/icons";
 
@@ -22,15 +18,17 @@ const Cart = ({ navigation }) => {
           alignItems: "center",
         }}
       >
-        <ArrowLeft
-          style={{
-            marginRight: 103,
-            color: COLORS.dark02,
-            alignSelf: "flex-start",
-          }}
-          width="16"
-          height="15.56"
-        />
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <ArrowLeft
+            style={{
+              marginRight: 103,
+              color: COLORS.dark02,
+              alignSelf: "flex-start",
+            }}
+            width="16"
+            height="15.56"
+          />
+        </TouchableOpacity>
         <Text
           style={{
             color: COLORS.dark01,
@@ -159,62 +157,6 @@ const Cart = ({ navigation }) => {
       },
       {
         _id: 4,
-        image: images.ocotocat_figurine,
-        name: "Octocat Figurines",
-        price: "14.99",
-        quantity: "01",
-      },
-      {
-        _id: 31,
-        image: images.gaming_chair,
-        name: "Astra Chair",
-        price: "79.99",
-        quantity: "01",
-      },
-      {
-        _id: 22,
-        image: images.github_shirt,
-        name: "Github Shirt",
-        price: "9.99",
-        quantity: "01",
-      },
-      {
-        _id: 13,
-        image: images.coffee_mug,
-        name: "Coffe Mug",
-        price: "4.99",
-        quantity: "01",
-      },
-      {
-        _id: 44,
-        image: images.ocotocat_figurine,
-        name: "Octocat Figurines",
-        price: "14.99",
-        quantity: "01",
-      },
-      {
-        _id: 14,
-        image: images.gaming_chair,
-        name: "Astra Chair",
-        price: "79.99",
-        quantity: "01",
-      },
-      {
-        _id: 32,
-        image: images.github_shirt,
-        name: "Github Shirt",
-        price: "9.99",
-        quantity: "01",
-      },
-      {
-        _id: 23,
-        image: images.coffee_mug,
-        name: "Coffe Mug",
-        price: "4.99",
-        quantity: "01",
-      },
-      {
-        _id: 114,
         image: images.ocotocat_figurine,
         name: "Octocat Figurines",
         price: "14.99",
@@ -413,7 +355,8 @@ const Cart = ({ navigation }) => {
             109.96
           </Text>
         </View>
-        <View
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Checkout")}
           style={{
             width: 152,
             height: 48,
@@ -438,13 +381,13 @@ const Cart = ({ navigation }) => {
             Checkout
           </Text>
           <ArrowRight width="9.33" height="9.07" />
-        </View>
+        </TouchableOpacity>
       </View>
     );
   }
 
   return (
-    <View
+    <ScrollView
       style={{
         display: "flex",
         flexDirection: "column",
@@ -463,7 +406,7 @@ const Cart = ({ navigation }) => {
 
       {/* Total And Checkout */}
       {renderTotalAndCheckout()}
-    </View>
+    </ScrollView>
   );
 };
 
