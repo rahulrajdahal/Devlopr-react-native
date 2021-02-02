@@ -67,7 +67,10 @@ const Select = ({ navigation }) => {
   function renderNextButton() {
     return (
       <View style={{ marginTop: 189, marginBottom: 60 }}>
-        <LargeButton onPress={() => navigation.navigate("SelectCountry")} />
+        <LargeButton
+          onPress={() => navigation.navigate("SelectCountry")}
+          text="Next"
+        />
       </View>
     );
   }

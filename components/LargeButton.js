@@ -8,10 +8,8 @@ const LargeButton = ({ onPress, text }) => {
     <TouchableOpacity onPress={onPress}>
       <View
         style={{
-          minWidth: 327,
-          width: "100%",
-          minHeight: 48,
-          height: "100%",
+          width: 327,
+          height: 48,
           backgroundColor: COLORS.primary,
           borderRadius: SIZES.borderRadius,
           alignItems: "center",
