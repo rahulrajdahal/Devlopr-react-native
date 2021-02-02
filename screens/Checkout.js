@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
 import { COLORS, FONTS, images } from "../constants";
 import { ArrowLeft, Check, CheckActive, Tick } from "../constants/icons";
 import { LargeButton } from "../components";
@@ -13,6 +13,7 @@ const Checkout = ({ navigation }) => {
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
+          marginBottom: 40,
         }}
       >
         <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -41,6 +42,23 @@ const Checkout = ({ navigation }) => {
   }
 
   function renderAddress() {
+    const addresses = [
+      {
+        _id: 1,
+        image: images.home_address,
+        type: "home",
+        street: "Burgundy Street 123",
+        state: "Victoria, Australia",
+      },
+      {
+        _id: 2,
+        image: images.office,
+        type: "home",
+        street: "Bulko Street, Townsroad",
+        state: "Victoria, Australia",
+      },
+    ];
+
     return (
       <View
         style={{
@@ -48,13 +66,12 @@ const Checkout = ({ navigation }) => {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-evenly",
-          marginTop: 40,
           backgroundColor: COLORS.Light04,
           borderRadius: 10,
           minWidth: 327,
           width: "100%",
           minHeight: 100,
-          //   height: "100%",
+          marginBottom: 16,
         }}
       >
         <Image
@@ -104,7 +121,7 @@ const Checkout = ({ navigation }) => {
             height: 28,
             justifyContent: "center",
             alignItems: "center",
-            borderRadius: "50%",
+            borderRadius: 50,
           }}
         >
           <Tick />
@@ -129,7 +146,6 @@ const Checkout = ({ navigation }) => {
           backgroundColor: "rgba(70, 109, 232, 0.1)",
           alignItems: "center",
           justifyContent: "center",
-          marginTop: 16,
         }}
       >
         <Text
@@ -138,7 +154,6 @@ const Checkout = ({ navigation }) => {
             textAlign: "center",
             ...FONTS.body2,
             fontWeight: "500",
-
             alignSelf: "center",
             textTransform: "uppercase",
           }}
@@ -151,13 +166,7 @@ const Checkout = ({ navigation }) => {
 
   function renderProceedButton() {
     return (
-      <View
-        style={{
-          position: "absolute",
-          bottom: 24,
-          marginHorizontal: 24,
-        }}
-      >
+      <View style={{ marginBottom: 24, marginTop: 280 }}>
         <LargeButton text="Proceed to Pay" />
       </View>
     );
@@ -179,10 +188,7 @@ const Checkout = ({ navigation }) => {
       {/* Shipping Adresses */}
       {renderAddress()}
       {renderAddress()}
-      {renderAddress()}
-      {renderAddress()}
-      {renderAddress()}
-      {renderAddress()}
+
       {/* Add New Shipping Address */}
       {renderNewAddress()}
 
