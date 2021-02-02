@@ -50,5 +50,18 @@ import UK from "../assets/icons/uk.svg";
 import Close from "../assets/icons/close.svg";
 import Coupon from "../assets/icons/coupon.svg";
 import ArrowRight from "../assets/icons/arrow-right.svg";
+import Circle from "../assets/icons/circle.svg";
+import CheckActive from "../assets/icons/check-active.svg";
 
-export { ArrowRight, Coupon, ArrowLeft, Check, Github, Google, UK, Close };
+export {
+  CheckActive,
+  Circle,
+  ArrowRight,
+  Coupon,
+  ArrowLeft,
+  Check,
+  Github,
+  Google,
+  UK,
+  Close,
+};

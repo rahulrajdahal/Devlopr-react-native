@@ -18,8 +18,12 @@ export const coffee_mug = require("../assets/images/coffee-mug.png");
 export const ocotocat_figurine = require("../assets/images/ocotocat-figurine.png");
 export const gaming_chair = require("../assets/images/gaming-chair.png");
 export const delivery = require("../assets/images/delivery.png");
+export const home_address = require("../assets/images/home-address.png");
+export const office = require("../assets/images/office.png");
 
 export default {
+  home_address,
+  office,
   delivery,
   gaming_chair,
   github_shirt,
