@@ -1,7 +1,8 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import { COLORS, FONTS, images } from "../constants";
-import { ArrowLeft, Circle } from "../constants/icons";
+import { ArrowLeft, Check, CheckActive, Tick } from "../constants/icons";
+import { LargeButton } from "../components";
 
 const Checkout = ({ navigation }) => {
   function renderHeader() {
@@ -96,7 +97,68 @@ const Checkout = ({ navigation }) => {
             Victoria, Australia
           </Text>
         </View>
-        <Circle />
+        <View
+          style={{
+            backgroundColor: COLORS.primary,
+            width: 28,
+            height: 28,
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: "50%",
+          }}
+        >
+          <Tick />
+        </View>
+      </View>
+    );
+  }
+
+  function renderNewAddress() {
+    return (
+      <TouchableOpacity
+        onPress={() => console.log("new address")}
+        style={{
+          maxWidth: 327,
+          width: "100%",
+          maxHeight: 60,
+          height: "100%",
+          borderColor: COLORS.primary,
+          borderRadius: 20,
+          borderStyle: "dashed",
+          borderWidth: 1,
+          backgroundColor: "rgba(70, 109, 232, 0.1)",
+          alignItems: "center",
+          justifyContent: "center",
+          marginTop: 16,
+        }}
+      >
+        <Text
+          style={{
+            color: COLORS.primary,
+            textAlign: "center",
+            ...FONTS.body2,
+            fontWeight: "500",
+
+            alignSelf: "center",
+            textTransform: "uppercase",
+          }}
+        >
+          Add New Shipping Address
+        </Text>
+      </TouchableOpacity>
+    );
+  }
+
+  function renderProceedButton() {
+    return (
+      <View
+        style={{
+          position: "absolute",
+          bottom: 24,
+          marginHorizontal: 24,
+        }}
+      >
+        <LargeButton text="Proceed to Pay" />
       </View>
     );
   }
@@ -114,11 +176,18 @@ const Checkout = ({ navigation }) => {
     >
       {/*  Back Button And Page Title */}
       {renderHeader()}
-
       {/* Shipping Adresses */}
       {renderAddress()}
+      {renderAddress()}
+      {renderAddress()}
+      {renderAddress()}
+      {renderAddress()}
+      {renderAddress()}
+      {/* Add New Shipping Address */}
+      {renderNewAddress()}
 
-      <Text>Checkout</Text>
+      {/* Proceed To Pay Button */}
+      {renderProceedButton()}
     </View>
   );
 };

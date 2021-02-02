@@ -52,8 +52,10 @@ import Coupon from "../assets/icons/coupon.svg";
 import ArrowRight from "../assets/icons/arrow-right.svg";
 import Circle from "../assets/icons/circle.svg";
 import CheckActive from "../assets/icons/check-active.svg";
+import Tick from "../assets/icons/tick.svg";
 
 export {
+  Tick,
   CheckActive,
   Circle,
   ArrowRight,
