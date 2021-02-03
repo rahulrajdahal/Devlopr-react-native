@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import { COLORS, FONTS, images } from "../constants";
-import { ArrowLeft, Check, CheckActive, Tick } from "../constants/icons";
+import {
+  ArrowLeft,
+  Check,
+  CheckActive,
+  Circle,
+  Tick,
+} from "../constants/icons";
 import { LargeButton } from "../components";
 import { FlatList } from "react-native-gesture-handler";
 
 const Checkout = ({ navigation }) => {
+  const [isSelected, setIsSelected] = useState(false);
+
   function renderHeader() {
     return (
       <View
@@ -62,7 +70,7 @@ const Checkout = ({ navigation }) => {
 
     const renderItem = ({ item }) => {
       return (
-        <View
+        <TouchableOpacity
           style={{
             display: "flex",
             flexDirection: "row",
@@ -75,6 +83,7 @@ const Checkout = ({ navigation }) => {
             minHeight: 100,
             marginBottom: 16,
           }}
+          onPress={() => setIsSelected((isSelected) => !isSelected)}
         >
           <Image
             source={item.image}
@@ -123,19 +132,23 @@ const Checkout = ({ navigation }) => {
               {item.state}
             </Text>
           </View>
-          <View
-            style={{
-              backgroundColor: COLORS.primary,
-              width: 28,
-              height: 28,
-              justifyContent: "center",
-              alignItems: "center",
-              borderRadius: 50,
-            }}
-          >
-            <Tick />
-          </View>
-        </View>
+          {isSelected ? (
+            <View
+              style={{
+                backgroundColor: COLORS.primary,
+                width: 28,
+                height: 28,
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: 50,
+              }}
+            >
+              <Tick />
+            </View>
+          ) : (
+            <Circle />
+          )}
+        </TouchableOpacity>
       );
     };
 
@@ -166,6 +179,8 @@ const Checkout = ({ navigation }) => {
           backgroundColor: "rgba(70, 109, 232, 0.1)",
           alignItems: "center",
           justifyContent: "center",
+          alignSelf: "center",
+          marginTop: 16,
         }}
       >
         <Text
@@ -186,8 +201,8 @@ const Checkout = ({ navigation }) => {
 
   function renderProceedButton() {
     return (
-      <View style={{ marginBottom: 24, marginTop: 280 }}>
-        <LargeButton text="Proceed to Pay" />
+      <View style={{ marginBottom: 24, marginTop: 280, alignSelf: "center" }}>
+        <LargeButton text="Proceed to Pay" onPress={console.log("Pay")} />
       </View>
     );
   }
