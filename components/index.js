@@ -7,8 +7,10 @@ import StoreCard from "./StoreCard";
 import BottomNavTab from "../navigations/BotttomNavTab";
 import ShippingAddressCard from "./ShippingAddressCard";
 import Input from "./Input";
+import PayCard from "./PayCard";
 
 export {
+  PayCard,
   Input,
   ShippingAddressCard,
   StoreCard,
