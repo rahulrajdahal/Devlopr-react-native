@@ -49,6 +49,8 @@ const Checkout = ({ navigation }) => {
   }
 
   function renderAddress() {
+    const [isSelected, setIsSelected] = useState(false);
+
     const addresses = [
       {
         _id: 1,
@@ -66,16 +68,18 @@ const Checkout = ({ navigation }) => {
       },
     ];
 
-    const renderItem = ({ item }) => {
-      return <ShippingAddressCard item={item} />;
-    };
-
     return (
       <>
-        <FlatList
-          data={addresses}
-          renderItem={renderItem}
-          keyExtractor={(item) => `${item._id}`}
+        <ShippingAddressCard
+          item={addresses[0]}
+          isSelected={!isSelected}
+          onPress={() => setIsSelected((isSelected) => !isSelected)}
+        />
+
+        <ShippingAddressCard
+          item={addresses[1]}
+          isSelected={isSelected}
+          onPress={() => setIsSelected((isSelected) => !isSelected)}
         />
       </>
     );

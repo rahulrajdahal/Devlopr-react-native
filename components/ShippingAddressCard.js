@@ -4,9 +4,7 @@ import { Image, View, Text, TouchableOpacity } from "react-native";
 import { Tick, Circle } from "../constants/icons";
 import { COLORS, FONTS } from "../constants";
 
-const ShippingAddressCard = ({ item }) => {
-  const [isSelected, setIsSelected] = useState(false);
-
+const ShippingAddressCard = ({ item, onPress, isSelected }) => {
   return (
     <TouchableOpacity
       style={{
@@ -21,7 +19,7 @@ const ShippingAddressCard = ({ item }) => {
         minHeight: 100,
         marginBottom: 16,
       }}
-      onPress={() => setIsSelected((isSelected) => !isSelected)}
+      onPress={onPress}
     >
       <Image
         source={item.image}
