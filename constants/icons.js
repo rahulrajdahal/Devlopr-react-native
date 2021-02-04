@@ -53,8 +53,10 @@ import ArrowRight from "../assets/icons/arrow-right.svg";
 import Circle from "../assets/icons/circle.svg";
 import CheckActive from "../assets/icons/check-active.svg";
 import Tick from "../assets/icons/tick.svg";
+import FormFlag from "../assets/icons/form-flag.svg";
 
 export {
+  FormFlag,
   Tick,
   CheckActive,
   Circle,
