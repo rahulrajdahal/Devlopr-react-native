@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import React from "react";
+import { TouchableOpacity } from "react-native";
 
 import { COLORS } from "../constants";
 import { Tick } from "../constants/icons";
 
-const AppCheckBox = () => {
-  const [isActive, setIsActive] = useState(false);
+const AppCheckBox = ({ onPress, isActive }) => {
   return (
     <TouchableOpacity
       style={{
@@ -18,7 +17,7 @@ const AppCheckBox = () => {
         borderColor: COLORS.primary,
         borderWidth: 1,
       }}
-      onPress={() => setIsActive((isActive) => !isActive)}
+      onPress={onPress}
     >
       {isActive ? <Tick /> : null}
     </TouchableOpacity>

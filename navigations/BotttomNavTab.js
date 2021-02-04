@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { Image, View } from "react-native";
 import { COLORS, icons } from "../constants";
+import { Home, Bag } from "../constants/icons";
 
 import { Explore, Friends, Store } from "../screens";
 import HomeStackScreen from "./HomeStackScreen";
@@ -14,12 +15,13 @@ const BottomNavTab = () => {
     showLable: false,
     style: {
       maxHeight: 72,
-      height: "100%",
+      height: "10%",
       backgroundColor: COLORS.white,
-      paddingTop: 7,
+      paddingTop: 8,
       paddingBottom: 34.67,
       paddingLeft: 15.33,
       paddingRight: 10.67,
+      elevation: 0,
     },
   };
 
@@ -30,7 +32,11 @@ const BottomNavTab = () => {
         component={HomeStackScreen}
         options={{
           tabBarLabel: "",
-          tabBarIcon: () => <Image source={icons.home} />,
+          tabBarIcon: ({ focused }) => (
+            <Home
+              style={{ color: COLORS.primary, opacity: focused ? 1 : 0.4 }}
+            />
+          ),
         }}
       />
       <Tab.Screen
@@ -38,7 +44,11 @@ const BottomNavTab = () => {
         component={Explore}
         options={{
           tabBarLabel: "",
-          tabBarIcon: () => <Image source={icons.discovery} />,
+          tabBarIcon: ({ focused }) => (
+            <Bag
+              style={{ color: COLORS.primary, opacity: focused ? 1 : 0.4 }}
+            />
+          ),
         }}
       />
       <Tab.Screen
@@ -46,7 +56,12 @@ const BottomNavTab = () => {
         component={Friends}
         options={{
           tabBarLabel: "",
-          tabBarIcon: () => <Image source={icons.users} />,
+          tabBarIcon: ({ focused }) => (
+            <Image
+              source={icons.users}
+              style={{ tintColor: focused ? COLORS.primary : COLORS.dark01 }}
+            />
+          ),
         }}
       />
       <Tab.Screen
@@ -54,7 +69,12 @@ const BottomNavTab = () => {
         component={StoreScreenStack}
         options={{
           tabBarLabel: "",
-          tabBarIcon: () => <Image source={icons.bag} />,
+          tabBarIcon: ({ focused }) => (
+            <Image
+              source={icons.bag}
+              style={{ tintColor: focused ? COLORS.primary : COLORS.dark01 }}
+            />
+          ),
         }}
       />
     </Tab.Navigator>

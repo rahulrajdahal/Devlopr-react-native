@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
-import { AppCheckBox, Input } from "../components";
+import { AppCheckBox, Input, LargeButton } from "../components";
 import { COLORS, FONTS } from "../constants";
 import {
   ArrowLeft,
@@ -9,7 +9,6 @@ import {
   FormCalendar,
   FormLock,
 } from "../constants/icons";
-import CheckBox from "@react-native-community/checkbox";
 
 const AddPayment = ({ navigation }) => {
   function renderHeader() {
@@ -49,7 +48,7 @@ const AddPayment = ({ navigation }) => {
   }
 
   function renderForm() {
-    const [toggleCheckBox, setToggleCheckBox] = useState(false);
+    const [isActive, setIsActive] = useState(false);
 
     return (
       <View style={{ marginTop: 191 }}>
@@ -88,14 +87,19 @@ const AddPayment = ({ navigation }) => {
           />
         </View>
 
-        <View
+        <TouchableOpacity
           style={{
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
           }}
+          isActive={!isActive}
+          onPress={() => setIsActive((isActive) => !isActive)}
         >
-          <AppCheckBox />
+          <AppCheckBox
+            isActive={!isActive}
+            onPress={() => setIsActive((isActive) => !isActive)}
+          />
           <Text
             style={{
               color: COLORS.dark02,
@@ -106,7 +110,33 @@ const AddPayment = ({ navigation }) => {
           >
             Save Card Info for later
           </Text>
-        </View>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
+  function renderSecureText() {
+    return (
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <FormLock
+          style={{
+            color: COLORS.dark04,
+            marginRight: 5.5,
+            alignSelf: "center",
+          }}
+        />
+        <Text
+          style={{ color: COLORS.dark04, ...FONTS.body3, fontWeight: "500" }}
+        >
+          Secured with SSL encryption
+        </Text>
       </View>
     );
   }
@@ -124,8 +154,17 @@ const AddPayment = ({ navigation }) => {
     >
       {/*  Back Button And Page Title */}
       {renderHeader()}
+
       {/* Form  */}
       {renderForm()}
+
+      <LargeButton
+        text="Pay Now"
+        style={{ marginBottom: 17, marginTop: 32, width: "100%" }}
+      />
+
+      {/* Secure Text */}
+      {renderSecureText()}
     </View>
   );
 };

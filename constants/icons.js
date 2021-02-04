@@ -63,8 +63,12 @@ import FormPerson from "../assets/icons/form-person.svg";
 import FormCard from "../assets/icons/form-card.svg";
 import FormCalendar from "../assets/icons/form-calendar.svg";
 import FormLock from "../assets/icons/form-lock.svg";
+import Home from "../assets/icons/home.svg";
+import Bag from "../assets/icons/bag.svg";
 
 export {
+  Bag,
+  Home,
   FormLock,
   FormCalendar,
   FormCard,
