@@ -58,8 +58,10 @@ import StreetAddress from "../assets/icons/street-address.svg";
 import ZipCode from "../assets/icons/zip-code.svg";
 import City from "../assets/icons/city.svg";
 import State from "../assets/icons/state.svg";
+import CirclesOverlap from "../assets/icons/circles-overlap.svg";
 
 export {
+  CirclesOverlap,
   City,
   State,
   ZipCode,
