@@ -9,8 +9,10 @@ import ShippingAddressCard from "./ShippingAddressCard";
 import Input from "./Input";
 import PayCard from "./PayCard";
 import AddNewButton from "./AddNewButton";
+import AppCheckBox from "./AppCheckBox";
 
 export {
+  AppCheckBox,
   AddNewButton,
   PayCard,
   Input,

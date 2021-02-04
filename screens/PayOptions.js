@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { ArrowLeft, CirclesOverlap } from "../constants/icons";
 import { COLORS, FONTS, images } from "../constants";
-import { PayCard } from "../components";
+import { AddNewButton, PayCard } from "../components";
 import { ScrollView } from "react-native-gesture-handler";
 
 const PayOptions = ({ navigation }) => {
@@ -73,12 +73,14 @@ const PayOptions = ({ navigation }) => {
     >
       {/*  Back Button And Page Title */}
       {renderHeader()}
-      <ScrollView>
-        {/* Payment Cards */}
-        {renderPaymentCards()}
+      {/* Payment Cards */}
+      {renderPaymentCards()}
 
-        {/* Add New Payment Button */}
-      </ScrollView>
+      {/* Add New Payment Button */}
+      <AddNewButton
+        text="Add New Payment Method"
+        onPress={() => navigation.navigate("AddPayment")}
+      />
     </View>
   );
 };

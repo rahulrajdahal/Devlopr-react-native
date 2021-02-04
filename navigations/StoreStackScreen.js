@@ -8,6 +8,7 @@ import {
   Checkout,
   PayOptions,
   AddShipping,
+  AddPayment,
 } from "../screens";
 
 const StoreStack = createStackNavigator();
@@ -43,6 +44,11 @@ const StoreScreenStack = () => {
       <StoreStack.Screen
         name="PayOptions"
         component={PayOptions}
+        options={{ headerShown: false }}
+      />
+      <StoreStack.Screen
+        name="AddPayment"
+        component={AddPayment}
         options={{ headerShown: false }}
       />
     </StoreStack.Navigator>

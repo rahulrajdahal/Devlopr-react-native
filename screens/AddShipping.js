@@ -141,7 +141,7 @@ const AddShipping = ({ navigation }) => {
             alignItems: "flex-start",
             justifyContent: "space-between",
             alignSelf: "flex-start",
-            maxWidth: "50%",
+            maxWidth: "49%",
           }}
         >
           <Input
@@ -150,7 +150,7 @@ const AddShipping = ({ navigation }) => {
             label="City"
             placeholder="Ex.44200"
           />
-          <View style={{ marginLeft: 8 }} />
+          <View style={{ width: 8 }} />
           <Input
             width="100%"
             icon={<State />}

@@ -2,7 +2,7 @@ import React from "react";
 import { Text, TouchableOpacity } from "react-native";
 import { COLORS, FONTS } from "../constants";
 
-const AddNewButton = ({ onPress, text }) => {
+const AddNewButton = ({ onPress, text, style }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -19,7 +19,7 @@ const AddNewButton = ({ onPress, text }) => {
         alignItems: "center",
         justifyContent: "center",
         alignSelf: "center",
-        marginTop: 16,
+        ...style,
       }}
     >
       <Text

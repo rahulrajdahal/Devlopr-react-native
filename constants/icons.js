@@ -59,8 +59,16 @@ import ZipCode from "../assets/icons/zip-code.svg";
 import City from "../assets/icons/city.svg";
 import State from "../assets/icons/state.svg";
 import CirclesOverlap from "../assets/icons/circles-overlap.svg";
+import FormPerson from "../assets/icons/form-person.svg";
+import FormCard from "../assets/icons/form-card.svg";
+import FormCalendar from "../assets/icons/form-calendar.svg";
+import FormLock from "../assets/icons/form-lock.svg";
 
 export {
+  FormLock,
+  FormCalendar,
+  FormCard,
+  FormPerson,
   CirclesOverlap,
   City,
   State,
