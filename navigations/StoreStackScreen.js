@@ -1,7 +1,7 @@
 import React from "react";
 
 import { createStackNavigator } from "@react-navigation/stack";
-import { Store, ItemDetail, Cart, Checkout } from "../screens";
+import { Store, ItemDetail, Cart, Checkout, AddShipping } from "../screens";
 
 const StoreStack = createStackNavigator();
 
@@ -26,6 +26,11 @@ const StoreScreenStack = () => {
       <StoreStack.Screen
         name="Checkout"
         component={Checkout}
+        options={{ headerShown: false }}
+      />
+      <StoreStack.Screen
+        name="AddShipping"
+        component={AddShipping}
         options={{ headerShown: false }}
       />
     </StoreStack.Navigator>

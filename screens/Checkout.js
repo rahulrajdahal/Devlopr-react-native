@@ -8,12 +8,10 @@ import {
   Circle,
   Tick,
 } from "../constants/icons";
-import { LargeButton } from "../components";
+import { LargeButton, ShippingAddressCard } from "../components";
 import { FlatList } from "react-native-gesture-handler";
 
 const Checkout = ({ navigation }) => {
-  const [isSelected, setIsSelected] = useState(false);
-
   function renderHeader() {
     return (
       <View
@@ -69,87 +67,7 @@ const Checkout = ({ navigation }) => {
     ];
 
     const renderItem = ({ item }) => {
-      return (
-        <TouchableOpacity
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-evenly",
-            backgroundColor: COLORS.Light04,
-            borderRadius: 10,
-            minWidth: 327,
-            width: "100%",
-            minHeight: 100,
-            marginBottom: 16,
-          }}
-          onPress={() => setIsSelected((isSelected) => !isSelected)}
-        >
-          <Image
-            source={item.image}
-            style={{ maxWidth: 48, maxHeight: 48 }}
-            width="48"
-            height="48"
-          />
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              justifyContent: "space-between",
-            }}
-          >
-            <Text
-              style={{
-                textTransform: "capitalize",
-                color: COLORS.dark01,
-                ...FONTS.h3,
-                fontWeight: "500",
-              }}
-            >
-              {item.type} Address
-            </Text>
-            <Text
-              style={{
-                color: COLORS.dark03,
-                ...FONTS.body2,
-                fontWeight: "normal",
-                lineHeight: 18,
-                textTransform: "capitalize",
-              }}
-            >
-              {item.street}
-            </Text>
-            <Text
-              style={{
-                color: COLORS.dark03,
-                ...FONTS.body2,
-                fontWeight: "normal",
-                lineHeight: 18,
-                textTransform: "capitalize",
-              }}
-            >
-              {item.state}
-            </Text>
-          </View>
-          {isSelected ? (
-            <View
-              style={{
-                backgroundColor: COLORS.primary,
-                width: 28,
-                height: 28,
-                justifyContent: "center",
-                alignItems: "center",
-                borderRadius: 50,
-              }}
-            >
-              <Tick />
-            </View>
-          ) : (
-            <Circle />
-          )}
-        </TouchableOpacity>
-      );
+      return <ShippingAddressCard item={item} />;
     };
 
     return (
@@ -166,7 +84,7 @@ const Checkout = ({ navigation }) => {
   function renderNewAddress() {
     return (
       <TouchableOpacity
-        onPress={() => console.log("new address")}
+        onPress={() => navigation.navigate("AddShipping")}
         style={{
           maxWidth: 327,
           width: "100%",
@@ -181,6 +99,7 @@ const Checkout = ({ navigation }) => {
           justifyContent: "center",
           alignSelf: "center",
           marginTop: 16,
+          marginBottom: 280,
         }}
       >
         <Text
@@ -199,11 +118,13 @@ const Checkout = ({ navigation }) => {
     );
   }
 
-  function renderProceedButton() {
+  function renderPayButton() {
     return (
-      <View style={{ marginBottom: 24, marginTop: 280, alignSelf: "center" }}>
-        <LargeButton text="Proceed to Pay" onPress={console.log("Pay")} />
-      </View>
+      <LargeButton
+        text="Proceed To Pay"
+        onPress={() => console.log("Pay")}
+        style={{ alignSelf: "center", marginBottom: 24 }}
+      />
     );
   }
 
@@ -212,6 +133,7 @@ const Checkout = ({ navigation }) => {
       style={{
         display: "flex",
         flexDirection: "column",
+        justifyContent: "space-between",
         paddingHorizontal: 20,
         backgroundColor: COLORS.white,
         width: "100%",
@@ -227,7 +149,7 @@ const Checkout = ({ navigation }) => {
       {renderNewAddress()}
 
       {/* Proceed To Pay Button */}
-      {renderProceedButton()}
+      {renderPayButton()}
     </View>
   );
 };

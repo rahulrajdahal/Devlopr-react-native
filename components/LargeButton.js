@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { COLORS, FONTS, SIZES } from "../constants";
 
-const LargeButton = ({ onPress, text }) => {
+const LargeButton = ({ onPress, text, style }) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <View
@@ -14,6 +14,7 @@ const LargeButton = ({ onPress, text }) => {
           borderRadius: SIZES.borderRadius,
           alignItems: "center",
           justifyContent: "center",
+          ...style,
         }}
       >
         <Text style={{ color: COLORS.white, ...FONTS.h2, fontWeight: "500" }}>

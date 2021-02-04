@@ -5,8 +5,10 @@ import IconCard from "./IconCard";
 import TopCard from "./TopCard";
 import StoreCard from "./StoreCard";
 import BottomNavTab from "../navigations/BotttomNavTab";
+import ShippingAddressCard from "./ShippingAddressCard";
 
 export {
+  ShippingAddressCard,
   StoreCard,
   BottomNavTab,
   TopCard,

@@ -11,8 +11,10 @@ import Challenge from "./Challenge";
 import ItemDetail from "./ItemDetail";
 import Cart from "./Cart";
 import Checkout from "./Checkout";
+import AddShipping from "./AddShipping";
 
 export {
+  AddShipping,
   Checkout,
   Cart,
   ItemDetail,
