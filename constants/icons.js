@@ -54,8 +54,10 @@ import Circle from "../assets/icons/circle.svg";
 import CheckActive from "../assets/icons/check-active.svg";
 import Tick from "../assets/icons/tick.svg";
 import FormFlag from "../assets/icons/form-flag.svg";
+import StreetAddress from "../assets/icons/street-address.svg";
 
 export {
+  StreetAddress,
   FormFlag,
   Tick,
   CheckActive,
