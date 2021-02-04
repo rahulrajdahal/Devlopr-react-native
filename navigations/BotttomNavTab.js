@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { Image, View } from "react-native";
 import { COLORS, icons } from "../constants";
-import { Home, Bag } from "../constants/icons";
+import { Home, Bag, Compass, Users } from "../constants/icons";
 
 import { Explore, Friends, Store } from "../screens";
 import HomeStackScreen from "./HomeStackScreen";
@@ -45,7 +45,7 @@ const BottomNavTab = () => {
         options={{
           tabBarLabel: "",
           tabBarIcon: ({ focused }) => (
-            <Bag
+            <Compass
               style={{ color: COLORS.primary, opacity: focused ? 1 : 0.4 }}
             />
           ),
@@ -57,9 +57,8 @@ const BottomNavTab = () => {
         options={{
           tabBarLabel: "",
           tabBarIcon: ({ focused }) => (
-            <Image
-              source={icons.users}
-              style={{ tintColor: focused ? COLORS.primary : COLORS.dark01 }}
+            <Users
+              style={{ color: COLORS.primary, opacity: focused ? 1 : 0.4 }}
             />
           ),
         }}
@@ -70,9 +69,8 @@ const BottomNavTab = () => {
         options={{
           tabBarLabel: "",
           tabBarIcon: ({ focused }) => (
-            <Image
-              source={icons.bag}
-              style={{ tintColor: focused ? COLORS.primary : COLORS.dark01 }}
+            <Bag
+              style={{ color: COLORS.primary, opacity: focused ? 1 : 0.4 }}
             />
           ),
         }}

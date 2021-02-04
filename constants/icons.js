@@ -65,8 +65,12 @@ import FormCalendar from "../assets/icons/form-calendar.svg";
 import FormLock from "../assets/icons/form-lock.svg";
 import Home from "../assets/icons/home.svg";
 import Bag from "../assets/icons/bag.svg";
+import Compass from "../assets/icons/compass.svg";
+import Users from "../assets/icons/users.svg";
 
 export {
+  Compass,
+  Users,
   Bag,
   Home,
   FormLock,
