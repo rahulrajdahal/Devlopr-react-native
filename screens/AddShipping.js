@@ -31,7 +31,6 @@ const AddShipping = ({ navigation }) => {
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <ArrowLeft
             style={{
-              marginRight: 103,
               color: COLORS.dark02,
               alignSelf: "flex-start",
             }}
@@ -45,6 +44,8 @@ const AddShipping = ({ navigation }) => {
             ...FONTS.h1,
             fontWeight: "500",
             alignSelf: "center",
+            marginLeft: "auto",
+            marginRight: "auto",
           }}
         >
           Add Shipping

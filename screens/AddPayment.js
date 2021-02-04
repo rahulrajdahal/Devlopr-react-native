@@ -25,7 +25,6 @@ const AddPayment = ({ navigation }) => {
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <ArrowLeft
             style={{
-              marginRight: 103,
               color: COLORS.dark02,
               alignSelf: "flex-start",
             }}
@@ -39,6 +38,8 @@ const AddPayment = ({ navigation }) => {
             ...FONTS.h1,
             fontWeight: "500",
             alignSelf: "center",
+            marginLeft: "auto",
+            marginRight: "auto",
           }}
         >
           Payment Method
@@ -161,6 +162,7 @@ const AddPayment = ({ navigation }) => {
       <LargeButton
         text="Pay Now"
         style={{ marginBottom: 17, marginTop: 32, width: "100%" }}
+        onPress={() => navigation.navigate("Invoice")}
       />
 
       {/* Secure Text */}

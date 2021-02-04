@@ -67,8 +67,10 @@ import Home from "../assets/icons/home.svg";
 import Bag from "../assets/icons/bag.svg";
 import Compass from "../assets/icons/compass.svg";
 import Users from "../assets/icons/users.svg";
+import Receipt from "../assets/icons/receipt.svg";
 
 export {
+  Receipt,
   Compass,
   Users,
   Bag,
