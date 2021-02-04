@@ -8,8 +8,8 @@ import {
   Circle,
   Tick,
 } from "../constants/icons";
-import { LargeButton, ShippingAddressCard } from "../components";
-import { FlatList } from "react-native-gesture-handler";
+import { AddNewButton, LargeButton, ShippingAddressCard } from "../components";
+import { FlatList, ScrollView } from "react-native-gesture-handler";
 
 const Checkout = ({ navigation }) => {
   function renderHeader() {
@@ -87,38 +87,10 @@ const Checkout = ({ navigation }) => {
 
   function renderNewAddress() {
     return (
-      <TouchableOpacity
+      <AddNewButton
+        text="Add New Shipping Address"
         onPress={() => navigation.navigate("AddShipping")}
-        style={{
-          maxWidth: 327,
-          width: "100%",
-          maxHeight: 60,
-          height: "100%",
-          borderColor: COLORS.primary,
-          borderRadius: 20,
-          borderStyle: "dashed",
-          borderWidth: 1,
-          backgroundColor: "rgba(70, 109, 232, 0.1)",
-          alignItems: "center",
-          justifyContent: "center",
-          alignSelf: "center",
-          marginTop: 16,
-          marginBottom: 280,
-        }}
-      >
-        <Text
-          style={{
-            color: COLORS.primary,
-            textAlign: "center",
-            ...FONTS.body2,
-            fontWeight: "500",
-            alignSelf: "center",
-            textTransform: "uppercase",
-          }}
-        >
-          Add New Shipping Address
-        </Text>
-      </TouchableOpacity>
+      />
     );
   }
 
@@ -127,7 +99,7 @@ const Checkout = ({ navigation }) => {
       <LargeButton
         text="Proceed To Pay"
         onPress={() => navigation.navigate("PayOptions")}
-        style={{ alignSelf: "center", marginBottom: 24 }}
+        style={{ alignSelf: "center", marginTop: 260, marginBottom: 24 }}
       />
     );
   }
@@ -137,7 +109,6 @@ const Checkout = ({ navigation }) => {
       style={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
         paddingHorizontal: 20,
         backgroundColor: COLORS.white,
         width: "100%",

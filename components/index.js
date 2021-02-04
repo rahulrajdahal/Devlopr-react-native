@@ -8,8 +8,10 @@ import BottomNavTab from "../navigations/BotttomNavTab";
 import ShippingAddressCard from "./ShippingAddressCard";
 import Input from "./Input";
 import PayCard from "./PayCard";
+import AddNewButton from "./AddNewButton";
 
 export {
+  AddNewButton,
   PayCard,
   Input,
   ShippingAddressCard,
