@@ -2,8 +2,17 @@ import React, { useState } from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { Picker } from "@react-native-community/picker";
 import { COLORS, FONTS, images } from "../constants";
-import { ArrowLeft, FormFlag, StreetAddress } from "../constants/icons";
-import { Input } from "../components";
+import {
+  ArrowLeft,
+  FormFlag,
+  StreetAddress,
+  State,
+  City,
+  ZipCode,
+} from "../constants/icons";
+
+import { Input, LargeButton } from "../components";
+import { ScrollView } from "react-native-gesture-handler";
 
 const AddShipping = ({ navigation }) => {
   const [selectedValue, setSelectedValue] = useState("Nepal");
@@ -82,6 +91,7 @@ const AddShipping = ({ navigation }) => {
               justifyContent: "center",
               display: "flex",
               flexDirection: "column",
+
               //   alignItems: "center",
               //   justifyContent: "space-between",
             }}
@@ -117,13 +127,43 @@ const AddShipping = ({ navigation }) => {
           placeholder="streetAddress"
         />
 
-        
+        <Input
+          width="50%"
+          icon={<ZipCode />}
+          label="ZIP Code"
+          placeholder="Ex.44200"
+        />
+
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "flex-start",
+            justifyContent: "space-between",
+            alignSelf: "flex-start",
+            maxWidth: "50%",
+          }}
+        >
+          <Input
+            width="100%"
+            icon={<City />}
+            label="City"
+            placeholder="Ex.44200"
+          />
+          <View style={{ marginLeft: 8 }} />
+          <Input
+            width="100%"
+            icon={<State />}
+            label="State "
+            placeholder="Ex.44200"
+          />
+        </View>
       </View>
     );
   }
 
   return (
-    <View
+    <ScrollView
       style={{
         display: "flex",
         flexDirection: "column",
@@ -141,7 +181,13 @@ const AddShipping = ({ navigation }) => {
 
       {/* Shipping Address Form */}
       {renderForm()}
-    </View>
+
+      <LargeButton
+        text="Save Shipping Address"
+        style={{ alignSelf: "center", marginBottom: 48 }}
+        onPress={() => console.log("Save Shipping Address")}
+      />
+    </ScrollView>
   );
 };
 

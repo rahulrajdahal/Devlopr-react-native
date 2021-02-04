@@ -55,8 +55,14 @@ import CheckActive from "../assets/icons/check-active.svg";
 import Tick from "../assets/icons/tick.svg";
 import FormFlag from "../assets/icons/form-flag.svg";
 import StreetAddress from "../assets/icons/street-address.svg";
+import ZipCode from "../assets/icons/zip-code.svg";
+import City from "../assets/icons/city.svg";
+import State from "../assets/icons/state.svg";
 
 export {
+  City,
+  State,
+  ZipCode,
   StreetAddress,
   FormFlag,
   Tick,
