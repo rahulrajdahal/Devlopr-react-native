@@ -12,8 +12,10 @@ import ItemDetail from "./ItemDetail";
 import Cart from "./Cart";
 import Checkout from "./Checkout";
 import AddShipping from "./AddShipping";
+import PayOptions from "./PayOptions";
 
 export {
+  PayOptions,
   AddShipping,
   Checkout,
   Cart,

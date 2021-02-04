@@ -126,7 +126,7 @@ const Checkout = ({ navigation }) => {
     return (
       <LargeButton
         text="Proceed To Pay"
-        onPress={() => console.log("Pay")}
+        onPress={() => navigation.navigate("PayOptions")}
         style={{ alignSelf: "center", marginBottom: 24 }}
       />
     );
