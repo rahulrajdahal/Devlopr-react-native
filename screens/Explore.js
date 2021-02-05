@@ -1,37 +1,10 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
-import { ExploreCard } from "../components";
+import { Navbar } from "../components";
 import { COLORS, FONTS, icons, images, SIZES } from "../constants";
 
-const Explore = () => {
-  function renderNavbar() {
-    return (
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginTop: 40,
-        }}
-      >
-        <Image source={icons.category} />
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <Image source={icons.notification} style={{ marginRight: 27.5 }} />
-          <Image source={images.profile} />
-        </View>
-      </View>
-    );
-  }
-
+const Explore = ({ navigation }) => {
   function renderPageTitleRow() {
     return (
       <View
@@ -359,7 +332,7 @@ const Explore = () => {
       }}
     >
       {/* Navbar */}
-      {renderNavbar()}
+      <Navbar />
 
       {/* Page Title And Settings */}
       {renderPageTitleRow()}

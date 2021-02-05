@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Home, Article, Challenge } from "../screens";
+import { Home, Article, Challenge, Notifications } from "../screens";
 
 const HomeStack = createStackNavigator();
 
@@ -20,6 +20,11 @@ const HomeStackScreen = () => {
       <HomeStack.Screen
         name="Challenge"
         component={Challenge}
+        options={{ headerShown: false }}
+      />
+      <HomeStack.Screen
+        name="Notifications"
+        component={Notifications}
         options={{ headerShown: false }}
       />
     </HomeStack.Navigator>

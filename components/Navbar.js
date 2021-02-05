@@ -2,8 +2,11 @@ import React from "react";
 import { View, Image } from "react-native";
 import { icons, COLORS, images, FONTS } from "../constants";
 import { Notification } from "../constants/icons";
+import { useNavigation } from "@react-navigation/native";
 
-const Navbar = ({ navigation }) => {
+const Navbar = () => {
+  const navigation = useNavigation();
+
   return (
     <View
       style={{
@@ -25,7 +28,7 @@ const Navbar = ({ navigation }) => {
       >
         <Notification
           style={{ color: COLORS.dark04, marginRight: 27.5 }}
-          onPress={() => console.log("noti")}
+          onPress={() => navigation.navigate("Notifications")}
         />
         <Image source={images.profile} />
       </View>

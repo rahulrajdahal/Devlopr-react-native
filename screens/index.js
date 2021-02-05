@@ -15,8 +15,10 @@ import AddShipping from "./AddShipping";
 import PayOptions from "./PayOptions";
 import AddPayment from "./AddPayment";
 import Invoice from "./Invoice";
+import Notifications from "./Notifications";
 
 export {
+  Notifications,
   Invoice,
   AddPayment,
   PayOptions,
