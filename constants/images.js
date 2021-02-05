@@ -45,3 +45,7 @@ export default {
   student,
   developer,
 };
+
+import NoNotification from "../assets/images/no-notification.svg";
+
+export { NoNotification };
