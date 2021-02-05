@@ -1,37 +1,11 @@
 import React from "react";
 import { Image, Text, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { SmallButton, TopCard } from "../components";
+import { Navbar, SmallButton, TopCard } from "../components";
 import { icons, FONTS, COLORS, images, SIZES } from "../constants";
+import { Notification } from "../constants/icons";
 
 const Home = ({ navigation }) => {
-  function renderNavbar() {
-    return (
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginTop: 40,
-        }}
-      >
-        <Image source={icons.category} />
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <Image source={icons.notification} style={{ marginRight: 27.5 }} />
-          <Image source={images.profile} />
-        </View>
-      </View>
-    );
-  }
-
   function renderChallengeBoard() {
     return (
       <View
@@ -206,7 +180,7 @@ const Home = ({ navigation }) => {
       }}
     >
       {/* Navbar */}
-      {renderNavbar()}
+      <Navbar />
 
       {/* Challenge board */}
       {renderChallengeBoard()}

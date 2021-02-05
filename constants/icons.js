@@ -68,8 +68,10 @@ import Bag from "../assets/icons/bag.svg";
 import Compass from "../assets/icons/compass.svg";
 import Users from "../assets/icons/users.svg";
 import Receipt from "../assets/icons/receipt.svg";
+import Notification from "../assets/icons/notification.svg";
 
 export {
+  Notification,
   Receipt,
   Compass,
   Users,

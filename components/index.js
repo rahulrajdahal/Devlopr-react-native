@@ -10,8 +10,10 @@ import Input from "./Input";
 import PayCard from "./PayCard";
 import AddNewButton from "./AddNewButton";
 import AppCheckBox from "./AppCheckBox";
+import Navbar from "./Navbar";
 
 export {
+  Navbar,
   AppCheckBox,
   AddNewButton,
   PayCard,
