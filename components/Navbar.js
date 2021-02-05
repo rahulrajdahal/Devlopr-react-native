@@ -4,7 +4,7 @@ import { icons, COLORS, images, FONTS } from "../constants";
 import { Notification } from "../constants/icons";
 import { useNavigation } from "@react-navigation/native";
 
-const Navbar = () => {
+const Navbar = ({ isActive }) => {
   const navigation = useNavigation();
 
   return (
@@ -27,7 +27,10 @@ const Navbar = () => {
         }}
       >
         <Notification
-          style={{ color: COLORS.dark04, marginRight: 27.5 }}
+          style={{
+            color: isActive ? COLORS.dark02 : COLORS.dark04,
+            marginRight: 27.5,
+          }}
           onPress={() => navigation.navigate("Notifications")}
         />
         <Image source={images.profile} />
