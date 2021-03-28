@@ -1,4 +1,4 @@
 # Devlopr-react-native
 
 
-![Alt text](/screeshots/startup.jpg?raw=true "Startup")
+![image](/screeshots/startup.jpg?raw=true "Startup")
