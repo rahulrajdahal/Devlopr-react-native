@@ -1,11 +1,12 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { COLORS, FONTS } from "../constants";
 import { CirclesOverlap } from "../constants/icons";
 
-const PayCard = ({ bgColor, PinFirst, PinLast, expDate }) => {
+const PayCard = ({ onPress, bgColor, PinFirst, PinLast, expDate }) => {
   return (
-    <View
+    <TouchableOpacity
+      onPress={onPress}
       style={{
         display: "flex",
         flexDirection: "column",
@@ -120,7 +121,7 @@ const PayCard = ({ bgColor, PinFirst, PinLast, expDate }) => {
           {expDate}
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

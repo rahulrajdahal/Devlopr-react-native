@@ -45,12 +45,14 @@ const PayOptions = ({ navigation }) => {
     return (
       <>
         <PayCard
+          onPress={() => navigation.navigate("Invoice")}
           bgColor={COLORS.primary}
           PinFirst="6145"
           PinLast="8754"
           expDate="08/24"
         />
         <PayCard
+          onPress={() => navigation.navigate("Invoice")}
           bgColor={COLORS.dark01}
           PinFirst="7854"
           PinLast="2145"
