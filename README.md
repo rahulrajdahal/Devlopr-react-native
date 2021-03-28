@@ -15,6 +15,7 @@
 ![Alt text](/screenshots/product.jpg?raw=true "Startup")
 ![Alt text](/screenshots/product-added.jpg?raw=true "Startup")
 ![Alt text](/screenshots/cart.jpg?raw=true "Startup")
+![Alt text](/screenshots/shipping.jpg?raw=true "Startup")
 ![Alt text](/screenshots/add-shipping.jpg?raw=true "Startup")
 ![Alt text](/screenshots/add-shipping2.jpg?raw=true "Startup")
 ![Alt text](/screenshots/payment.jpg?raw=true "Startup")
