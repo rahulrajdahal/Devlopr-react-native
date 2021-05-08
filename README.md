@@ -1,7 +1,7 @@
 # Devlopr-react-native
 
-<img src="/screenshots/startup.jpg?raw=true" width="100" height="200"> <img src="/screenshots/select.jpg?raw=true" width="100" height="200">
-<img src="/screenshots/country.jpg?raw=true" width="100" height="200">
+<img src="/screenshots/startup.jpg?raw=true" width="300" height="500"> <img src="/screenshots/select.jpg?raw=true" width="300" height="500">
+<img src="/screenshots/country.jpg?raw=true" width="300" height="500">
 
 
 
