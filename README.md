@@ -1,9 +1,16 @@
 # Devlopr-react-native
 
+<img src="/screenshots/startup.jpg?raw=true" width="300" height="500"> <img src="/screenshots/select.jpg?raw=true" width="300" height="500">
+<img src="/screenshots/country.jpg?raw=true" width="300" height="500">
+<img src="/screenshots/startup.jpg?raw=true" width="300" height="500">
+<img src="/screenshots/startup.jpg?raw=true" width="300" height="500">
+<img src="/screenshots/startup.jpg?raw=true" width="300" height="500">
+<img src="/screenshots/startup.jpg?raw=true" width="300" height="500">
 
-![Alt text](/screenshots/startup.jpg?raw=true "Startup")
-![Alt text](/screenshots/select.jpg?raw=true "Startup")
-![Alt text](/screenshots/country.jpg?raw=true "Startup")
+
+![Alt text](/screenshots/.jpg?raw=true "Startup")
+![Alt text](/screenshots/.jpg?raw=true "Startup")
+![Alt text](/screenshots/.jpg?raw=true "Startup")
 ![Alt text](/screenshots/interests.jpg?raw=true "Startup")
 ![Alt text](/screenshots/dashboard.jpg?raw=true "Startup")
 ![Alt text](/screenshots/challenge.jpg?raw=true "Startup")
