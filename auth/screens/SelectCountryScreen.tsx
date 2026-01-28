@@ -1,8 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, Pressable, Text, View } from "react-native";
-import { Button } from "../../components";
 import { COLORS, FONTS, icons, SIZES } from "../../constants";
+import ActionButtons from "../components/ActionButtons";
 import WelcomeTitle from "../components/WelcomeTitle";
 
 export default function SelectCountry() {
@@ -35,16 +35,6 @@ export default function SelectCountry() {
           }}
         >
           Prateek S.
-        </Text>
-      </View>
-    );
-  }
-
-  function renderSelectQuestion() {
-    return (
-      <View style={{ marginTop: 60 }}>
-        <Text style={{ color: COLORS.dark02, ...FONTS.h3, fontWeight: "500" }}>
-          Where are you from?
         </Text>
       </View>
     );
@@ -90,48 +80,6 @@ export default function SelectCountry() {
     );
   }
 
-  function renderRowButtons() {
-    return (
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: SIZES.width * 0.025,
-          marginTop: 325,
-          marginBottom: 60,
-        }}
-      >
-        <Button
-          text="Go Back"
-          style={{
-            width: SIZES.width * 0.44,
-            height: 58,
-            backgroundColor: "rgba(70, 109, 232, 0.1)",
-          }}
-          textProps={{
-            style: { color: COLORS.primary },
-          }}
-          onPress={() => navigation.goBack()}
-        />
-
-        <Button
-          text="Next"
-          style={{
-            width: SIZES.width * 0.44,
-            height: 58,
-            backgroundColor: COLORS.primary,
-          }}
-          textProps={{
-            style: { color: COLORS.white },
-          }}
-          onPress={() => navigation.navigate("SelectInterestsScreen")}
-        />
-      </View>
-    );
-  }
-
   return (
     <View
       style={{
@@ -149,14 +97,26 @@ export default function SelectCountry() {
 
       <WelcomeTitle />
 
-      {/* Select Question*/}
-      {renderSelectQuestion()}
+      <Text
+        style={{
+          marginTop: 60,
+          color: COLORS.dark02,
+          ...FONTS.h3,
+          fontWeight: "500",
+        }}
+      >
+        Where are you from?
+      </Text>
 
       {/* Country Code Picker */}
       {renderCountryPicker()}
 
-      {/* Control Buttons */}
-      {renderRowButtons()}
+      <ActionButtons
+        style={{
+          marginTop: 325,
+        }}
+        primaryButtonProps={{ navigationScreen: "SelectInterestsScreen" }}
+      />
     </View>
   );
 }

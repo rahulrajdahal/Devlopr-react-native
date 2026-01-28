@@ -1,8 +1,9 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Pressable, Text, View } from "react-native";
-import { Button, IconCard } from "../../components";
-import { COLORS, FONTS, SIZES } from "../../constants";
+import { IconCard } from "../../components";
+import { COLORS, FONTS } from "../../constants";
+import ActionButtons from "../components/ActionButtons";
 import WelcomeTitle from "../components/WelcomeTitle";
 
 export default function SelectInterestsScreen() {
@@ -17,25 +18,6 @@ export default function SelectInterestsScreen() {
             Skip
           </Text>
         </Pressable>
-      </View>
-    );
-  }
-
-  function renderWelcomeTitle() {
-    return (
-      <View style={{ width: 199, height: 76, marginTop: 145 }}>
-        <Text style={{ color: COLORS.dark01, ...FONTS.h1, fontWeight: "300" }}>
-          Welcome
-        </Text>
-        <Text
-          style={{
-            color: COLORS.dark01,
-            ...FONTS.largeTitle,
-            fontWeight: "300",
-          }}
-        >
-          Prateek S.
-        </Text>
       </View>
     );
   }
@@ -96,48 +78,6 @@ export default function SelectInterestsScreen() {
     );
   }
 
-  function renderRowButtons() {
-    return (
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginTop: 135,
-          marginBottom: 60,
-          gap: SIZES.width * 0.025,
-        }}
-      >
-        <Button
-          text="Go Back"
-          style={{
-            width: SIZES.width * 0.44,
-            height: 58,
-            backgroundColor: "rgba(70, 109, 232, 0.1)",
-          }}
-          textProps={{
-            style: { color: COLORS.primary },
-          }}
-          onPress={() => navigation.goBack()}
-        />
-
-        <Button
-          text="Finish"
-          style={{
-            width: SIZES.width * 0.44,
-            height: 58,
-            backgroundColor: COLORS.primary,
-          }}
-          textProps={{
-            style: { color: COLORS.white },
-          }}
-          onPress={() => navigation.navigate("BottomNavTab")}
-        />
-      </View>
-    );
-  }
-
   return (
     <View
       style={{
@@ -163,8 +103,13 @@ export default function SelectInterestsScreen() {
       {/* Interest Cards */}
       {renderInterestCards()}
 
-      {/* RowButtons */}
-      {renderRowButtons()}
+      <ActionButtons
+        style={{ marginTop: 200 }}
+        primaryButtonProps={{
+          text: "Finish",
+          navigationScreen: "BottomNavTab",
+        }}
+      />
     </View>
   );
 }

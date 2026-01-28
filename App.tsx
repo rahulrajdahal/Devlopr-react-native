@@ -5,6 +5,7 @@ import {
 import { createStackNavigator } from "@react-navigation/stack";
 
 import { SafeAreaProvider } from "react-native-safe-area-context";
+
 import {
   LoginScreen,
   SelectCountryScreen,
