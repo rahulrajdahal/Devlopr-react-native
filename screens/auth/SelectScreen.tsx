@@ -73,7 +73,7 @@ const SelectScreen = () => {
     return (
       <Button
         onPress={handleNextOnPress}
-        style={{ marginTop: 189, marginBottom: 60, height: 48 }}
+        style={{ marginTop: 189, marginBottom: 60 }}
         text="Next"
       />
     );

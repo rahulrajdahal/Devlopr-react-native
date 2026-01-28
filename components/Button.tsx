@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     borderRadius: SIZES.borderRadius,
     alignItems: "center",
     justifyContent: "center",
+    height: 48,
   },
   text: { color: COLORS.white, ...FONTS.h2, fontWeight: "500" },
 });
