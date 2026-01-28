@@ -9,7 +9,6 @@ import Friends from "./Friends";
 import Home from "./Home";
 import Invoice from "./Invoice";
 import ItemDetail from "./ItemDetail";
-import Notifications from "./Notifications";
 import PayOptions from "./PayOptions";
 import Store from "./Store";
 export {
@@ -24,7 +23,6 @@ export {
   Home,
   Invoice,
   ItemDetail,
-  Notifications,
   PayOptions,
   Store
 };

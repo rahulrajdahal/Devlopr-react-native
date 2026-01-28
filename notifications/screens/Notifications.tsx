@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Pressable, Text, ToastAndroid, View } from "react-native";
-import { NotificationCard } from "../components";
-import { COLORS, FONTS } from "../constants";
-import { NoNotification } from "../constants/images";
+import { NotificationCard, ScreenContainer } from "../../components";
+import { COLORS, FONTS } from "../../constants";
+import { NoNotification } from "../../constants/images";
 
 const Notifications = () => {
   const [notifications, setNotifications] = useState([
@@ -136,22 +136,24 @@ const Notifications = () => {
   }
 
   return (
-    <View
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        paddingHorizontal: 20,
-        backgroundColor: COLORS.white,
-        width: "100%",
-        height: "100%",
-      }}
-    >
-      {/* Page Title And Settings */}
-      {renderPageTitleRow()}
+    <ScreenContainer>
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          paddingHorizontal: 20,
+          backgroundColor: COLORS.white,
+          width: "100%",
+          height: "100%",
+        }}
+      >
+        {/* Page Title And Settings */}
+        {renderPageTitleRow()}
 
-      {/* Notification Cards */}
-      {renderNotificationCards()}
-    </View>
+        {/* Notification Cards */}
+        {renderNotificationCards()}
+      </View>
+    </ScreenContainer>
   );
 };
 

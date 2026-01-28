@@ -1,5 +1,6 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import { Article, Challenge, Home, Notifications } from "../screens";
+import Notifications from "../notifications/screens/Notifications";
+import { Article, Challenge, Home } from "../screens";
 
 const HomeStack = createStackNavigator();
 

@@ -1,10 +1,14 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
-import { COLORS, FONTS, SIZES } from "../constants";
+import { Text, View } from "react-native";
+import { COLORS, FONTS, SIZES } from "../../constants";
 
-const NotificationCard = ({ notification }) => {
-  const { title, desc, time } = notification;
+type NotificationCardProps = { title: string; desc: string; time: string };
 
+export default function NotificationCard({
+  title,
+  desc,
+  time,
+}: Readonly<NotificationCardProps>) {
   return (
     <View
       style={{
@@ -67,6 +71,4 @@ const NotificationCard = ({ notification }) => {
       </View>
     </View>
   );
-};
-
-export default NotificationCard;
+}
