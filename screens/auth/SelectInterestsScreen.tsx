@@ -1,22 +1,21 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Text, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { IconCard, SmallButton } from "../../components";
+import { Pressable, Text, View } from "react-native";
+import { Button, IconCard, SmallButton } from "../../components";
 import { COLORS, FONTS } from "../../constants";
 
-const SelectInterests = () => {
+export default function SelectInterestsScreen() {
   const navigation = useNavigation();
   function renderSkipButton() {
     return (
       <View style={{ position: "absolute", top: 32, right: 24, marginTop: 32 }}>
-        <TouchableOpacity onPress={() => navigation.navigate("BottomNavTab")}>
+        <Pressable onPress={() => navigation.navigate("BottomNavTab")}>
           <Text
             style={{ color: COLORS.primary, ...FONTS.h3, fontWeight: "500" }}
           >
             Skip
           </Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     );
   }
@@ -125,10 +124,16 @@ const SelectInterests = () => {
           onPress={() => navigation.goBack()}
         />
 
-        <SmallButton
+        {/* <SmallButton
           text="Finish"
           textColor={COLORS.white}
           bgcolor={COLORS.primary}
+          onPress={() => navigation.navigate("BottomNavTab")}
+        /> */}
+        <Button
+          text="Finish"
+          style={{ backgroundColor: COLORS.primary }}
+          textProps={{ style: { color: COLORS.white } }}
           onPress={() => navigation.navigate("BottomNavTab")}
         />
       </View>
@@ -162,6 +167,4 @@ const SelectInterests = () => {
       {renderRowButtons()}
     </View>
   );
-};
-
-export default SelectInterests;
+}

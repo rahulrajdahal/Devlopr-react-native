@@ -27,42 +27,41 @@ const SelectScreen = () => {
     );
   }
 
-  function renderSelectQuestion() {
-    return (
-      <View style={{ marginTop: 60 }}>
-        <Text style={{ color: COLORS.dark02, ...FONTS.h3, fontWeight: "500" }}>
-          What do you do?
-        </Text>
-      </View>
-    );
-  }
-
   function renderSelectCard() {
     return (
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginTop: 20,
-        }}
-      >
-        <SelectCard
-          img={images.student}
-          isActive={!isActive}
-          onPress={() => setIsActive((isActive) => !isActive)}
+      <>
+        <View style={{ marginTop: 60 }}>
+          <Text
+            style={{ color: COLORS.dark02, ...FONTS.h3, fontWeight: "500" }}
+          >
+            What do you do?
+          </Text>
+        </View>
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginTop: 20,
+          }}
         >
-          Student
-        </SelectCard>
-        <SelectCard
-          img={images.developer}
-          isActive={isActive}
-          onPress={() => setIsActive((isActive) => !isActive)}
-        >
-          Developer
-        </SelectCard>
-      </View>
+          <SelectCard
+            img={images.student}
+            isActive={!isActive}
+            onPress={() => setIsActive((isActive) => !isActive)}
+          >
+            Student
+          </SelectCard>
+          <SelectCard
+            img={images.developer}
+            isActive={isActive}
+            onPress={() => setIsActive((isActive) => !isActive)}
+          >
+            Developer
+          </SelectCard>
+        </View>
+      </>
     );
   }
 
@@ -78,9 +77,6 @@ const SelectScreen = () => {
     >
       {/* Welcome Title */}
       {renderWelcomeTitle()}
-
-      {/* Select Question */}
-      {renderSelectQuestion()}
 
       {/* Select Card */}
       {renderSelectCard()}

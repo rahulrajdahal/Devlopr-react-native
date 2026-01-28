@@ -1,22 +1,21 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Image, Text, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { SmallButton } from "../../components";
+import { Image, Pressable, Text, View } from "react-native";
+import { Button } from "../../components";
 import { COLORS, FONTS, icons, SIZES } from "../../constants";
 
-const SelectCountry = () => {
+export default function SelectCountry() {
   const navigation = useNavigation();
   function renderSkipButton() {
     return (
       <View style={{ position: "absolute", top: 32, right: 24, marginTop: 32 }}>
-        <TouchableOpacity onPress={() => navigation.navigate("BottomNavTab")}>
+        <Pressable onPress={() => navigation.navigate("BottomNavTab")}>
           <Text
             style={{ color: COLORS.primary, ...FONTS.h3, fontWeight: "500" }}
           >
             Skip
           </Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     );
   }
@@ -54,8 +53,6 @@ const SelectCountry = () => {
     return (
       <View
         style={{
-          width: 327,
-          width: "100%",
           height: 60,
           backgroundColor: COLORS.Light04,
           borderRadius: SIZES.borderRadius,
@@ -100,22 +97,35 @@ const SelectCountry = () => {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
+          gap: SIZES.width * 0.025,
           marginTop: 325,
           marginBottom: 60,
         }}
       >
-        <SmallButton
+        <Button
           text="Go Back"
-          textColor={COLORS.primary}
-          bgcolor="rgba(70, 109, 232, 0.1)"
+          style={{
+            width: SIZES.width * 0.44,
+            height: 58,
+            backgroundColor: "rgba(70, 109, 232, 0.1)",
+          }}
+          textProps={{
+            style: { color: COLORS.primary },
+          }}
           onPress={() => navigation.goBack()}
         />
 
-        <SmallButton
+        <Button
           text="Next"
-          textColor={COLORS.white}
-          bgcolor={COLORS.primary}
-          onPress={() => navigation.navigate("SelectInterests")}
+          style={{
+            width: SIZES.width * 0.44,
+            height: 58,
+            backgroundColor: COLORS.primary,
+          }}
+          textProps={{
+            style: { color: COLORS.white },
+          }}
+          onPress={() => navigation.navigate("SelectInterestsScreen")}
         />
       </View>
     );
@@ -149,6 +159,4 @@ const SelectCountry = () => {
       {renderRowButtons()}
     </View>
   );
-};
-
-export default SelectCountry;
+}

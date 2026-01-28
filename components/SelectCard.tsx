@@ -28,7 +28,6 @@ const SelectCard = ({ isActive, children, img, ...props }: SelectCardProps) => {
           opacity: isActive ? 1 : 0.5,
           borderRadius: 20,
           borderStyle: isActive ? "solid" : "dashed",
-          // color: COLORS.dark02,
           borderWidth: isActive ? 0 : 1,
           borderColor: isActive ? "white" : COLORS.dark03,
           display: "flex",

@@ -9,7 +9,7 @@ import { BottomNavTab } from "./components";
 import {
   LoginScreen,
   SelectCountryScreen,
-  // SelectInterests,
+  SelectInterestsScreen,
   SelectScreen,
 } from "./screens";
 
@@ -18,7 +18,7 @@ const RootStack = createStackNavigator({
     LoginScreen,
     SelectScreen,
     SelectCountryScreen,
-    // SelectInterests,
+    SelectInterestsScreen,
     BottomNavTab,
   },
   screenOptions: { headerShown: false },
