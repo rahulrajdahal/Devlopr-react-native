@@ -45,7 +45,7 @@ const Notifications = () => {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
-          marginTop: 28,
+          marginTop: 40,
         }}
       >
         <Text

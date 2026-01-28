@@ -15,7 +15,11 @@ const HomeStackScreen = () => {
       />
       <HomeStack.Screen name="Article" component={Article} />
       <HomeStack.Screen name="Challenge" component={Challenge} />
-      <HomeStack.Screen name="Notifications" component={Notifications} />
+      <HomeStack.Screen
+        name="Notifications"
+        component={Notifications}
+        options={{ headerShown: false }}
+      />
     </HomeStack.Navigator>
   );
 };
