@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, Text, View } from "react-native";
-import { SmallButton } from "../components";
+import { ScreenContainer, SmallButton } from "../components";
 import { COLORS, FONTS, SIZES, icons, images } from "../constants";
 
 const Login = () => {
@@ -91,12 +91,11 @@ const Login = () => {
   }
 
   return (
-    <View
+    <ScreenContainer
       style={{
         flex: 1,
         flexDirection: "column",
         justifyContent: "space-between",
-        backgroundColor: COLORS.white,
         paddingHorizontal: SIZES.paddingHorizontal,
       }}
     >
@@ -111,7 +110,7 @@ const Login = () => {
 
       {/* Row Buttons */}
       {renderRowButtons()}
-    </View>
+    </ScreenContainer>
   );
 };
 
