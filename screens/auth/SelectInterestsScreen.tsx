@@ -1,8 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Pressable, Text, View } from "react-native";
-import { Button, IconCard, SmallButton } from "../../components";
-import { COLORS, FONTS } from "../../constants";
+import { Button, IconCard } from "../../components";
+import { COLORS, FONTS, SIZES } from "../../constants";
 
 export default function SelectInterestsScreen() {
   const navigation = useNavigation();
@@ -115,25 +115,32 @@ export default function SelectInterestsScreen() {
           justifyContent: "space-between",
           marginTop: 135,
           marginBottom: 60,
+          gap: SIZES.width * 0.025,
         }}
       >
-        <SmallButton
+        <Button
           text="Go Back"
-          textColor={COLORS.primary}
-          bgcolor="rgba(70, 109, 232, 0.1)"
+          style={{
+            width: SIZES.width * 0.44,
+            height: 58,
+            backgroundColor: "rgba(70, 109, 232, 0.1)",
+          }}
+          textProps={{
+            style: { color: COLORS.primary },
+          }}
           onPress={() => navigation.goBack()}
         />
 
-        {/* <SmallButton
-          text="Finish"
-          textColor={COLORS.white}
-          bgcolor={COLORS.primary}
-          onPress={() => navigation.navigate("BottomNavTab")}
-        /> */}
         <Button
           text="Finish"
-          style={{ backgroundColor: COLORS.primary }}
-          textProps={{ style: { color: COLORS.white } }}
+          style={{
+            width: SIZES.width * 0.44,
+            height: 58,
+            backgroundColor: COLORS.primary,
+          }}
+          textProps={{
+            style: { color: COLORS.white },
+          }}
           onPress={() => navigation.navigate("BottomNavTab")}
         />
       </View>
