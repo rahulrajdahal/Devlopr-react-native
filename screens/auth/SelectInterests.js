@@ -2,8 +2,8 @@ import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { IconCard, SmallButton } from "../components";
-import { COLORS, FONTS } from "../constants";
+import { IconCard, SmallButton } from "../../components";
+import { COLORS, FONTS } from "../../constants";
 
 const SelectInterests = () => {
   const navigation = useNavigation();

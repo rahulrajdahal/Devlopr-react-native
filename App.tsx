@@ -8,17 +8,17 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { BottomNavTab } from "./components";
 import {
   LoginScreen,
-  SelectCountry,
-  SelectInterests,
+  SelectCountryScreen,
+  // SelectInterests,
   SelectScreen,
 } from "./screens";
 
 const RootStack = createStackNavigator({
   screens: {
-    Login: LoginScreen,
-    Select: SelectScreen,
-    SelectCountry,
-    SelectInterests,
+    LoginScreen,
+    SelectScreen,
+    SelectCountryScreen,
+    // SelectInterests,
     BottomNavTab,
   },
   screenOptions: { headerShown: false },

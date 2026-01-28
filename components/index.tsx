@@ -13,9 +13,23 @@ import SmallButton from "./SmallButton";
 import StoreCard from "./StoreCard";
 import TopCard from "./TopCard";
 
+export { default as Button } from "./Button";
 export { default as ScreenContainer } from "./ScreenContainer";
 
 export {
-  AddNewButton, AppCheckBox, BottomNavTab, IconCard, Input, LargeButton, Navbar, NotificationCard, PayCard, SelectCard, ShippingAddressCard, SmallButton, StoreCard, TopCard
+  AddNewButton,
+  AppCheckBox,
+  BottomNavTab,
+  IconCard,
+  Input,
+  LargeButton,
+  Navbar,
+  NotificationCard,
+  PayCard,
+  SelectCard,
+  ShippingAddressCard,
+  SmallButton,
+  StoreCard,
+  TopCard
 };
 

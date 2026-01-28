@@ -1,8 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { Text, View } from "react-native";
-import { LargeButton, SelectCard } from "../components";
-import { COLORS, FONTS, images } from "../constants";
+import { Button, SelectCard } from "../../components";
+import { COLORS, FONTS, images } from "../../constants";
 
 const SelectScreen = () => {
   const navigation = useNavigation();
@@ -68,13 +68,14 @@ const SelectScreen = () => {
   }
 
   function renderNextButton() {
+    const handleNextOnPress = () => navigation.navigate("SelectCountryScreen");
+
     return (
-      <View style={{ marginTop: 189, marginBottom: 60 }}>
-        <LargeButton
-          onPress={() => navigation.navigate("SelectCountry")}
-          text="Next"
-        />
-      </View>
+      <Button
+        onPress={handleNextOnPress}
+        style={{ marginTop: 189, marginBottom: 60, height: 48 }}
+        text="Next"
+      />
     );
   }
 

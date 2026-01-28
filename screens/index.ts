@@ -11,14 +11,8 @@ import Invoice from "./Invoice";
 import ItemDetail from "./ItemDetail";
 import Notifications from "./Notifications";
 import PayOptions from "./PayOptions";
-import SelectCountry from "./SelectCountry";
-import SelectInterests from "./SelectInterests";
-import Select from "./SelectScreen";
 import Store from "./Store";
-
-export { default as LoginScreen } from "./LoginScreen";
-export { default as SelectScreen } from "./SelectScreen";
-
+export * from "./auth";
 export {
   AddPayment,
   AddShipping,
@@ -33,9 +27,6 @@ export {
   ItemDetail,
   Notifications,
   PayOptions,
-  Select,
-  SelectCountry,
-  SelectInterests,
   Store
 };
 

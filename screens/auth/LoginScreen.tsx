@@ -1,8 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, Text, View } from "react-native";
-import { ScreenContainer, SmallButton } from "../components";
-import { COLORS, FONTS, SIZES, icons, images } from "../constants";
+import { ScreenContainer, SmallButton } from "../../components";
+import { COLORS, FONTS, SIZES, icons, images } from "../../constants";
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -77,7 +77,7 @@ const LoginScreen = () => {
           textColor={COLORS.dark02}
           text="Google"
           icon={icons.google}
-          onPress={() => navigation.navigate("Select")}
+          onPress={() => navigation.navigate("SelectScreen")}
         />
         <SmallButton
           bgcolor={COLORS.Light05}
