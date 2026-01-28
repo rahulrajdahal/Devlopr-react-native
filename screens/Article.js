@@ -3,40 +3,13 @@ import { Image, Text, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { COLORS, FONTS, icons, SIZES } from "../constants";
 
-const Article = ({ route, navigation }) => {
+const Article = ({ route }) => {
   const [article, setArticle] = useState(1);
 
   useEffect(() => {
     let { article } = route.params;
     setArticle(article);
   }, [article]);
-
-  // function renderNavbar() {
-  //   return (
-  //     <View
-  //       style={{
-  //         display: "flex",
-  //         flexDirection: "row",
-  //         alignItems: "center",
-  //         justifyContent: "space-between",
-  //         marginTop: 40,
-  //       }}
-  //     >
-  //       <Image source={icons.category} />
-  //       <View
-  //         style={{
-  //           display: "flex",
-  //           flexDirection: "row",
-  //           alignItems: "center",
-  //           justifyContent: "space-between",
-  //         }}
-  //       >
-  //         <Image source={icons.notification} style={{ marginRight: 27.5 }} />
-  //         <Image source={images.profile} />
-  //       </View>
-  //     </View>
-  //   );
-  // }
 
   function renderHeaderRow() {
     return (
