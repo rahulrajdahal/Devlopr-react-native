@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Pressable, Text, ToastAndroid, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { NotificationCard } from "../components";
 import { COLORS, FONTS } from "../constants";
 import { NoNotification } from "../constants/images";
@@ -46,7 +45,6 @@ const Notifications = () => {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
-          
         }}
       >
         <Text
@@ -138,24 +136,22 @@ const Notifications = () => {
   }
 
   return (
-    <SafeAreaView>
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          paddingHorizontal: 20,
-          backgroundColor: COLORS.white,
-          width: "100%",
-          height: "100%",
-        }}
-      >
-        {/* Page Title And Settings */}
-        {renderPageTitleRow()}
+    <View
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        paddingHorizontal: 20,
+        backgroundColor: COLORS.white,
+        width: "100%",
+        height: "100%",
+      }}
+    >
+      {/* Page Title And Settings */}
+      {renderPageTitleRow()}
 
-        {/* Notification Cards */}
-        {renderNotificationCards()}
-      </View>
-    </SafeAreaView>
+      {/* Notification Cards */}
+      {renderNotificationCards()}
+    </View>
   );
 };
 
