@@ -1,36 +1,8 @@
-import React from "react";
-import { View, Image, Text } from "react-native";
+import { Image, Text, View } from "react-native";
 import { SmallButton } from "../components";
-import { COLORS, images, icons, SIZES, FONTS } from "../constants";
+import { COLORS, FONTS, icons, images, SIZES } from "../constants";
 
 const Challenge = () => {
-  function renderNavbar() {
-    return (
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginTop: 40,
-        }}
-      >
-        <Image source={icons.category} />
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <Image source={icons.notification} style={{ marginRight: 27.5 }} />
-          <Image source={images.profile} />
-        </View>
-      </View>
-    );
-  }
-
   function renderTitle() {
     return (
       <Text
@@ -225,9 +197,6 @@ const Challenge = () => {
         height: "100%",
       }}
     >
-      {/* Navbar */}
-      {renderNavbar()}
-
       {/* Challenge Board */}
       {renderChallengeBoard()}
     </View>

@@ -9,7 +9,9 @@ const HomeStackScreen = () => {
       <HomeStack.Screen
         name="Home"
         component={Home}
-        options={{ headerShown: false }}
+        options={{
+          headerShown: false,
+        }}
       />
       <HomeStack.Screen name="Article" component={Article} />
       <HomeStack.Screen name="Challenge" component={Challenge} />

@@ -9,20 +9,6 @@ import StoreScreenStack from "./StoreStackScreen";
 const Tab = createBottomTabNavigator();
 
 const BottomNavTab = () => {
-  const tabOptions = {
-    showLable: false,
-    style: {
-      maxHeight: 72,
-      height: "10%",
-      backgroundColor: COLORS.white,
-      paddingTop: 8,
-      paddingBottom: 34.67,
-      paddingLeft: 15.33,
-      paddingRight: 10.67,
-      elevation: 0,
-    },
-  };
-
   return (
     <Tab.Navigator
       screenOptions={{

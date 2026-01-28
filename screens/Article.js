@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, Image } from "react-native";
+import { useEffect, useState } from "react";
+import { Image, Text, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { COLORS, images, icons, FONTS, SIZES } from "../constants";
+import { COLORS, FONTS, icons, SIZES } from "../constants";
 
 const Article = ({ route, navigation }) => {
   const [article, setArticle] = useState(1);
@@ -11,32 +11,32 @@ const Article = ({ route, navigation }) => {
     setArticle(article);
   }, [article]);
 
-  function renderNavbar() {
-    return (
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginTop: 40,
-        }}
-      >
-        <Image source={icons.category} />
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <Image source={icons.notification} style={{ marginRight: 27.5 }} />
-          <Image source={images.profile} />
-        </View>
-      </View>
-    );
-  }
+  // function renderNavbar() {
+  //   return (
+  //     <View
+  //       style={{
+  //         display: "flex",
+  //         flexDirection: "row",
+  //         alignItems: "center",
+  //         justifyContent: "space-between",
+  //         marginTop: 40,
+  //       }}
+  //     >
+  //       <Image source={icons.category} />
+  //       <View
+  //         style={{
+  //           display: "flex",
+  //           flexDirection: "row",
+  //           alignItems: "center",
+  //           justifyContent: "space-between",
+  //         }}
+  //       >
+  //         <Image source={icons.notification} style={{ marginRight: 27.5 }} />
+  //         <Image source={images.profile} />
+  //       </View>
+  //     </View>
+  //   );
+  // }
 
   function renderHeaderRow() {
     return (
@@ -178,7 +178,7 @@ const Article = ({ route, navigation }) => {
       }}
     >
       {/* Navbar */}
-      {renderNavbar()}
+      {/* {renderNavbar()} */}
 
       {/* Category and Likes Row */}
       {renderHeaderRow()}
