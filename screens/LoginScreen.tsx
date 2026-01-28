@@ -4,7 +4,7 @@ import { Image, Text, View } from "react-native";
 import { ScreenContainer, SmallButton } from "../components";
 import { COLORS, FONTS, SIZES, icons, images } from "../constants";
 
-const Login = () => {
+const LoginScreen = () => {
   const navigation = useNavigation();
 
   function renderLoginIllustration() {
@@ -114,4 +114,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginScreen;

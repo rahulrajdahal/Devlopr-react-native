@@ -4,7 +4,7 @@ import { Text, View } from "react-native";
 import { LargeButton, SelectCard } from "../components";
 import { COLORS, FONTS, images } from "../constants";
 
-const Select = () => {
+const SelectScreen = () => {
   const navigation = useNavigation();
 
   function renderWelcomeTitle() {
@@ -101,4 +101,4 @@ const Select = () => {
   );
 };
 
-export default Select;
+export default SelectScreen;

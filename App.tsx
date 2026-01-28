@@ -7,7 +7,12 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { BottomNavTab } from "./components";
-import { Login, Select, SelectCountry, SelectInterests } from "./screens";
+import {
+  LoginScreen,
+  SelectCountry,
+  SelectInterests,
+  SelectScreen,
+} from "./screens";
 
 const theme = {
   ...DefaultTheme,
@@ -19,8 +24,8 @@ const theme = {
 
 const RootStack = createStackNavigator({
   screens: {
-    Login,
-    Select,
+    Login:LoginScreen,
+    Select:SelectScreen,
     SelectCountry,
     SelectInterests,
     BottomNavTab,
