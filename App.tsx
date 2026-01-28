@@ -1,5 +1,4 @@
 import {
-  DefaultTheme,
   StaticParamList,
   createStaticNavigation,
 } from "@react-navigation/native";
@@ -14,18 +13,10 @@ import {
   SelectScreen,
 } from "./screens";
 
-const theme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    border: "transparent",
-  },
-};
-
 const RootStack = createStackNavigator({
   screens: {
-    Login:LoginScreen,
-    Select:SelectScreen,
+    Login: LoginScreen,
+    Select: SelectScreen,
     SelectCountry,
     SelectInterests,
     BottomNavTab,
