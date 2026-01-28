@@ -1,4 +1,8 @@
-import { DefaultTheme, createStaticNavigation } from "@react-navigation/native";
+import {
+  DefaultTheme,
+  StaticParamList,
+  createStaticNavigation,
+} from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -23,6 +27,14 @@ const RootStack = createStackNavigator({
   },
   screenOptions: { headerShown: false },
 });
+
+type RootStackParamList = StaticParamList<typeof RootStack>;
+
+declare global {
+  namespace ReactNavigation {
+    interface RootParamList extends RootStackParamList {}
+  }
+}
 
 const RootNavigation = createStaticNavigation(RootStack);
 
