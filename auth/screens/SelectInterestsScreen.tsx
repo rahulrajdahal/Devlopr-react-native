@@ -3,6 +3,7 @@ import React from "react";
 import { Pressable, Text, View } from "react-native";
 import { Button, IconCard } from "../../components";
 import { COLORS, FONTS, SIZES } from "../../constants";
+import WelcomeTitle from "../components/WelcomeTitle";
 
 export default function SelectInterestsScreen() {
   const navigation = useNavigation();
@@ -151,8 +152,7 @@ export default function SelectInterestsScreen() {
       {/* Skip Button */}
       {renderSkipButton()}
 
-      {/* Welcome Title */}
-      {renderWelcomeTitle()}
+      <WelcomeTitle />
 
       <View style={{ marginTop: 60 }}>
         <Text style={{ color: COLORS.dark02, ...FONTS.h3, fontWeight: "500" }}>

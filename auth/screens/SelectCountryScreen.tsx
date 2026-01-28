@@ -3,6 +3,7 @@ import React from "react";
 import { Image, Pressable, Text, View } from "react-native";
 import { Button } from "../../components";
 import { COLORS, FONTS, icons, SIZES } from "../../constants";
+import WelcomeTitle from "../components/WelcomeTitle";
 
 export default function SelectCountry() {
   const navigation = useNavigation();
@@ -146,8 +147,7 @@ export default function SelectCountry() {
       {/* Skip Button */}
       {renderSkipButton()}
 
-      {/* Welcome Title */}
-      {renderWelcomeTitle()}
+      <WelcomeTitle />
 
       {/* Select Question*/}
       {renderSelectQuestion()}
