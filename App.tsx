@@ -5,13 +5,13 @@ import {
 import { createStackNavigator } from "@react-navigation/stack";
 
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { BottomNavTab } from "./components";
 import {
   LoginScreen,
   SelectCountryScreen,
   SelectInterestsScreen,
   SelectScreen,
-} from "./screens";
+} from "./auth/screens";
+import { BottomNavTab } from "./components";
 
 const RootStack = createStackNavigator({
   screens: {

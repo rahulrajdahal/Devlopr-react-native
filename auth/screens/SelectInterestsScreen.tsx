@@ -39,16 +39,6 @@ export default function SelectInterestsScreen() {
     );
   }
 
-  function renderSelectQuestion() {
-    return (
-      <View style={{ marginTop: 60 }}>
-        <Text style={{ color: COLORS.dark02, ...FONTS.h3, fontWeight: "500" }}>
-          Where are your Interests?
-        </Text>
-      </View>
-    );
-  }
-
   function renderInterestCards() {
     const interestsTitles = [
       {
@@ -164,8 +154,11 @@ export default function SelectInterestsScreen() {
       {/* Welcome Title */}
       {renderWelcomeTitle()}
 
-      {/* Select Question */}
-      {renderSelectQuestion()}
+      <View style={{ marginTop: 60 }}>
+        <Text style={{ color: COLORS.dark02, ...FONTS.h3, fontWeight: "500" }}>
+          Where are your Interests?
+        </Text>
+      </View>
 
       {/* Interest Cards */}
       {renderInterestCards()}

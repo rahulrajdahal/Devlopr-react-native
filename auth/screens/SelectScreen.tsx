@@ -3,29 +3,11 @@ import React, { useState } from "react";
 import { Text, View } from "react-native";
 import { Button, SelectCard } from "../../components";
 import { COLORS, FONTS, images } from "../../constants";
+import WelcomeTitle from "../components/WelcomeTitle";
 
-const SelectScreen = () => {
+export default function SelectScreen() {
   const navigation = useNavigation();
   const [isActive, setIsActive] = useState(false);
-
-  function renderWelcomeTitle() {
-    return (
-      <View style={{ width: 199, height: 76, marginTop: 145 }}>
-        <Text style={{ color: COLORS.dark01, ...FONTS.h1, fontWeight: "300" }}>
-          Welcome
-        </Text>
-        <Text
-          style={{
-            color: COLORS.dark01,
-            ...FONTS.largeTitle,
-            fontWeight: "300",
-          }}
-        >
-          Prateek S.
-        </Text>
-      </View>
-    );
-  }
 
   function renderSelectCard() {
     return (
@@ -75,8 +57,7 @@ const SelectScreen = () => {
         paddingHorizontal: 24,
       }}
     >
-      {/* Welcome Title */}
-      {renderWelcomeTitle()}
+      <WelcomeTitle />
 
       {/* Select Card */}
       {renderSelectCard()}
@@ -88,6 +69,4 @@ const SelectScreen = () => {
       />
     </View>
   );
-};
-
-export default SelectScreen;
+}

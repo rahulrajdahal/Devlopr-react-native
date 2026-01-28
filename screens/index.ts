@@ -12,7 +12,7 @@ import ItemDetail from "./ItemDetail";
 import Notifications from "./Notifications";
 import PayOptions from "./PayOptions";
 import Store from "./Store";
-export * from "./auth";
+export * from "../auth/screens";
 export {
   AddPayment,
   AddShipping,
