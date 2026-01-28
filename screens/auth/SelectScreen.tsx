@@ -6,6 +6,7 @@ import { COLORS, FONTS, images } from "../../constants";
 
 const SelectScreen = () => {
   const navigation = useNavigation();
+  const [isActive, setIsActive] = useState(false);
 
   function renderWelcomeTitle() {
     return (
@@ -37,8 +38,6 @@ const SelectScreen = () => {
   }
 
   function renderSelectCard() {
-    const [isActive, setIsActive] = useState(false);
-
     return (
       <View
         style={{
@@ -51,14 +50,14 @@ const SelectScreen = () => {
       >
         <SelectCard
           img={images.student}
-          isactive={!isActive}
+          isActive={!isActive}
           onPress={() => setIsActive((isActive) => !isActive)}
         >
           Student
         </SelectCard>
         <SelectCard
           img={images.developer}
-          isactive={isActive}
+          isActive={isActive}
           onPress={() => setIsActive((isActive) => !isActive)}
         >
           Developer
@@ -67,17 +66,7 @@ const SelectScreen = () => {
     );
   }
 
-  function renderNextButton() {
-    const handleNextOnPress = () => navigation.navigate("SelectCountryScreen");
-
-    return (
-      <Button
-        onPress={handleNextOnPress}
-        style={{ marginTop: 189, marginBottom: 60 }}
-        text="Next"
-      />
-    );
-  }
+  const handleNextOnPress = () => navigation.navigate("SelectCountryScreen");
 
   return (
     <View
@@ -96,8 +85,11 @@ const SelectScreen = () => {
       {/* Select Card */}
       {renderSelectCard()}
 
-      {/* Next Button */}
-      {renderNextButton()}
+      <Button
+        onPress={handleNextOnPress}
+        style={{ marginTop: 189, marginBottom: 60 }}
+        text="Next"
+      />
     </View>
   );
 };
