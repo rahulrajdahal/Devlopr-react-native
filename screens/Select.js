@@ -1,9 +1,12 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
-import { Image, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import { LargeButton, SelectCard } from "../components";
-import { FONTS, COLORS, images } from "../constants";
+import { COLORS, FONTS, images } from "../constants";
 
-const Select = ({ navigation }) => {
+const Select = () => {
+  const navigation = useNavigation();
+
   function renderWelcomeTitle() {
     return (
       <View style={{ width: 199, height: 76, marginTop: 145 }}>

@@ -1,9 +1,12 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { Image, Text, View } from "react-native";
 import { SmallButton } from "../components";
 import { COLORS, FONTS, SIZES, icons, images } from "../constants";
 
-const Login = ({ navigation }) => {
+const Login = () => {
+  const navigation = useNavigation();
+
   function renderLoginIllustration() {
     return (
       <View

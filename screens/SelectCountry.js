@@ -1,10 +1,12 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Text, View, Image } from "react-native";
+import { Image, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { COLORS, FONTS, icons, images, SIZES } from "../constants";
 import { SmallButton } from "../components";
+import { COLORS, FONTS, icons, SIZES } from "../constants";
 
-const SelectCountry = ({ navigation }) => {
+const SelectCountry = () => {
+  const navigation = useNavigation();
   function renderSkipButton() {
     return (
       <View style={{ position: "absolute", top: 32, right: 24, marginTop: 32 }}>

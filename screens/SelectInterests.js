@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import { View, Text } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { COLORS, FONTS } from "../constants";
 import { IconCard, SmallButton } from "../components";
+import { COLORS, FONTS } from "../constants";
 
-const SelectInterests = ({ navigation }) => {
+const SelectInterests = () => {
+  const navigation = useNavigation();
   function renderSkipButton() {
     return (
       <View style={{ position: "absolute", top: 32, right: 24, marginTop: 32 }}>
