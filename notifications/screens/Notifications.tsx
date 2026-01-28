@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Pressable, Text, ToastAndroid, View } from "react-native";
-import { NotificationCard, ScreenContainer } from "../../components";
+import { ScreenContainer } from "../../components";
 import { COLORS, FONTS } from "../../constants";
-import { NoNotification } from "../../constants/images";
+import { EmptyNotifications, NotificationCard } from "../components";
 
 const Notifications = () => {
   const [notifications, setNotifications] = useState([
@@ -74,67 +74,6 @@ const Notifications = () => {
     );
   }
 
-  function renderNotificationCards() {
-    return (
-      <>
-        {notifications.length ? (
-          <View
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              width: "90%",
-              marginTop: 24,
-            }}
-          >
-            {notifications.map((notification) => (
-              <NotificationCard
-                key={notification._id}
-                notification={notification}
-              />
-            ))}
-          </View>
-        ) : (
-          <View style={{ display: "flex", alignItems: "center" }}>
-            <NoNotification
-              style={{
-                width: "100%",
-                alignSelf: "center",
-                marginHorizontal: 39,
-                marginTop: 101,
-              }}
-            />
-            <Text
-              style={{
-                color: COLORS.dark01,
-                ...FONTS.h2,
-                fontWeight: "500",
-                textTransform: "capitalize",
-                marginTop: 40,
-              }}
-            >
-              No New Notification
-            </Text>
-            <Text
-              style={{
-                width: 280,
-                color: COLORS.dark03,
-                ...FONTS.body2,
-                fontWeight: "300",
-                lineHeight: 20,
-                textAlign: "center",
-                marginTop: 6,
-              }}
-            >
-              There aren’t any new notifications for you at the moment. They
-              will appear here once you do.
-            </Text>
-          </View>
-        )}
-      </>
-    );
-  }
-
   return (
     <ScreenContainer>
       <View
@@ -150,8 +89,23 @@ const Notifications = () => {
         {/* Page Title And Settings */}
         {renderPageTitleRow()}
 
-        {/* Notification Cards */}
-        {renderNotificationCards()}
+        {notifications.length ? (
+          <View
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              width: "90%",
+              marginTop: 24,
+            }}
+          >
+            {notifications.map((notification) => (
+              <NotificationCard key={notification._id} {...notification} />
+            ))}
+          </View>
+        ) : (
+          <EmptyNotifications />
+        )}
       </View>
     </ScreenContainer>
   );
