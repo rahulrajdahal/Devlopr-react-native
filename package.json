@@ -31,7 +31,9 @@
     "react-native-worklets": "0.5.1"
   },
   "devDependencies": {
-    "@babel/core": "~7.28.6"
+    "@babel/core": "~7.28.6",
+    "@types/react": "~19.1.10",
+    "typescript": "~5.9.2"
   },
   "resolutions": {
     "@expo/cli": "^54.0.22"
