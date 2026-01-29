@@ -1,11 +1,26 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, Text, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { Navbar, SmallButton, TopCard } from "../components";
-import { icons, FONTS, COLORS, images, SIZES } from "../constants";
-import { Notification } from "../constants/icons";
+import { COLORS, FONTS, images, SIZES } from "../constants";
+import articles from "../data/articles.json";
 
-const Home = ({ navigation }) => {
+type Article = {
+  _id: string;
+  category: string;
+  likes: number;
+  title: string;
+  poster: string;
+  date: string;
+  avatar: string;
+  jumbotron: string;
+  content: string;
+};
+
+export default function HomeScreen() {
+  const navigation = useNavigation();
+
   function renderChallengeBoard() {
     return (
       <View
@@ -70,73 +85,7 @@ const Home = ({ navigation }) => {
     );
   }
 
-  function renderTopTitle() {
-    return (
-      <Text
-        style={{
-          marginTop: 32,
-          color: COLORS.dark02,
-          ...FONTS.h3,
-          fontWeight: "500",
-        }}
-      >
-        Top This Week
-      </Text>
-    );
-  }
-
   function renderTopPosts() {
-    const posts = [
-      {
-        _id: 1,
-        category: "Web Dev",
-        likes: 32,
-        title: "What's new in VueJS 3?",
-        poster: "Pablo Gurrero",
-        date: "24 Oct 2020",
-        avatar: images.poster_profile,
-        jumbotron: images.vuejs,
-        content:
-          "Vue 3 isn’t officially released yet, but the Vue team has released the Alpha version for us developers to use some of the features that will be shipped with Vue 3. At the time of writing this article, we have the (Alpha-10) version available to experiment with.Though this isn’t ready to be used in production yet, it’s always good to learn new features in advance so that when the stable version is released, we can directly start using it or migrate",
-      },
-      {
-        _id: 2,
-        category: "Design",
-        likes: 18,
-        title: "Challenges in UX Carrer",
-        poster: "Katy Willizms",
-        date: "23 Oct 2020",
-        avatar: images.post_two,
-        jumbotron: images.vuejs,
-        content:
-          "Vue 3 isn’t officially released yet, but the Vue team has released the Alpha version for us developers to use some of the features that will be shipped with Vue 3.At the time of writing this article, we have the (Alpha-10) version available to experiment with.Though this isn’t ready to be used in production yet, it’s always good to learn new features in advance so that when the stable version is released, we can directly start using it or migrate",
-      },
-      {
-        _id: 3,
-        category: "Insights",
-        likes: 45,
-        title: "The Google Homepage Story",
-        poster: "Tanya Singh",
-        date: "23 Oct 2020",
-        avatar: images.post_three,
-        jumbotron: images.vuejs,
-        content:
-          "Vue 3 isn’t officially released yet, but the Vue team has released the Alpha version for us developers to use some of the features that will be shipped with Vue 3.At the time of writing this article, we have the (Alpha-10) version available to experiment with.Though this isn’t ready to be used in production yet, it’s always good to learn new features in advance so that when the stable version is released, we can directly start using it or migrate",
-      },
-      {
-        _id: 4,
-        category: "Javascript",
-        likes: 52,
-        title: "Drag and Drop in React",
-        poster: "Sike Dahl",
-        date: "22 Oct 2020",
-        avatar: images.post_four,
-        jumbotron: images.vuejs,
-        content:
-          "Vue 3 isn’t officially released yet, but the Vue team has released the Alpha version for us developers to use some of the features that will be shipped with Vue 3.At the time of writing this article, we have the (Alpha-10) version available to experiment with.Though this isn’t ready to be used in production yet, it’s always good to learn new features in advance so that when the stable version is released, we can directly start using it or migrate",
-      },
-    ];
-
     return (
       <View
         style={{
@@ -152,15 +101,15 @@ const Home = ({ navigation }) => {
           marginTop: 10,
         }}
       >
-        {posts.map((post) => (
+        {articles.map((article: Article) => (
           <TopCard
-            key={post._id}
-            category={post.category}
-            title={post.title}
-            poster={post.poster}
-            date={post.date}
-            avatar={post.avatar}
-            likesCount={post.likes}
+            key={article._id}
+            category={article.category}
+            title={article.title}
+            poster={article.poster}
+            date={article.date}
+            avatar={article.avatar}
+            likesCount={article.likes}
             onPress={() => navigation.navigate("Article", { article: post })}
           />
         ))}
@@ -179,19 +128,24 @@ const Home = ({ navigation }) => {
         height: "100%",
       }}
     >
-      {/* Navbar */}
       <Navbar />
 
       {/* Challenge board */}
       {renderChallengeBoard()}
 
-      {/* Top Title */}
-      {renderTopTitle()}
+      <Text
+        style={{
+          marginTop: 32,
+          color: COLORS.dark02,
+          ...FONTS.h3,
+          fontWeight: "500",
+        }}
+      >
+        Top This Week
+      </Text>
 
       {/* Top Posts */}
       {renderTopPosts()}
     </ScrollView>
   );
-};
-
-export default Home;
+}

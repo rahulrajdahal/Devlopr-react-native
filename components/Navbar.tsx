@@ -1,10 +1,12 @@
-import React from "react";
-import { View, Image } from "react-native";
-import { icons, COLORS, images, FONTS } from "../constants";
-import { Notification } from "../constants/icons";
 import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { Image, View } from "react-native";
+import { COLORS, icons, images } from "../constants";
+import { Notification } from "../constants/icons";
 
-const Navbar = ({ isActive }) => {
+type NavbarProps = { isActive?: boolean };
+
+const Navbar = ({ isActive = false }: NavbarProps) => {
   const navigation = useNavigation();
 
   return (
