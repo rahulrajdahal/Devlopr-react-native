@@ -1,17 +1,21 @@
-import { useEffect, useState } from "react";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { useMemo } from "react";
 import { Image, Text, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { COLORS, FONTS, icons, SIZES } from "../../constants";
+import articles from "../../data/articles";
+import { HomeStackParamList } from "../../navigations/HomeStackScreen";
 
-type ArticleProps = {};
+type ArticleScreenProps = NativeStackScreenProps<HomeStackParamList, "Article">;
 
-export default function ArticleScreen({ route }) {
-  const [article, setArticle] = useState(1);
+export default function ArticleScreen({ route }: Readonly<ArticleScreenProps>) {
+  const {
+    params: { articleId },
+  } = route;
 
-  useEffect(() => {
-    let { article } = route.params;
-    setArticle(article);
-  }, [article]);
+  const article = useMemo(() => {
+    return articles.find((a) => a._id === articleId);
+  }, [articleId]);
 
   function renderHeaderRow() {
     return (
@@ -27,7 +31,7 @@ export default function ArticleScreen({ route }) {
         <Text
           style={{ color: COLORS.primary, ...FONTS.body3, fontWeight: "500" }}
         >
-          {article.category}
+          {article?.category}
         </Text>
 
         <View
@@ -47,7 +51,7 @@ export default function ArticleScreen({ route }) {
           <Text
             style={{ color: COLORS.dark04, ...FONTS.body4, fontWeight: "500" }}
           >
-            {article.likes}
+            {article?.likes}
           </Text>
         </View>
       </View>
@@ -60,7 +64,7 @@ export default function ArticleScreen({ route }) {
         <Text
           style={{ color: COLORS.primary_text, ...FONTS.h1, fontWeight: "500" }}
         >
-          {article.title}
+          {article?.title}
         </Text>
       </View>
     );
@@ -76,7 +80,7 @@ export default function ArticleScreen({ route }) {
           marginTop: 12,
         }}
       >
-        <Image source={article.avatar} />
+        <Image source={article?.avatar} />
         <View
           style={{
             display: "flex",
@@ -89,7 +93,7 @@ export default function ArticleScreen({ route }) {
           <Text
             style={{ color: COLORS.dark03, fontWeight: "500", ...FONTS.body3 }}
           >
-            {article.poster}
+            {article?.poster}
           </Text>
           <Text
             style={{
@@ -99,7 +103,7 @@ export default function ArticleScreen({ route }) {
               ...FONTS.body4,
             }}
           >
-            {article.date}
+            {article?.date}
           </Text>
         </View>
       </View>
@@ -119,7 +123,7 @@ export default function ArticleScreen({ route }) {
           alignSelf: "center",
         }}
       >
-        <Image source={article.jumbotron} />
+        <Image source={article?.jumbotron} />
       </View>
     );
   }
@@ -135,7 +139,7 @@ export default function ArticleScreen({ route }) {
             lineHeight: 24,
           }}
         >
-          {article.content}
+          {article?.content}
         </Text>
       </View>
     );
@@ -152,9 +156,6 @@ export default function ArticleScreen({ route }) {
         height: "100%",
       }}
     >
-      {/* Navbar */}
-      {/* {renderNavbar()} */}
-
       {/* Category and Likes Row */}
       {renderHeaderRow()}
 

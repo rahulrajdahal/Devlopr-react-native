@@ -1,12 +1,12 @@
 import React from "react";
 import {
-    Image,
-    ImageSourcePropType,
-    Pressable,
-    PressableProps,
-    StyleSheet,
-    Text,
-    View,
+  Image,
+  ImageSourcePropType,
+  Pressable,
+  PressableProps,
+  StyleSheet,
+  Text,
+  View,
 } from "react-native";
 import { COLORS, FONTS, icons } from "../../constants";
 
@@ -86,7 +86,6 @@ export default function ArticleCard({
   }
 
   function renderPosterInfo() {
-
     return (
       <View
         style={{
@@ -128,8 +127,7 @@ export default function ArticleCard({
       style={StyleSheet.flatten([
         {
           backgroundColor: COLORS.white,
-          maxWidth: 164,
-          width: "100%",
+          width: "50%",
           maxHeight: 164,
           height: "100%",
           borderStyle: "solid",
