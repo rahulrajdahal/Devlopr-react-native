@@ -1,119 +1,27 @@
 import { Image, Text, View } from "react-native";
-import { SmallButton } from "../../components";
+import { Button } from "../../components";
 import { COLORS, FONTS, icons, images, SIZES } from "../../constants";
-import { screenWidth } from "../../constants/theme";
+import { screenHeight, screenWidth } from "../../constants/theme";
 
+const challengePoints = [
+  {
+    _id: 1,
+    desc: "Design the Website using Bootstrap 5",
+  },
+  {
+    _id: 2,
+    desc: "Upload Repo on Github or Gitlab",
+  },
+  {
+    _id: 3,
+    desc: "Submit Link on the Challenge Page",
+  },
+  {
+    _id: 4,
+    desc: "Wait till you hear from us",
+  },
+];
 export default function ChallengeScreen() {
-  function renderTitle() {
-    return (
-      <Text
-        style={{
-          maxWidth: screenWidth(215),
-          width: "100%",
-          color: COLORS.primary_text,
-          marginTop: 24,
-          ...FONTS.h1,
-          fontWeight: "500",
-        }}
-      >
-        Bootstrap 5 Website Design Challenge
-      </Text>
-    );
-  }
-
-  function renderPrize() {
-    return (
-      <Text
-        style={{
-          marginTop: 8,
-          color: COLORS.dark03,
-          ...FONTS.body3,
-          fontWeight: "normal",
-          lineHeight: 16,
-          maxWidth: 215,
-          width: "100%",
-          maxHeight: 32,
-          height: "100%",
-        }}
-      >
-        Win Exciting Prizes from our sponsers at Github, Gitlab, Icons8 and AWS.
-      </Text>
-    );
-  }
-
-  function renderFirstPara() {
-    return (
-      <Text
-        style={{
-          maxWidth: 279,
-          width: "100%",
-          maxHeight: 200,
-          height: "100%",
-          marginTop: 32,
-          color: COLORS.dark02,
-          ...FONTS.body2,
-          lineHeight: 20,
-        }}
-      >
-        This month on Devlopr, anyone with the passion for web design can enter
-        the Bootstrap 5 Website Design Challenge. The top designs will get
-        exciting prizes from Github, Gitlab, Icons8 and AWS. In order to
-        qualify, you must use the Bootstrap 5 framwork to design your website.
-        You can design any type of website, be it portfolio, eCommerce, Landing
-        Pages, etc.
-      </Text>
-    );
-  }
-
-  function renderBulletPoints() {
-    const points = [
-      {
-        _id: 1,
-        desc: "Design the Website using Bootstrap 5",
-      },
-      {
-        _id: 2,
-        desc: "Upload Repo on Github or Gitlab",
-      },
-      {
-        _id: 3,
-        desc: "Submit Link on the Challenge Page",
-      },
-      {
-        _id: 4,
-        desc: "Wait till you hear from us",
-      },
-    ];
-
-    return (
-      <View style={{ marginTop: 24, display: "flex", flexDirection: "column" }}>
-        {points.map((point) => (
-          <View
-            key={point._id}
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              marginBottom: 8,
-            }}
-          >
-            <Image source={icons.bullet} style={{ marginRight: 9.67 }} />
-            <Text
-              style={{
-                color: COLORS.dark02,
-                ...FONTS.body2,
-                fontWeight: "normal",
-                lineHeight: 20,
-              }}
-            >
-              {point.desc}
-            </Text>
-          </View>
-        ))}
-      </View>
-    );
-  }
-
   function renderButtonAndIllustration() {
     return (
       <View
@@ -124,63 +32,26 @@ export default function ChallengeScreen() {
           alignItems: "center",
         }}
       >
-        <View
+        <Button
+          text="Start Challenge"
           style={{
-            position: "relative",
-            left: 0,
-            top: 64,
-            marginRight: 11,
+            backgroundColor: COLORS.primary,
+            marginTop: screenHeight(80),
+            paddingHorizontal: screenWidth(16),
+            paddingVertical: screenHeight(4),
           }}
-        >
-          <SmallButton
-            text="Start Challenge"
-            bgcolor={COLORS.primary}
-            textColor={COLORS.white}
-          />
-        </View>
+          textProps={{
+            style: { color: COLORS.white },
+          }}
+        />
         <Image
           source={images.home}
           style={{
             position: "absolute",
-            bottom: 0,
-            right: 0,
-            top: 30,
+            bottom: screenHeight(-50),
+            right: screenWidth(-24),
           }}
         />
-      </View>
-    );
-  }
-
-  function renderChallengeBoard() {
-    return (
-      <View
-        style={{
-          marginTop: 34.67,
-          backgroundColor: COLORS.Light05,
-          width: "100%",
-          maxHeight: 620,
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          borderRadius: SIZES.borderRadius,
-          alignSelf: "center",
-          paddingHorizontal: 24,
-        }}
-      >
-        {/* Title */}
-        {renderTitle()}
-
-        {/* Prize */}
-        {renderPrize()}
-
-        {/* First Paragraph */}
-        {renderFirstPara()}
-
-        {/* Bullet Points */}
-        {renderBulletPoints()}
-
-        {/* ButtonAndIllustrationRow */}
-        {renderButtonAndIllustration()}
       </View>
     );
   }
@@ -196,8 +67,91 @@ export default function ChallengeScreen() {
         height: "100%",
       }}
     >
-      {/* Challenge Board */}
-      {renderChallengeBoard()}
+      <View
+        style={{
+          marginTop: 34.67,
+          backgroundColor: COLORS.Light05,
+          width: "100%",
+          maxHeight: 620,
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          borderRadius: SIZES.borderRadius,
+          alignSelf: "center",
+          paddingHorizontal: 24,
+        }}
+      >
+        <Text
+          style={{
+            color: COLORS.primary_text,
+            marginTop: screenHeight(24),
+            ...FONTS.h1,
+            fontWeight: "500",
+          }}
+        >
+          Bootstrap 5 Website Design Challenge
+        </Text>
+
+        <Text
+          style={{
+            marginTop: screenHeight(8),
+            color: COLORS.dark03,
+            ...FONTS.body3,
+            fontWeight: "normal",
+            lineHeight: screenWidth(16),
+          }}
+        >
+          Win Exciting Prizes from our sponsers at Github, Gitlab, Icons8 and
+          AWS.
+        </Text>
+
+        <Text
+          style={{
+            marginTop: screenHeight(32),
+            color: COLORS.dark02,
+            ...FONTS.body2,
+            lineHeight: screenWidth(20),
+          }}
+        >
+          This month on Devlopr, anyone with the passion for web design can
+          enter the Bootstrap 5 Website Design Challenge. The top designs will
+          get exciting prizes from Github, Gitlab, Icons8 and AWS. In order to
+          qualify, you must use the Bootstrap 5 framwork to design your website.
+          You can design any type of website, be it portfolio, eCommerce,
+          Landing Pages, etc.
+        </Text>
+
+        <View
+          style={{ marginTop: 24, display: "flex", flexDirection: "column" }}
+        >
+          {challengePoints.map((ChallengePoint) => (
+            <View
+              key={ChallengePoint._id}
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                marginBottom: 8,
+              }}
+            >
+              <Image source={icons.bullet} style={{ marginRight: 9.67 }} />
+              <Text
+                style={{
+                  color: COLORS.dark02,
+                  ...FONTS.body2,
+                  fontWeight: "normal",
+                  lineHeight: 20,
+                }}
+              >
+                {ChallengePoint.desc}
+              </Text>
+            </View>
+          ))}
+        </View>
+
+        {/* ButtonAndIllustrationRow */}
+        {renderButtonAndIllustration()}
+      </View>
     </View>
   );
 }
