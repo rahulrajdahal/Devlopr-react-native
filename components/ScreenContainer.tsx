@@ -6,7 +6,7 @@ import { COLORS, SIZES } from "../constants";
 type ScreenContainerProps = ViewProps;
 
 const ScreenContainer = ({ ...props }: ScreenContainerProps) => {
-  const { top, left } = useSafeAreaInsets();
+  const { top } = useSafeAreaInsets();
 
   const styles = StyleSheet.create({
     container: {

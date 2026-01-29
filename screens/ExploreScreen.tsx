@@ -1,109 +1,11 @@
 import React from "react";
-import { Image, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { Navbar, ScreenContainer } from "../components";
 import { COLORS, FONTS, icons, images, SIZES } from "../constants";
 import Banner from "../explore/components/Banner";
 
 export default function ExploreScreen({ navigation }) {
-  function renderPageTitleRow() {
-    return (
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginTop: 28,
-        }}
-      >
-        <Text
-          style={{
-            color: COLORS.primary_text,
-            ...FONTS.h1,
-            fontWeight: "300",
-            lineHeight: 28,
-          }}
-        >
-          Explore
-        </Text>
-
-        <Image source={icons.settings} />
-      </View>
-    );
-  }
-
-  function renderHeader() {
-    return (
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginTop: 12,
-          paddingHorizontal: 32,
-          maxWidth: 327,
-          width: "100%",
-          maxHeight: 264,
-          height: "100%",
-          backgroundColor: COLORS.Light05,
-          borderRadius: SIZES.borderRadius,
-          alignSelf: "center",
-        }}
-      >
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-            marginTop: 40,
-          }}
-        >
-          <Text
-            style={{
-              color: COLORS.dark02,
-              ...FONTS.h2,
-              fontWeight: "500",
-              lineHeight: 24,
-              maxWidth: 180,
-              width: "100%",
-              maxHeight: 72,
-              height: "100%",
-            }}
-          >
-            Discover the latest in tech and find awesome developer friends
-          </Text>
-          <View
-            style={{
-              backgroundColor: COLORS.primary,
-              padding: 17.52,
-              borderRadius: 30,
-              shadowRadius: 50,
-              elevation: 15,
-              shadowColor: "rgba(0, 0, 0, 0.25)",
-              width: 48,
-              height: 48,
-              marginLeft: 35,
-            }}
-          >
-            <Image source={icons.arrow_right} />
-          </View>
-        </View>
-        <Image
-          source={images.loginIllustration}
-          style={{
-            maxWidth: 296,
-            width: "100%",
-            maxHeight: 113,
-            height: "100%",
-          }}
-        />
-      </View>
-    );
-  }
-
   function renderTopPicks() {
     const topics = [
       {
@@ -311,7 +213,7 @@ export default function ExploreScreen({ navigation }) {
             >
               <Image
                 source={icons.insta}
-                width="13"
+                width={13}
                 style={{ alignSelf: "center" }}
               />
             </View>
@@ -326,11 +228,21 @@ export default function ExploreScreen({ navigation }) {
       {/* Navbar */}
       <Navbar />
 
-      {/* Page Title And Settings */}
-      {renderPageTitleRow()}
+      <View style={styles.topContainer}>
+        <Text
+          style={{
+            color: COLORS.primary_text,
+            ...FONTS.h1,
+            fontWeight: "300",
+            lineHeight: 28,
+          }}
+        >
+          Explore
+        </Text>
 
-      {/* header*/}
-      {/* {renderHeader()} */}
+        <Image source={icons.settings} />
+      </View>
+
       <Banner />
 
       {/* Top Topics By Category */}
@@ -341,3 +253,13 @@ export default function ExploreScreen({ navigation }) {
     </ScreenContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  topContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: 28,
+  },
+});
