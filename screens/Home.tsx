@@ -2,21 +2,10 @@ import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, Text, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { Navbar, SmallButton, TopCard } from "../components";
+import ArticleCard, { Article } from "../articles/components/ArticleCard";
+import { Button, Navbar } from "../components";
 import { COLORS, FONTS, images, SIZES } from "../constants";
-import articles from "../data/articles.json";
-
-type Article = {
-  _id: string;
-  category: string;
-  likes: number;
-  title: string;
-  poster: string;
-  date: string;
-  avatar: string;
-  jumbotron: string;
-  content: string;
-};
+import articles from "../data/articles";
 
 export default function HomeScreen() {
   const navigation = useNavigation();
@@ -68,10 +57,14 @@ export default function HomeScreen() {
             Win Exciting Prizes from our sponsers at Github, Gitlab, Icons8 and
             AWS.
           </Text>
-          <SmallButton
+          <Button
             text="Join Challenge"
-            textColor={COLORS.white}
-            bgcolor={COLORS.primary}
+            textProps={{
+              style: {
+                color: COLORS.white,
+              },
+            }}
+            style={{ backgroundColor: COLORS.primary }}
             onPress={() => navigation.navigate("Challenge")}
           />
         </View>
@@ -102,14 +95,9 @@ export default function HomeScreen() {
         }}
       >
         {articles.map((article: Article) => (
-          <TopCard
+          <ArticleCard
             key={article._id}
-            category={article.category}
-            title={article.title}
-            poster={article.poster}
-            date={article.date}
-            avatar={article.avatar}
-            likesCount={article.likes}
+            article={article}
             onPress={() => navigation.navigate("Article", { article: post })}
           />
         ))}

@@ -47,42 +47,34 @@ export const FONTS = {
   largeTitle: {
     fontFamily: "SFProDisplay-Regular",
     fontSize: SIZES.largeTitle,
-    lineHeight: 48,
   },
   h1: {
     fontFamily: "SFProDisplay-Regular",
     fontSize: SIZES.h1,
-    lineHeight: 24,
   },
   h2: {
     fontFamily: "SFProDisplay-Regular",
     fontSize: SIZES.h2,
-    lineHeight: 18,
   },
   h3: {
     fontFamily: "SFProDisplay-Regular",
     fontSize: SIZES.h3,
-    lineHeight: 16,
   },
   body1: {
     fontFamily: "SFProDisplay-Regular",
     fontSize: SIZES.body1,
-    lineHeight: 16,
   },
   body2: {
     fontFamily: "SFProDisplay-Regular",
     fontSize: SIZES.body2,
-    lineHeight: 14,
   },
   body3: {
     fontFamily: "SFProDisplay-Regular",
     fontSize: SIZES.body3,
-    lineHeight: 12,
   },
   body4: {
     fontFamily: "SFProDisplay-Regular",
     fontSize: SIZES.body4,
-    lineHeight: 10,
   },
 };
 
