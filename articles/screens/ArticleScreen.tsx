@@ -3,7 +3,9 @@ import { Image, Text, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { COLORS, FONTS, icons, SIZES } from "../../constants";
 
-const Article = ({ route }) => {
+type ArticleProps = {};
+
+export default function ArticleScreen({ route }) {
   const [article, setArticle] = useState(1);
 
   useEffect(() => {
@@ -169,6 +171,4 @@ const Article = ({ route }) => {
       {renderDescription()}
     </ScrollView>
   );
-};
-
-export default Article;
+}

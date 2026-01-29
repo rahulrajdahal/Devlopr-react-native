@@ -1,4 +1,4 @@
-import Article from "../articles/screens/Article";
+import Article from "../articles/screens/ArticleScreen";
 import AddPayment from "./AddPayment";
 import AddShipping from "./AddShipping";
 import Cart from "./Cart";

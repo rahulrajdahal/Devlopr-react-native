@@ -1,28 +1,14 @@
-import { createStackNavigator } from "@react-navigation/stack";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import ArticleScreen from "../articles/screens/ArticleScreen";
 import Notifications from "../notifications/screens/Notifications";
-import { Article, Challenge, Home } from "../screens";
+import { Challenge } from "../screens";
+import HomeScreen from "../screens/Home";
 
-const HomeStack = createStackNavigator();
-
-const HomeStackScreen = () => {
-  return (
-    <HomeStack.Navigator>
-      <HomeStack.Screen
-        name="Home"
-        component={Home}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <HomeStack.Screen name="Article" component={Article} />
-      <HomeStack.Screen name="Challenge" component={Challenge} />
-      <HomeStack.Screen
-        name="Notifications"
-        component={Notifications}
-        options={{ headerShown: false }}
-      />
-    </HomeStack.Navigator>
-  );
-};
-
-export default HomeStackScreen;
+export default createNativeStackNavigator({
+  screens: {
+    HomeScreen,
+    ArticleScreen,
+    Challenge,
+    Notifications,
+  },
+});
