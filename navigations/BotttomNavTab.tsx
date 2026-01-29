@@ -1,14 +1,34 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { COLORS } from "../constants";
 import { Bag, Compass, Home, Users } from "../constants/icons";
-
 import { Explore, Friends } from "../screens";
 import HomeStackScreen from "./HomeStackScreen";
 import StoreScreenStack from "./StoreStackScreen";
 
 const Tab = createBottomTabNavigator();
+//   {
+//   screenOptions: {
+//     headerShown: false,
+//     tabBarStyle: {
+//       maxHeight: 72,
+//       height: "10%",
+//       backgroundColor: COLORS.white,
+//       paddingTop: 8,
+//       paddingBottom: 34.67,
+//       paddingLeft: 15.33,
+//       paddingRight: 10.67,
+//       elevation: 0,
+//     },
+//   },
+//   screens: {
+//     HomeStackScreen,
+//     Explore,
+//     Friends,
+//     StoreScreenStack,
+//   },
+// }
 
-const BottomNavTab = () => {
+export default function BottomNavTab() {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -75,6 +95,4 @@ const BottomNavTab = () => {
       />
     </Tab.Navigator>
   );
-};
-
-export default BottomNavTab;
+}
