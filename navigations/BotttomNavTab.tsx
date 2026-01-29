@@ -5,7 +5,7 @@ import { Explore, Friends } from "../screens";
 import HomeStackScreen, { HomeStackParamList } from "./HomeStackScreen";
 import StoreScreenStack from "./StoreStackScreen";
 
-type TabParamList = {
+export type TabParamList = {
   Home: HomeStackParamList;
   Explore: undefined;
   Friends: undefined;

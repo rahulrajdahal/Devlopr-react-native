@@ -1,13 +1,22 @@
 import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
-import { Image, View } from "react-native";
+import { Image, Pressable, View } from "react-native";
 import { COLORS, icons, images } from "../constants";
 import { Notification } from "../constants/icons";
+import { HomeStackParamList } from "../navigations/HomeStackScreen";
 
-type NavbarProps = { isActive?: boolean };
+type NavbarProps = {
+  isActive?: boolean;
+};
+
+type NavbarNavigationProps = NativeStackNavigationProp<
+  HomeStackParamList,
+  "Home"
+>;
 
 const Navbar = ({ isActive = false }: NavbarProps) => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavbarNavigationProps>();
 
   return (
     <View
@@ -19,7 +28,9 @@ const Navbar = ({ isActive = false }: NavbarProps) => {
         marginTop: 40,
       }}
     >
-      <Image source={icons.category} />
+      <Pressable onPress={() => navigation.navigate("Home")}>
+        <Image source={icons.category} />
+      </Pressable>
       <View
         style={{
           display: "flex",
