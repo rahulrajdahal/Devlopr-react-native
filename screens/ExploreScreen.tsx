@@ -3,6 +3,7 @@ import { Image, Text, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { Navbar, ScreenContainer } from "../components";
 import { COLORS, FONTS, icons, images, SIZES } from "../constants";
+import Banner from "../explore/components/Banner";
 
 export default function ExploreScreen({ navigation }) {
   function renderPageTitleRow() {
@@ -329,7 +330,8 @@ export default function ExploreScreen({ navigation }) {
       {renderPageTitleRow()}
 
       {/* header*/}
-      {renderHeader()}
+      {/* {renderHeader()} */}
+      <Banner />
 
       {/* Top Topics By Category */}
       {renderTopPicks()}
