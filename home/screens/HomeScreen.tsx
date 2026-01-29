@@ -1,12 +1,11 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React from "react";
 import { Image, Text, View } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
-import ArticleCard, { Article } from "../articles/components/ArticleCard";
-import { Button, Navbar } from "../components";
-import { COLORS, FONTS, images, SIZES } from "../constants";
-import articles from "../data/articles";
-import { HomeStackParamList } from "../navigations/HomeStackScreen";
+import ArticleCard, { Article } from "../../articles/components/ArticleCard";
+import { Button, Navbar, ScreenContainer } from "../../components";
+import { COLORS, FONTS, images, SIZES } from "../../constants";
+import articles from "../../data/articles";
+import { HomeStackParamList } from "../../navigations/HomeStackScreen";
 
 type HomeScreenProps = NativeStackScreenProps<HomeStackParamList, "Home">;
 
@@ -54,7 +53,7 @@ export default function HomeScreen({ navigation }: Readonly<HomeScreenProps>) {
               marginBottom: 20,
             }}
           >
-            Win Exciting Prizes from our sponsers at Github, Gitlab, Icons8 and
+            Win Exciting Prizes from our sponsors at Github, Gitlab, Icons8 and
             AWS.
           </Text>
           <Button
@@ -108,7 +107,7 @@ export default function HomeScreen({ navigation }: Readonly<HomeScreenProps>) {
   }
 
   return (
-    <ScrollView
+    <ScreenContainer
       style={{
         display: "flex",
         flexDirection: "column",
@@ -136,6 +135,6 @@ export default function HomeScreen({ navigation }: Readonly<HomeScreenProps>) {
 
       {/* Top Posts */}
       {renderTopPosts()}
-    </ScrollView>
+    </ScreenContainer>
   );
 }

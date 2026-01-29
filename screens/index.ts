@@ -10,7 +10,7 @@ import ItemDetail from "./ItemDetail";
 import PayOptions from "./PayOptions";
 import Store from "./Store";
 
-export { default as HomeScreen } from "./HomeScreen";
+export { default as HomeScreen } from "../home/screens/HomeScreen";
 
 export {
   AddPayment,

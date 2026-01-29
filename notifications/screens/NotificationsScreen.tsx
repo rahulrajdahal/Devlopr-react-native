@@ -3,7 +3,7 @@ import { FlatList, Pressable, Text, ToastAndroid, View } from "react-native";
 import { Navbar, ScreenContainer } from "../../components";
 import { COLORS, FONTS, SIZES } from "../../constants";
 import defaultNotifications from "../../data/notifications";
-import { NotificationCard } from "../components";
+import { EmptyNotifications, NotificationCard } from "../components";
 
 type Notification = { _id: number; title: string; desc: string; time: string };
 
@@ -21,7 +21,7 @@ export default function NotificationsScreen() {
         style={{
           display: "flex",
           flexDirection: "row",
-          alignItems: "center",
+          alignItems: "baseline",
           justifyContent: "space-between",
           marginTop: SIZES.height * 0.02,
           marginBottom: SIZES.height * 0.024,
@@ -65,25 +65,8 @@ export default function NotificationsScreen() {
         data={notifications}
         renderItem={({ item }) => <NotificationCard {...item} />}
         keyExtractor={(notification) => notification._id.toString()}
+        ListEmptyComponent={<EmptyNotifications />}
       />
-
-      {/* {notifications.length ? (
-        <View
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            width: "90%",
-            marginTop: 24,
-          }}
-        >
-          {notifications.map((notification) => (
-            <NotificationCard key={notification._id} {...notification} />
-          ))}
-        </View>
-      ) : (
-        <EmptyNotifications />
-      )} */}
     </ScreenContainer>
   );
 }

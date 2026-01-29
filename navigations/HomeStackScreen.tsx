@@ -1,8 +1,8 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ArticleScreen from "../articles/screens/ArticleScreen";
+import HomeScreen from "../home/screens/HomeScreen";
 import NotificationsScreen from "../notifications/screens/NotificationsScreen";
 import { Challenge } from "../screens";
-import HomeScreen from "../screens/HomeScreen";
 
 export type HomeStackParamList = {
   Home: undefined;
