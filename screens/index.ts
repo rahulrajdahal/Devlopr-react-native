@@ -6,11 +6,14 @@ import Challenge from "./Challenge";
 import Checkout from "./Checkout";
 import Explore from "./Explore";
 import Friends from "./Friends";
-import Home from "./Home";
 import Invoice from "./Invoice";
 import ItemDetail from "./ItemDetail";
 import PayOptions from "./PayOptions";
 import Store from "./Store";
+
+
+export { default as HomeScreen } from './HomeScreen';
+
 export {
   AddPayment,
   AddShipping,
@@ -20,7 +23,6 @@ export {
   Checkout,
   Explore,
   Friends,
-  Home,
   Invoice,
   ItemDetail,
   PayOptions,

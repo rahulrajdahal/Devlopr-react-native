@@ -2,31 +2,17 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { COLORS } from "../constants";
 import { Bag, Compass, Home, Users } from "../constants/icons";
 import { Explore, Friends } from "../screens";
-import HomeStackScreen from "./HomeStackScreen";
+import HomeStackScreen, { HomeStackParamList } from "./HomeStackScreen";
 import StoreScreenStack from "./StoreStackScreen";
 
-const Tab = createBottomTabNavigator();
-//   {
-//   screenOptions: {
-//     headerShown: false,
-//     tabBarStyle: {
-//       maxHeight: 72,
-//       height: "10%",
-//       backgroundColor: COLORS.white,
-//       paddingTop: 8,
-//       paddingBottom: 34.67,
-//       paddingLeft: 15.33,
-//       paddingRight: 10.67,
-//       elevation: 0,
-//     },
-//   },
-//   screens: {
-//     HomeStackScreen,
-//     Explore,
-//     Friends,
-//     StoreScreenStack,
-//   },
-// }
+type TabParamList = {
+  Home: HomeStackParamList;
+  Explore: undefined;
+  Friends: undefined;
+  Store: undefined;
+};
+
+const Tab = createBottomTabNavigator<TabParamList>();
 
 export default function BottomNavTab() {
   return (
@@ -46,7 +32,7 @@ export default function BottomNavTab() {
       }}
     >
       <Tab.Screen
-        name="HomeStackScreen"
+        name="Home"
         component={HomeStackScreen}
         options={{
           tabBarLabel: "",
@@ -82,7 +68,7 @@ export default function BottomNavTab() {
         }}
       />
       <Tab.Screen
-        name="StoreStackScreen"
+        name="Store"
         component={StoreScreenStack}
         options={{
           tabBarLabel: "",

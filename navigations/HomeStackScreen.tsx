@@ -1,9 +1,16 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import ArticleScreen from "../articles/screens/ArticleScreen";
 import Notifications from "../notifications/screens/Notifications";
-import { Article, Challenge } from "../screens";
-import HomeScreen from "../screens/Home";
+import { Challenge } from "../screens";
+import HomeScreen from "../screens/HomeScreen";
 
-const HomeStack = createNativeStackNavigator();
+export type HomeStackParamList = {
+  Home: undefined;
+  Article: { articleId: number };
+  Challenge: undefined;
+  Notifications: undefined;
+};
+const HomeStack = createNativeStackNavigator<HomeStackParamList>();
 
 export default function HomeStackScreen() {
   return (
@@ -15,7 +22,7 @@ export default function HomeStackScreen() {
           headerShown: false,
         }}
       />
-      <HomeStack.Screen name="Article" component={Article} />
+      <HomeStack.Screen name="Article" component={ArticleScreen} />
       <HomeStack.Screen name="Challenge" component={Challenge} />
       <HomeStack.Screen
         name="Notifications"
