@@ -1,10 +1,10 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
-import { FlatList, ScrollView } from "react-native-gesture-handler";
-import { Navbar } from "../components";
+import { Image, Text, View } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
+import { Navbar, ScreenContainer } from "../components";
 import { COLORS, FONTS, icons, images, SIZES } from "../constants";
 
-const Explore = ({ navigation }) => {
+export default function ExploreScreen({ navigation }) {
   function renderPageTitleRow() {
     return (
       <View
@@ -278,7 +278,7 @@ const Explore = ({ navigation }) => {
             >
               <Image
                 source={icons.github}
-                width="13"
+                width={13}
                 style={{ alignSelf: "center" }}
               />
             </View>
@@ -294,7 +294,7 @@ const Explore = ({ navigation }) => {
             >
               <Image
                 source={icons.google}
-                width="13"
+                width={13}
                 style={{ alignSelf: "center" }}
               />
             </View>
@@ -321,16 +321,7 @@ const Explore = ({ navigation }) => {
   }
 
   return (
-    <ScrollView
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        paddingHorizontal: 24,
-        backgroundColor: COLORS.white,
-        width: "100%",
-        height: "100%",
-      }}
-    >
+    <ScreenContainer>
       {/* Navbar */}
       <Navbar />
 
@@ -345,8 +336,6 @@ const Explore = ({ navigation }) => {
 
       {/* Top Developers */}
       {renderTopDevelopers()}
-    </ScrollView>
+    </ScreenContainer>
   );
-};
-
-export default Explore;
+}

@@ -1,7 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { COLORS } from "../constants";
 import { Bag, Compass, Home, Users } from "../constants/icons";
-import { Explore, Friends } from "../screens";
+import { Friends } from "../screens";
+import ExploreScreen from "../screens/ExploreScreen";
 import HomeStackScreen, { HomeStackParamList } from "./HomeStackScreen";
 import StoreScreenStack from "./StoreStackScreen";
 
@@ -45,7 +46,7 @@ export default function BottomNavTab() {
       />
       <Tab.Screen
         name="Explore"
-        component={Explore}
+        component={ExploreScreen}
         options={{
           tabBarLabel: "",
           tabBarIcon: ({ focused }) => (

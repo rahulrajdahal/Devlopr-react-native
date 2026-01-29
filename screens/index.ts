@@ -3,7 +3,6 @@ import AddPayment from "./AddPayment";
 import AddShipping from "./AddShipping";
 import Cart from "./Cart";
 import Checkout from "./Checkout";
-import Explore from "./Explore";
 import Friends from "./Friends";
 import Invoice from "./Invoice";
 import ItemDetail from "./ItemDetail";
@@ -16,7 +15,6 @@ export {
   Cart,
   Challenge,
   Checkout,
-  Explore,
   Friends,
   Invoice,
   ItemDetail,
