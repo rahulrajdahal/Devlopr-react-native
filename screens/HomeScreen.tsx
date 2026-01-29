@@ -1,4 +1,4 @@
-import { useNavigation } from "@react-navigation/native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React from "react";
 import { Image, Text, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
@@ -6,10 +6,11 @@ import ArticleCard, { Article } from "../articles/components/ArticleCard";
 import { Button, Navbar } from "../components";
 import { COLORS, FONTS, images, SIZES } from "../constants";
 import articles from "../data/articles";
+import { HomeStackParamList } from "../navigations/HomeStackScreen";
 
-export default function HomeScreen() {
-  const navigation = useNavigation();
+type HomeScreenProps = NativeStackScreenProps<HomeStackParamList, "Home">;
 
+export default function HomeScreen({ navigation }: Readonly<HomeScreenProps>) {
   function renderChallengeBoard() {
     return (
       <View
@@ -97,7 +98,9 @@ export default function HomeScreen() {
           <ArticleCard
             key={article._id}
             article={article}
-            onPress={() => navigation.navigate("Article", { article: post })}
+            onPress={() =>
+              navigation.navigate("Article", { articleId: article._id })
+            }
           />
         ))}
       </View>

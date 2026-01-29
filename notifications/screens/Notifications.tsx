@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Pressable, Text, ToastAndroid, View } from "react-native";
-import { ScreenContainer } from "../../components";
-import { COLORS, FONTS } from "../../constants";
+import { Navbar, ScreenContainer } from "../../components";
+import { COLORS, FONTS, SIZES } from "../../constants";
 import { EmptyNotifications, NotificationCard } from "../components";
 
 const Notifications = () => {
@@ -45,6 +45,7 @@ const Notifications = () => {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
+          marginTop: SIZES.width * 0.1,
         }}
       >
         <Text
@@ -76,37 +77,29 @@ const Notifications = () => {
 
   return (
     <ScreenContainer>
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          paddingHorizontal: 20,
-          backgroundColor: COLORS.white,
-          width: "100%",
-          height: "100%",
-        }}
-      >
-        {/* Page Title And Settings */}
-        {renderPageTitleRow()}
+      
+      <Navbar isActive={true} />
 
-        {notifications.length ? (
-          <View
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              width: "90%",
-              marginTop: 24,
-            }}
-          >
-            {notifications.map((notification) => (
-              <NotificationCard key={notification._id} {...notification} />
-            ))}
-          </View>
-        ) : (
-          <EmptyNotifications />
-        )}
-      </View>
+      {/* Page Title And Settings */}
+      {renderPageTitleRow()}
+
+      {notifications.length ? (
+        <View
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            width: "90%",
+            marginTop: 24,
+          }}
+        >
+          {notifications.map((notification) => (
+            <NotificationCard key={notification._id} {...notification} />
+          ))}
+        </View>
+      ) : (
+        <EmptyNotifications />
+      )}
     </ScreenContainer>
   );
 };
