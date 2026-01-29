@@ -1,16 +1,15 @@
 import { Image, Text, View } from "react-native";
-import { SmallButton } from "../components";
-import { COLORS, FONTS, icons, images, SIZES } from "../constants";
+import { SmallButton } from "../../components";
+import { COLORS, FONTS, icons, images, SIZES } from "../../constants";
+import { screenWidth } from "../../constants/theme";
 
-const Challenge = () => {
+export default function ChallengeScreen() {
   function renderTitle() {
     return (
       <Text
         style={{
-          maxWidth: 215,
+          maxWidth: screenWidth(215),
           width: "100%",
-          maxHeight: 48,
-          height: "100%",
           color: COLORS.primary_text,
           marginTop: 24,
           ...FONTS.h1,
@@ -201,6 +200,4 @@ const Challenge = () => {
       {renderChallengeBoard()}
     </View>
   );
-};
-
-export default Challenge;
+}

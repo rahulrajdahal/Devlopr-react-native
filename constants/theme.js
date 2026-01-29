@@ -1,6 +1,12 @@
 import { Dimensions } from "react-native";
 const { width, height } = Dimensions.get("window");
 
+const FRAME_WIDTH = 375;
+const FRAME_HEIGHT = 760;
+
+export const screenWidth = (width) => (width * SIZES.width) / FRAME_WIDTH;
+export const screenHeight = (height) => (height * SIZES.height) / FRAME_HEIGHT;
+
 export const COLORS = {
   // base colors
   primary: "#466DE8",
