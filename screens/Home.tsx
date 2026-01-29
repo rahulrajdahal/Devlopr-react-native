@@ -15,7 +15,6 @@ export default function HomeScreen() {
       <View
         style={{
           marginTop: 34.67,
-          width: 327,
           width: "100%",
           height: 210,
           backgroundColor: COLORS.Light05,
