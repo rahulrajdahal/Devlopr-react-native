@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { Pressable, Text, ToastAndroid, View } from "react-native";
+import { FlatList, Pressable, Text, ToastAndroid, View } from "react-native";
 import { Navbar, ScreenContainer } from "../../components";
 import { COLORS, FONTS, SIZES } from "../../constants";
 import defaultNotifications from "../../data/notifications";
-import { EmptyNotifications, NotificationCard } from "../components";
+import { NotificationCard } from "../components";
 
-const Notifications = () => {
+type Notification = { _id: number; title: string; desc: string; time: string };
+
+export default function NotificationsScreen() {
   const [notifications, setNotifications] = useState(defaultNotifications);
 
   const handleClearAll = () => {
@@ -21,7 +23,8 @@ const Notifications = () => {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
-          marginTop: SIZES.width * 0.1,
+          marginTop: SIZES.height * 0.02,
+          marginBottom: SIZES.height * 0.024,
         }}
       >
         <Text
@@ -58,7 +61,13 @@ const Notifications = () => {
       {/* Page Title And Settings */}
       {renderPageTitleRow()}
 
-      {notifications.length ? (
+      <FlatList
+        data={notifications}
+        renderItem={({ item }) => <NotificationCard {...item} />}
+        keyExtractor={(notification) => notification._id.toString()}
+      />
+
+      {/* {notifications.length ? (
         <View
           style={{
             display: "flex",
@@ -74,9 +83,7 @@ const Notifications = () => {
         </View>
       ) : (
         <EmptyNotifications />
-      )}
+      )} */}
     </ScreenContainer>
   );
-};
-
-export default Notifications;
+}

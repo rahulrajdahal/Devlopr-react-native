@@ -1,4 +1,3 @@
-import Article from "../articles/screens/ArticleScreen";
 import AddPayment from "./AddPayment";
 import AddShipping from "./AddShipping";
 import Cart from "./Cart";
@@ -11,13 +10,11 @@ import ItemDetail from "./ItemDetail";
 import PayOptions from "./PayOptions";
 import Store from "./Store";
 
-
-export { default as HomeScreen } from './HomeScreen';
+export { default as HomeScreen } from "./HomeScreen";
 
 export {
   AddPayment,
   AddShipping,
-  Article,
   Cart,
   Challenge,
   Checkout,

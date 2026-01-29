@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ArticleScreen from "../articles/screens/ArticleScreen";
-import Notifications from "../notifications/screens/Notifications";
+import NotificationsScreen from "../notifications/screens/NotificationsScreen";
 import { Challenge } from "../screens";
 import HomeScreen from "../screens/HomeScreen";
 
@@ -26,7 +26,7 @@ export default function HomeStackScreen() {
       <HomeStack.Screen name="Challenge" component={Challenge} />
       <HomeStack.Screen
         name="Notifications"
-        component={Notifications}
+        component={NotificationsScreen}
         options={{ headerShown: false }}
       />
     </HomeStack.Navigator>
