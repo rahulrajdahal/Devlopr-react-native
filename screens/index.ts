@@ -1,6 +1,6 @@
+import Article from "../articles/screens/Article";
 import AddPayment from "./AddPayment";
 import AddShipping from "./AddShipping";
-import Article from "./Article";
 import Cart from "./Cart";
 import Challenge from "./Challenge";
 import Checkout from "./Checkout";

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { COLORS, FONTS, icons, SIZES } from "../constants";
+import { COLORS, FONTS, icons, SIZES } from "../../constants";
 
 const Article = ({ route }) => {
   const [article, setArticle] = useState(1);
