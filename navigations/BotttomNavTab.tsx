@@ -10,7 +10,7 @@ export type TabParamList = {
   HomeStackScreen: HomeStackParamList;
   Explore: undefined;
   Friends: undefined;
-  Store: undefined;
+  StoreStackScreen: undefined;
 };
 
 const Tab = createBottomTabNavigator<TabParamList>();
@@ -69,7 +69,7 @@ export default function BottomNavTab() {
         }}
       />
       <Tab.Screen
-        name="Store"
+        name="StoreStackScreen"
         component={StoreScreenStack}
         options={{
           tabBarLabel: "",

@@ -1,6 +1,6 @@
 import BottomNavTab from "../navigations/BotttomNavTab";
 import NotificationCard from "../notifications/components/NotificationCard";
-import StoreCard from "../store/components/StoreCard";
+import StoreCard from "../store/components/ItemCard";
 import AddNewButton from "./AddNewButton";
 import AppCheckBox from "./AppCheckBox";
 import IconCard from "./IconCard";

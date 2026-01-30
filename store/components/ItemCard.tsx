@@ -9,6 +9,7 @@ import {
   View,
 } from "react-native";
 import { COLORS, FONTS, icons, SIZES } from "../../constants";
+import { screenHeight, screenWidth } from "../../constants/theme";
 
 type ItemCardProps = PressableProps & {
   image: ImageSourcePropType;
@@ -31,16 +32,12 @@ export default function ItemCard({
         <Image source={icons.love} style={{ alignSelf: "center" }} />
       </Pressable>
 
-      {/* <View
+      <Image
+        source={image}
         style={{
-          width: "100%",
-          height: "100%",
-          alignItems: "center",
-          justifyContent: "center",
+          objectFit: "contain",
         }}
-      > */}
-      <Image source={image} style={styles.image} />
-      {/* </View> */}
+      />
 
       <View style={styles.bottomContainer}>
         <View style={styles.productInfoContainer}>
@@ -58,27 +55,24 @@ export default function ItemCard({
 
 const styles = StyleSheet.create({
   container: {
-    minWidth: 164,
-    width: "100%",
-    maxHeight: 164,
-    height: "100%",
+    minWidth: screenWidth(164),
+    minHeight: screenHeight(164),
     borderWidth: 1,
     borderColor: COLORS.Light05,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    flex: 1,
     justifyContent: "space-between",
   },
   loveButton: {
-    width: 20,
-    height: 20,
+    width: screenWidth(20),
+    height: screenWidth(20),
     backgroundColor: COLORS.Light05,
     borderRadius: SIZES.borderRadius,
-    padding: 6.25,
+    padding: screenWidth(6.25),
     position: "absolute",
-    top: 10,
-    right: 10,
+    top: screenHeight(10),
+    right: screenWidth(10),
   },
   bottomContainer: {
     display: "flex",
@@ -86,9 +80,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     position: "absolute",
-    right: 12,
-    left: 12,
-    bottom: 12,
+    right: 0,
+    left: screenWidth(12),
+    bottom: screenHeight(12),
   },
   productInfoContainer: {
     display: "flex",
@@ -116,12 +110,6 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     width: 32,
     height: 32,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  image: {
-    width: "100%",
-    height: "100%",
     alignItems: "center",
     justifyContent: "center",
   },
