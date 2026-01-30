@@ -1,8 +1,7 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React from "react";
-import { Text } from "react-native";
 import { Navbar, ScreenContainer } from "../../components";
-import { COLORS, FONTS } from "../../constants";
+import { COLORS } from "../../constants";
 import { HomeStackParamList } from "../../navigations/HomeStackScreen";
 import ChallengeBoard from "../components/ChallengeBoard";
 import TopPosts from "../components/TopPosts";
@@ -22,20 +21,7 @@ export default function HomeScreen({ navigation }: Readonly<HomeScreenProps>) {
       }}
     >
       <Navbar />
-
       <ChallengeBoard />
-
-      <Text
-        style={{
-          marginTop: 32,
-          color: COLORS.dark02,
-          ...FONTS.h3,
-          fontWeight: "500",
-        }}
-      >
-        Top This Week
-      </Text>
-
       <TopPosts />
     </ScreenContainer>
   );
