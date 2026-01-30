@@ -2,42 +2,16 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React from "react";
 import { Image, Text, View } from "react-native";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
-import { StoreCard } from "../../components";
+import { Navbar, StoreCard } from "../../components";
 import { COLORS, FONTS, icons, images, SIZES } from "../../constants";
 import { StoreStackParamList } from "../../navigations/StoreStackScreen";
+import Banner from "../components/Banner";
 
 type StoreScreenProps = NativeStackScreenProps<StoreStackParamList, "Store">;
 
 export default function StoreScreen({
   navigation,
 }: Readonly<StoreScreenProps>) {
-  function renderNavbar() {
-    return (
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginTop: 40,
-        }}
-      >
-        <Image source={icons.category} />
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <Image source={icons.notification} style={{ marginRight: 27.5 }} />
-          <Image source={images.profile} />
-        </View>
-      </View>
-    );
-  }
-
   function renderPageTitleRow() {
     return (
       <View
@@ -337,14 +311,14 @@ export default function StoreScreen({
         height: "100%",
       }}
     >
-      {/* Navbar */}
-      {renderNavbar()}
+      <Navbar />
 
       {/* Page Title And Settings */}
       {renderPageTitleRow()}
 
       {/* Header */}
-      {renderHeader()}
+      {/* {renderHeader()} */}
+      <Banner />
 
       <View style={{ marginTop: 32 }}>
         {/* Shop Items */}
