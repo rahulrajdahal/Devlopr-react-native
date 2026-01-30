@@ -316,8 +316,6 @@ export default function StoreScreen({
       {/* Page Title And Settings */}
       {renderPageTitleRow()}
 
-      {/* Header */}
-      {/* {renderHeader()} */}
       <Banner />
 
       <View style={{ marginTop: 32 }}>
