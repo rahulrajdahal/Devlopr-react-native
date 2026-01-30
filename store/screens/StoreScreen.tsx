@@ -1,6 +1,6 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React from "react";
-import { Image, Text, View } from "react-native";
+import { Image, ScrollView, Text, View } from "react-native";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import { Navbar, StoreCard } from "../../components";
 import { COLORS, FONTS, icons, images, SIZES } from "../../constants";
@@ -301,7 +301,7 @@ export default function StoreScreen({
   }
 
   return (
-    <View
+    <ScrollView
       style={{
         display: "flex",
         flexDirection: "column",
@@ -325,6 +325,6 @@ export default function StoreScreen({
 
       {/* Cart Button*/}
       {renderCartButton()}
-    </View>
+    </ScrollView>
   );
 }
