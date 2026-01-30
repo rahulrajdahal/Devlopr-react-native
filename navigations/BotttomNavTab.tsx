@@ -7,7 +7,7 @@ import HomeStackScreen, { HomeStackParamList } from "./HomeStackScreen";
 import StoreScreenStack from "./StoreStackScreen";
 
 export type TabParamList = {
-  Home: HomeStackParamList;
+  HomeStackScreen: HomeStackParamList;
   Explore: undefined;
   Friends: undefined;
   Store: undefined;
@@ -33,7 +33,7 @@ export default function BottomNavTab() {
       }}
     >
       <Tab.Screen
-        name="Home"
+        name="HomeStackScreen"
         component={HomeStackScreen}
         options={{
           tabBarLabel: "",

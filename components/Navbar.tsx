@@ -28,7 +28,9 @@ const Navbar = ({ isActive = false }: NavbarProps) => {
         marginTop: 40,
       }}
     >
-      <Pressable onPress={() => navigation.navigate("Home")}>
+      <Pressable
+       onPress={() => navigation.navigate("Home")}
+       >
         <Image source={icons.category} />
       </Pressable>
       <View

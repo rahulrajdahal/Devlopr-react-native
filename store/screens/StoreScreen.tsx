@@ -1,10 +1,16 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React from "react";
-import { Text, Image, View } from "react-native";
+import { Image, Text, View } from "react-native";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
-import { StoreCard } from "../components";
-import { COLORS, FONTS, images, icons, SIZES } from "../constants";
+import { StoreCard } from "../../components";
+import { COLORS, FONTS, icons, images, SIZES } from "../../constants";
+import { StoreStackParamList } from "../../navigations/StoreStackScreen";
 
-const Store = ({ navigation }) => {
+type StoreScreenProps = NativeStackScreenProps<StoreStackParamList, "Store">;
+
+export default function StoreScreen({
+  navigation,
+}: Readonly<StoreScreenProps>) {
   function renderNavbar() {
     return (
       <View
@@ -187,8 +193,7 @@ const Store = ({ navigation }) => {
         name: "Astra Chair",
         image: images.gaming_chair,
         price: 79.99,
-        desc:
-          "The comfy Astra Chair by Ace Electronics is the best ergonomic chair to suit your needs. The chair is surrounded by a pure leather finish, the chair boasts a lot of features.",
+        desc: "The comfy Astra Chair by Ace Electronics is the best ergonomic chair to suit your needs. The chair is surrounded by a pure leather finish, the chair boasts a lot of features.",
         bullets: [
           { _id: 1, desc: "Ergonomic Design" },
           { _id: 2, desc: "Pure Leather Finish" },
@@ -200,8 +205,7 @@ const Store = ({ navigation }) => {
         name: "Github Shirt",
         image: images.github_shirt,
         price: 9.99,
-        desc:
-          "The comfy Astra Chair by Ace Electronics is the best ergonomic chair to suit your needs. The chair is surrounded by a pure leather finish, the chair boasts a lot of features.",
+        desc: "The comfy Astra Chair by Ace Electronics is the best ergonomic chair to suit your needs. The chair is surrounded by a pure leather finish, the chair boasts a lot of features.",
         bullets: [
           { _id: 1, desc: "Ergonomic Design" },
           { _id: 2, desc: "Pure Leather Finish" },
@@ -213,8 +217,7 @@ const Store = ({ navigation }) => {
         name: "Coffee Mug",
         image: images.coffee_mug,
         price: 2.99,
-        desc:
-          "The comfy Astra Chair by Ace Electronics is the best ergonomic chair to suit your needs. The chair is surrounded by a pure leather finish, the chair boasts a lot of features.",
+        desc: "The comfy Astra Chair by Ace Electronics is the best ergonomic chair to suit your needs. The chair is surrounded by a pure leather finish, the chair boasts a lot of features.",
         bullets: [
           { _id: 1, desc: "Ergonomic Design" },
           { _id: 2, desc: "Pure Leather Finish" },
@@ -226,8 +229,7 @@ const Store = ({ navigation }) => {
         name: "Octocat Figurine",
         image: images.ocotocat_figurine,
         price: 6.45,
-        desc:
-          "The comfy Astra Chair by Ace Electronics is the best ergonomic chair to suit your needs. The chair is surrounded by a pure leather finish, the chair boasts a lot of features.",
+        desc: "The comfy Astra Chair by Ace Electronics is the best ergonomic chair to suit your needs. The chair is surrounded by a pure leather finish, the chair boasts a lot of features.",
         bullets: [
           { _id: 1, desc: "Ergonomic Design" },
           { _id: 2, desc: "Pure Leather Finish" },
@@ -353,6 +355,4 @@ const Store = ({ navigation }) => {
       {renderCartButton()}
     </View>
   );
-};
-
-export default Store;
+}

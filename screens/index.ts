@@ -7,7 +7,6 @@ import Friends from "./Friends";
 import Invoice from "./Invoice";
 import ItemDetail from "./ItemDetail";
 import PayOptions from "./PayOptions";
-import Store from "./Store";
 
 export {
   AddPayment,
@@ -18,7 +17,6 @@ export {
   Friends,
   Invoice,
   ItemDetail,
-  PayOptions,
-  Store
+  PayOptions
 };
 
