@@ -1,8 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { COLORS } from "../constants";
 import { Bag, Compass, Home, Users } from "../constants/icons";
+import ExploreScreen from "../explore/screens/ExploreScreen";
 import { Friends } from "../screens";
-import ExploreScreen from "../screens/ExploreScreen";
 import HomeStackScreen, { HomeStackParamList } from "./HomeStackScreen";
 import StoreScreenStack from "./StoreStackScreen";
 
