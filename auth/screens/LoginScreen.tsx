@@ -1,8 +1,9 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, Text, View } from "react-native";
-import { ScreenContainer, SmallButton } from "../../components";
+import { Button, ScreenContainer } from "../../components";
 import { COLORS, FONTS, SIZES, icons, images } from "../../constants";
+import { screenHeight, screenWidth } from "../../constants/theme";
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -68,20 +69,31 @@ const LoginScreen = () => {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
-          marginTop: 108,
-          marginBottom: 60,
+          gap: screenWidth(12),
+          marginTop: screenHeight(108),
+          marginBottom: screenHeight(60),
         }}
       >
-        <SmallButton
-          bgcolor={COLORS.Light05}
-          textColor={COLORS.dark02}
+        <Button
           text="Google"
-          icon={icons.google}
+          style={{
+            width: SIZES.width / 2 - 30,
+            backgroundColor: COLORS.Light05,
+          }}
+          textProps={{ style: { color: COLORS.dark02 } }}
           onPress={() => navigation.navigate("SelectScreen")}
+          icon={icons.google}
         />
-        <SmallButton
-          bgcolor={COLORS.Light05}
-          textColor={COLORS.dark02}
+        <Button
+          style={{
+            width: SIZES.width / 2 - 30,
+            backgroundColor: COLORS.Light05,
+          }}
+          textProps={{
+            style: {
+              color: COLORS.dark02,
+            },
+          }}
           text="Github"
           icon={icons.github}
           onPress={() => console.log("New Button")}

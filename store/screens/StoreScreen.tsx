@@ -1,12 +1,6 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React from "react";
-import {
-  FlatList,
-  Image,
-  ScrollView,
-  Text,
-  View
-} from "react-native";
+import { FlatList, Image, ScrollView, Text, View } from "react-native";
 import { Navbar } from "../../components";
 import { COLORS, FONTS, icons } from "../../constants";
 import products from "../../data/products";
@@ -119,7 +113,7 @@ export default function StoreScreen({
         />
       </View>
 
-<CartButton/>
+      <CartButton />
     </ScrollView>
   );
 }
