@@ -1,47 +1,31 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, Image } from "react-native";
-import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
-import { SmallButton } from "../components";
-import { COLORS, FONTS, icons, images, SIZES } from "../constants";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import React, { useMemo, useState } from "react";
+import { Image, PressableProps, Text, View } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { Navbar } from "../../components";
+import { COLORS, FONTS, icons, SIZES } from "../../constants";
+import products from "../../data/products";
+import { StoreStackParamList } from "../../navigations/StoreStackScreen";
 
-const ItemDetail = ({ route, onPress, navigation }) => {
+type ProductDetailProps = NativeStackScreenProps<
+  StoreStackParamList,
+  "ItemDetail"
+> &
+  PressableProps;
+
+export default function ProductDetail({
+  route,
+  navigation,
+}: ProductDetailProps) {
   const [addToCart, setAddToCart] = useState(false);
 
-  const [item, setItem] = useState(1);
+  const {
+    params: { itemId },
+  } = route;
 
-  useEffect(() => {
-    let { item } = route.params;
-    setItem(item);
-  }, [item]);
-
-  const { bullets } = item;
-
-  function renderNavbar() {
-    return (
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginTop: 40,
-        }}
-      >
-        <Image source={icons.category} />
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <Image source={icons.notification} style={{ marginRight: 27.5 }} />
-          <Image source={images.profile} />
-        </View>
-      </View>
-    );
-  }
+  const product = useMemo(() => {
+    return products.find((product) => product._id === itemId);
+  }, [itemId]);
 
   function renderImage() {
     return (
@@ -58,7 +42,7 @@ const ItemDetail = ({ route, onPress, navigation }) => {
         }}
       >
         <Image
-          source={item.image}
+          source={product.image}
           style={{
             resizeMode: "contain",
             width: 200,
@@ -80,7 +64,7 @@ const ItemDetail = ({ route, onPress, navigation }) => {
             lineHeight: 32,
           }}
         >
-          {item.name}
+          {product.name}
         </Text>
         <Text
           style={{
@@ -247,22 +231,20 @@ const ItemDetail = ({ route, onPress, navigation }) => {
         height: "100%",
       }}
     >
-      {/* Navbar */}
-      {renderNavbar()}
+      <Navbar />
+
       {/* Product Image  */}
-      {renderImage()}
+      {/* {renderImage()} */}
       {/* Product Name And Price */}
-      {renderNameAndPrice()}
+      {/* {renderNameAndPrice()} */}
       {/* Product Description And Bullets */}
-      {renderDescription()}
+      {/* {renderDescription()} */}
 
       {/* Add To Card Button */}
-      {renderAddToCartButton()}
+      {/* {renderAddToCartButton()} */}
 
       {/* Cart Button*/}
-      {renderCartButton()}
+      {/* {renderCartButton()} */}
     </View>
   );
-};
-
-export default ItemDetail;
+}
