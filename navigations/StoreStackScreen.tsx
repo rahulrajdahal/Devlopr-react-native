@@ -5,14 +5,14 @@ import {
   Cart,
   Checkout,
   Invoice,
-  ItemDetail,
   PayOptions
 } from "../screens";
+import ProductDetailScreen from "../store/screens/ProductDetailScreen";
 import StoreScreen from "../store/screens/StoreScreen";
 
 export type StoreStackParamList = {
   Store: undefined;
-  ItemDetail: { itemId: number };
+  ProductDetail: { productId: number };
   Cart: undefined;
   Checkout: undefined;
   AddShipping: undefined;
@@ -26,7 +26,7 @@ const StoreScreenStack = () => {
   return (
     <StoreStack.Navigator screenOptions={{ headerShown: false }}>
       <StoreStack.Screen name="Store" component={StoreScreen} />
-      <StoreStack.Screen name="ItemDetail" component={ItemDetail} />
+      <StoreStack.Screen name="ProductDetail" component={ProductDetailScreen} />
       <StoreStack.Screen name="Cart" component={Cart} />
       <StoreStack.Screen name="Checkout" component={Checkout} />
       <StoreStack.Screen name="AddShipping" component={AddShipping} />

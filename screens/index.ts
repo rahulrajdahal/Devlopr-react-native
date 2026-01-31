@@ -1,5 +1,4 @@
 import Challenge from "../home/screens/ChallengeScreen";
-import ItemDetail from "../store/screens/ItemDetail";
 import AddPayment from "./AddPayment";
 import AddShipping from "./AddShipping";
 import Cart from "./Cart";
@@ -16,7 +15,6 @@ export {
   Checkout,
   Friends,
   Invoice,
-  ItemDetail,
   PayOptions
 };
 

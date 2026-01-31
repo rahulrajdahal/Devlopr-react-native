@@ -105,7 +105,7 @@ export default function StoreScreen({
             <ItemCard
               {...item}
               onPress={() =>
-                navigation.navigate("ItemDetail", { itemId: item._id })
+                navigation.navigate("ProductDetail", { productId: item._id })
               }
             />
           )}
