@@ -13,6 +13,7 @@ import ShippingAddressCard from "./ShippingAddressCard";
 import SmallButton from "./SmallButton";
 import TopCard from "./TopCard";
 
+export { default as NotFound } from "./NotFound";
 export { default as ScreenContainer } from "./ScreenContainer";
 export * from "./ui";
 
