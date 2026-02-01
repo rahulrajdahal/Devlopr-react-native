@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { CircleImage, ScreenContainer } from "../../components";
+import { Button, CircleImage, ScreenContainer } from "../../components";
 import { COLORS, FONTS, images } from "../../constants";
-import { ArrowRight, Coupon } from "../../constants/icons";
+import { ArrowRight } from "../../constants/icons";
 import { screenHeight, screenWidth } from "../../constants/theme";
 import { StoreStackParamList } from "../../navigations/StoreStackScreen";
 import CartItems from "../components/CartItems";
+import CouponCodeInput from "../components/CouponCodeInput";
 
 type CartScreenProps = NativeStackScreenProps<StoreStackParamList, "Cart">;
 
@@ -25,11 +26,10 @@ export default function CartScreen({ navigation }: Readonly<CartScreenProps>) {
 
         <View
           style={{
-            display: "flex",
             flexDirection: "row",
             alignItems: "center",
-            marginBottom: 24,
-            marginTop: 24,
+            marginVertical: screenHeight(24),
+            gap: screenWidth(20),
           }}
         >
           <CircleImage
@@ -40,11 +40,8 @@ export default function CartScreen({ navigation }: Readonly<CartScreenProps>) {
           />
           <View
             style={{
-              display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",
-              marginLeft: 20,
-              marginRight: 52,
             }}
           >
             <Text
@@ -80,62 +77,22 @@ export default function CartScreen({ navigation }: Readonly<CartScreenProps>) {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
-          marginTop: 32,
+          marginTop: screenHeight(32),
         }}
       >
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-            backgroundColor: COLORS.Light04,
-            maxWidth: 219,
-            width: "100%",
-            maxHeight: 48,
-            height: "100%",
-            borderRadius: 10,
-            paddingVertical: 17,
-            paddingLeft: 20,
-          }}
-        >
-          <Coupon width="11.67" height="10.5" />
-          <TextInput
-            placeholder="Discount Coupon"
-            onChangeText={(discount) => setDiscount(discount)}
-            defaultValue={discount}
-            style={{
-              marginLeft: 9.17,
-              width: "100%",
-              color: COLORS.dark02,
-              ...FONTS.body2,
-              fontWeight: "normal",
-            }}
-          />
-        </View>
-        <View
+        <CouponCodeInput />
+        <Button
+          text="Apply"
           style={{
             backgroundColor: "rgba(70, 109, 232, 0.2)",
-            minWidth: 96,
-            minHeight: 48,
-            borderRadius: 10,
-            paddingHorizontal: 30,
-            paddingVertical: 17,
-            alignItems: "center",
-            justifyContent: "center",
+            borderRadius: screenWidth(10),
+            paddingHorizontal: screenWidth(32),
+            paddingVertical: screenHeight(16),
           }}
-        >
-          <Text
-            style={{
-              alignSelf: "center",
-              ...FONTS.body2,
-              fontWeight: "500",
-              color: COLORS.primary,
-            }}
-          >
-            Apply
-          </Text>
-        </View>
+          textProps={{
+            style: { fontWeight: "500", color: COLORS.primary, ...FONTS.body2 },
+          }}
+        />
       </View>
     );
   }
