@@ -1,6 +1,6 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { useMemo, useState } from "react";
-import { Image, PressableProps, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import { Button, Navbar, NotFound, ScreenContainer } from "../../components";
 import { COLORS, icons } from "../../constants";
 import { FONTS, screenHeight, screenWidth } from "../../constants/theme";
@@ -12,13 +12,9 @@ import CartButton from "../components/CartButton";
 type ProductDetailProps = NativeStackScreenProps<
   StoreStackParamList,
   "ProductDetail"
-> &
-  PressableProps;
+>;
 
-export default function ProductDetailScreen({
-  route,
-  navigation,
-}: ProductDetailProps) {
+export default function ProductDetailScreen({ route }: Readonly<ProductDetailProps>) {
   const [addToCart, setAddToCart] = useState(false);
 
   const {
