@@ -6,6 +6,7 @@ import { COLORS, icons } from "../../constants";
 import { FONTS, screenHeight, screenWidth } from "../../constants/theme";
 import products from "../../data/products";
 import { StoreStackParamList } from "../../navigations/StoreStackScreen";
+import Bullet from "../components/Bullet";
 import CartButton from "../components/CartButton";
 
 type ProductDetailProps = NativeStackScreenProps<
@@ -40,34 +41,17 @@ export default function ProductDetailScreen({
         <Image source={product.image} style={styles.image} />
       </View>
 
-      <View style={{ marginTop: 20, display: "flex", flexDirection: "column" }}>
+      <View style={styles.priceNameContainer}>
         <Text style={styles.name}>{product.name}</Text>
         <Text style={styles.price}>$ {product.price}</Text>
       </View>
 
-      <View style={{ marginTop: 24 }}>
+      <View>
         <Text style={styles.description}>{product.desc}</Text>
 
-        <View style={{ marginTop: 16, gap: screenHeight(12) }}>
+        <View style={styles.bulletsContainer}>
           {product.bullets.map((bullet) => (
-            <View
-              key={bullet._id}
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-              }}
-            >
-              <Image source={icons.bullet} style={{ marginRight: 13.33 }} />
-              <Text
-                style={{
-                  color: COLORS.dark03,
-                  ...FONTS.body1,
-                  fontWeight: "normal",
-                }}
-              >
-                {bullet.desc}
-              </Text>
-            </View>
+            <Bullet key={bullet._id} bullet={bullet.desc} />
           ))}
         </View>
       </View>
@@ -100,6 +84,11 @@ export default function ProductDetailScreen({
 }
 
 const styles = StyleSheet.create({
+  priceNameContainer: {
+    marginTop: screenHeight(20),
+    marginBottom: screenHeight(24),
+    flexDirection: "column",
+  },
   imageContainer: {
     width: screenWidth(200),
     height: screenWidth(200),
@@ -110,6 +99,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  bulletsContainer: { marginTop: screenHeight(16), gap: screenHeight(12) },
   image: {
     resizeMode: "contain",
     width: screenWidth(200),
