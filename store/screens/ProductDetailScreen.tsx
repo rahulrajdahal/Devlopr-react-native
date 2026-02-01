@@ -14,7 +14,9 @@ type ProductDetailProps = NativeStackScreenProps<
   "ProductDetail"
 >;
 
-export default function ProductDetailScreen({ route }: Readonly<ProductDetailProps>) {
+export default function ProductDetailScreen({
+  route,
+}: Readonly<ProductDetailProps>) {
   const [addToCart, setAddToCart] = useState(false);
 
   const {
@@ -47,7 +49,7 @@ export default function ProductDetailScreen({ route }: Readonly<ProductDetailPro
 
         <View style={styles.bulletsContainer}>
           {product.bullets.map((bullet) => (
-            <Bullet key={bullet._id} bullet={bullet.desc} />
+            <Bullet key={bullet} bullet={bullet} />
           ))}
         </View>
       </View>

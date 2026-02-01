@@ -2,11 +2,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
   AddPayment,
   AddShipping,
-  Cart,
   Checkout,
   Invoice,
-  PayOptions
+  PayOptions,
 } from "../screens";
+import CartScreen from "../store/screens/CartScreen";
 import ProductDetailScreen from "../store/screens/ProductDetailScreen";
 import StoreScreen from "../store/screens/StoreScreen";
 
@@ -27,7 +27,11 @@ const StoreScreenStack = () => {
     <StoreStack.Navigator screenOptions={{ headerShown: false }}>
       <StoreStack.Screen name="Store" component={StoreScreen} />
       <StoreStack.Screen name="ProductDetail" component={ProductDetailScreen} />
-      <StoreStack.Screen name="Cart" component={Cart} />
+      <StoreStack.Screen
+        name="Cart"
+        options={{ headerShown: true }}
+        component={CartScreen}
+      />
       <StoreStack.Screen name="Checkout" component={Checkout} />
       <StoreStack.Screen name="AddShipping" component={AddShipping} />
       <StoreStack.Screen name="PaymentOptions" component={PayOptions} />
