@@ -1,6 +1,6 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { useMemo, useState } from "react";
-import { Image, PressableProps, Text, View } from "react-native";
+import { Image, PressableProps, StyleSheet, Text, View } from "react-native";
 import { Button, Navbar, NotFound, ScreenContainer } from "../../components";
 import { COLORS, icons } from "../../constants";
 import { FONTS, screenHeight, screenWidth } from "../../constants/theme";
@@ -36,73 +36,25 @@ export default function ProductDetailScreen({
     <ScreenContainer>
       <Navbar />
 
-      <View
-        style={{
-          width: 220,
-          height: 220,
-          backgroundColor: COLORS.Light04,
-          borderRadius: 110,
-          marginTop: 32,
-          marginHorizontal: 77,
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Image
-          source={product.image}
-          style={{
-            resizeMode: "contain",
-            width: screenWidth(200),
-            height: screenWidth(200),
-          }}
-        />
+      <View style={styles.imageContainer}>
+        <Image source={product.image} style={styles.image} />
       </View>
 
       <View style={{ marginTop: 20, display: "flex", flexDirection: "column" }}>
-        <Text
-          style={{
-            color: COLORS.dark01,
-            fontSize: 32,
-            fontWeight: "600",
-            lineHeight: 32,
-          }}
-        >
-          {product.name}
-        </Text>
-        <Text
-          style={{
-            color: COLORS.dark03,
-            fontSize: 20,
-            fontWeight: "300",
-            lineHeight: 20,
-          }}
-        >
-          $ {product.price}
-        </Text>
+        <Text style={styles.name}>{product.name}</Text>
+        <Text style={styles.price}>$ {product.price}</Text>
       </View>
 
       <View style={{ marginTop: 24 }}>
-        <Text
-          style={{
-            color: COLORS.dark03,
-            ...FONTS.body1,
-            fontWeight: "300",
-            lineHeight: 24,
-            marginBottom: 16,
-          }}
-        >
-          {product.desc}
-        </Text>
+        <Text style={styles.description}>{product.desc}</Text>
 
-        <View style={{ marginTop: 16 }}>
+        <View style={{ marginTop: 16, gap: screenHeight(12) }}>
           {product.bullets.map((bullet) => (
             <View
               key={bullet._id}
               style={{
-                display: "flex",
                 flexDirection: "row",
                 alignItems: "center",
-                marginBottom: 12,
               }}
             >
               <Image source={icons.bullet} style={{ marginRight: 13.33 }} />
@@ -143,7 +95,43 @@ export default function ProductDetailScreen({
       />
 
       <CartButton />
-
     </ScreenContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  imageContainer: {
+    width: screenWidth(200),
+    height: screenWidth(200),
+    backgroundColor: COLORS.Light04,
+    borderRadius: screenWidth(110),
+    marginTop: screenHeight(32),
+    alignSelf: "center",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  image: {
+    resizeMode: "contain",
+    width: screenWidth(200),
+    height: screenWidth(200),
+  },
+  name: {
+    color: COLORS.dark01,
+    fontSize: screenWidth(32),
+    fontWeight: "600",
+    lineHeight: screenWidth(32),
+  },
+  price: {
+    color: COLORS.dark03,
+    fontSize: screenWidth(20),
+    fontWeight: "300",
+    lineHeight: screenWidth(20),
+  },
+  description: {
+    color: COLORS.dark03,
+    ...FONTS.body1,
+    fontWeight: "300",
+    lineHeight: screenWidth(24),
+    marginBottom: screenHeight(16),
+  },
+});
