@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
+import { Text, TextInput, TouchableOpacity, View } from "react-native";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { CircleImage, ScreenContainer } from "../../components";
@@ -8,7 +7,7 @@ import { COLORS, FONTS, images } from "../../constants";
 import { ArrowRight, Coupon } from "../../constants/icons";
 import { screenHeight, screenWidth } from "../../constants/theme";
 import { StoreStackParamList } from "../../navigations/StoreStackScreen";
-import CartItem from "../components/CartItem";
+import CartItems from "../components/CartItems";
 
 type CartScreenProps = NativeStackScreenProps<StoreStackParamList, "Cart">;
 
@@ -16,51 +15,13 @@ export default function CartScreen({ navigation }: Readonly<CartScreenProps>) {
   const [discount, setDiscount] = useState("");
 
   function renderCartItems() {
-    const products = [
-      {
-        _id: 1,
-        image: images.gaming_chair,
-        name: "Astra Chair",
-        price: 79.99,
-        quantity: 1,
-      },
-      {
-        _id: 2,
-        image: images.github_shirt,
-        name: "Github Shirt",
-        price: 9.99,
-        quantity: 1,
-      },
-      {
-        _id: 3,
-        image: images.coffee_mug,
-        name: "Coffe Mug",
-        price: 4.99,
-        quantity: 1,
-      },
-      {
-        _id: 4,
-        image: images.ocotocat_figurine,
-        name: "Octocat Figurines",
-        price: 14.99,
-        quantity: 1,
-      },
-    ];
-
     return (
       <View
         style={{
           maxHeight: screenHeight(360),
         }}
       >
-        <FlatList
-          data={products}
-          keyExtractor={(item) => `${item._id}`}
-          renderItem={({ item }) => <CartItem product={item} />}
-          ItemSeparatorComponent={() => (
-            <View style={{ marginBottom: screenHeight(24) }} />
-          )}
-        />
+        <CartItems />
 
         <View
           style={{
@@ -71,25 +32,6 @@ export default function CartScreen({ navigation }: Readonly<CartScreenProps>) {
             marginTop: 24,
           }}
         >
-          <View
-            style={{
-              width: 60,
-              height: 60,
-              backgroundColor: COLORS.Light03,
-              borderRadius: 110,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Image
-              source={images.delivery}
-              style={{
-                resizeMode: "contain",
-                width: 31,
-                height: 31,
-              }}
-            />
-          </View>
           <CircleImage
             image={images.delivery}
             imageProps={{
