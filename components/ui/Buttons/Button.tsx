@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Image,
+  ImageProps,
   ImageSourcePropType,
   Pressable,
   PressableProps,
@@ -15,12 +16,16 @@ type ButtonProps = PressableProps & {
   icon?: ImageSourcePropType;
   textProps?: TextProps;
   text: string;
+  suffixIcon?: ImageSourcePropType;
+  iconProps?: ImageProps;
 };
 
 export default function Button({
   text,
   icon,
   textProps,
+  suffixIcon,
+  iconProps,
   ...props
 }: ButtonProps) {
   return (
@@ -28,14 +33,15 @@ export default function Button({
       {...props}
       style={StyleSheet.flatten([
         styles.base,
-        icon ? styles.iconContainer : styles.container,
+        icon || suffixIcon ? styles.iconContainer : styles.container,
         props.style,
       ])}
     >
-      {icon ? <Image source={icon} style={{ marginRight: 12 }} /> : null}
+      {icon ? <Image {...iconProps} source={icon} /> : null}
       <Text style={StyleSheet.flatten([styles.text, textProps?.style])}>
         {text}
       </Text>
+      {suffixIcon ? <Image {...iconProps} source={suffixIcon} /> : null}
     </Pressable>
   );
 }

@@ -1,20 +1,19 @@
-import React, { useState } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Button, CircleImage, ScreenContainer } from "../../components";
 import { COLORS, FONTS, images } from "../../constants";
-import { ArrowRight } from "../../constants/icons";
+import icons from "../../constants/icons";
 import { screenHeight, screenWidth } from "../../constants/theme";
 import { StoreStackParamList } from "../../navigations/StoreStackScreen";
 import CartItems from "../components/CartItems";
 import CouponCodeInput from "../components/CouponCodeInput";
+import TotalPrice from "../components/TotalPrice";
 
 type CartScreenProps = NativeStackScreenProps<StoreStackParamList, "Cart">;
 
 export default function CartScreen({ navigation }: Readonly<CartScreenProps>) {
-  const [discount, setDiscount] = useState("");
-
   function renderCartItems() {
     return (
       <View
@@ -69,17 +68,12 @@ export default function CartScreen({ navigation }: Readonly<CartScreenProps>) {
     );
   }
 
-  function renderDiscountForm() {
-    return (
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginTop: screenHeight(32),
-        }}
-      >
+  return (
+    <ScreenContainer>
+      {/* Cart Items */}
+      {renderCartItems()}
+
+      <View style={styles.discountContainer}>
         <CouponCodeInput />
         <Button
           text="Apply"
@@ -94,95 +88,44 @@ export default function CartScreen({ navigation }: Readonly<CartScreenProps>) {
           }}
         />
       </View>
-    );
-  }
 
-  function renderTotalAndCheckout() {
-    return (
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginTop: 112,
-          marginBottom: 24,
-        }}
-      >
-        <View
+      <View style={styles.totalContainer}>
+        <TotalPrice />
+        <Button
+          text="Checkout"
           style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <Text
-            style={{
-              ...FONTS.h3,
-              color: COLORS.dark01,
-              fontWeight: "600",
-              width: 11,
-              height: 16,
-              position: "relative",
-              bottom: 4,
-              left: 4,
-            }}
-          >
-            $
-          </Text>
-          <Text
-            style={{
-              fontSize: 32,
-              lineHeight: 32,
-              color: COLORS.dark01,
-              fontWeight: "600",
-              marginLeft: 4,
-            }}
-          >
-            109.96
-          </Text>
-        </View>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("Checkout")}
-          style={{
-            width: 152,
-            height: 48,
             backgroundColor: COLORS.primary,
-            borderRadius: 10,
-            paddingVertical: 17,
-            paddingHorizontal: 36,
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-evenly",
+            paddingHorizontal: screenWidth(36),
+            paddingVertical: screenHeight(12),
+            borderRadius: screenWidth(10),
+            gap: screenWidth(12),
           }}
-        >
-          <Text
-            style={{
-              color: COLORS.white,
-              ...FONTS.body2,
-              fontWeight: "500",
-              alignSelf: "center",
-            }}
-          >
-            Checkout
-          </Text>
-          <ArrowRight width="9.33" height="9.07" />
-        </TouchableOpacity>
+          suffixIcon={icons.arrow_right}
+          iconProps={{
+            style: { width: screenWidth(10), height: screenWidth(10) },
+          }}
+          textProps={{ style: { ...FONTS.body2, fontWeight: "500" } }}
+          onPress={() => navigation.navigate("Checkout")}
+        />
       </View>
-    );
-  }
-
-  return (
-    <ScreenContainer>
-      {/* Cart Items */}
-      {renderCartItems()}
-      {/* Discount Coupon Form */}
-      {renderDiscountForm()}
-
-      {/* Total And Checkout */}
-      {renderTotalAndCheckout()}
     </ScreenContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  discountContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: screenHeight(32),
+  },
+  totalContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: screenHeight(104),
+    marginBottom: screenHeight(24),
+  },
+});
