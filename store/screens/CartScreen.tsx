@@ -3,16 +3,16 @@ import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { ScreenContainer } from "../../components";
+import { CircleImage, ScreenContainer } from "../../components";
 import { COLORS, FONTS, images } from "../../constants";
 import { ArrowRight, Coupon } from "../../constants/icons";
-import { screenHeight } from "../../constants/theme";
+import { screenHeight, screenWidth } from "../../constants/theme";
 import { StoreStackParamList } from "../../navigations/StoreStackScreen";
 import CartItem from "../components/CartItem";
 
 type CartScreenProps = NativeStackScreenProps<StoreStackParamList, "Cart">;
 
-export default function CartScreen({ navigation }: CartScreenProps) {
+export default function CartScreen({ navigation }: Readonly<CartScreenProps>) {
   const [discount, setDiscount] = useState("");
 
   function renderCartItems() {
@@ -90,6 +90,12 @@ export default function CartScreen({ navigation }: CartScreenProps) {
               }}
             />
           </View>
+          <CircleImage
+            image={images.delivery}
+            imageProps={{
+              style: { width: screenWidth(32), height: screenWidth(32) },
+            }}
+          />
           <View
             style={{
               display: "flex",

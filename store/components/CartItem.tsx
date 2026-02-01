@@ -56,8 +56,6 @@ const styles = StyleSheet.create({
   productInfo: {
     flexDirection: "column",
     alignItems: "flex-start",
-    // marginLeft: 20,
-    // marginRight: 52,
   },
   name: {
     color: COLORS.dark01,
