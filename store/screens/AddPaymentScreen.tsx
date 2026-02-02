@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Text, View, TouchableOpacity } from "react-native";
-import { AppCheckBox, Input, LargeButton } from "../components";
-import { COLORS, FONTS } from "../constants";
+import { Text, TouchableOpacity, View } from "react-native";
+import { AppCheckBox, Input, LargeButton } from "../../components";
+import { COLORS, FONTS } from "../../constants";
 import {
   ArrowLeft,
-  FormPerson,
-  FormCard,
   FormCalendar,
+  FormCard,
   FormLock,
-} from "../constants/icons";
+  FormPerson,
+} from "../../constants/icons";
 
 const AddPayment = ({ navigation }) => {
   function renderHeader() {
