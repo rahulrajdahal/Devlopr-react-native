@@ -47,7 +47,7 @@ const StoreScreenStack = () => {
       />
       <StoreStack.Screen
         name="AddPayment"
-        options={{ headerShown: true, title: "Add New Payment Card" }}
+        options={{ headerShown: true, title: "Add Payment Method" }}
         component={AddPaymentScreen}
       />
       <StoreStack.Screen name="Invoice" component={Invoice} />

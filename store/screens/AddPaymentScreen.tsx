@@ -1,174 +1,147 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { useState } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
-import { AppCheckBox, Input, LargeButton } from "../../components";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { AppCheckBox, Button, Input } from "../../components";
 import { COLORS, FONTS } from "../../constants";
 import {
-  ArrowLeft,
   FormCalendar,
   FormCard,
   FormLock,
   FormPerson,
 } from "../../constants/icons";
+import { screenHeight, screenWidth } from "../../constants/theme";
+import { StoreStackParamList } from "../../navigations/StoreStackScreen";
 
-const AddPayment = ({ navigation }) => {
-  function renderHeader() {
-    return (
-      <View
-        style={{
-          marginTop: 50,
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          marginBottom: 40,
-        }}
-      >
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <ArrowLeft
-            style={{
-              color: COLORS.dark02,
-              alignSelf: "flex-start",
-            }}
-            width="16"
-            height="15.56"
-          />
-        </TouchableOpacity>
-        <Text
-          style={{
-            color: COLORS.dark01,
-            ...FONTS.h1,
-            fontWeight: "500",
-            alignSelf: "center",
-            marginLeft: "auto",
-            marginRight: "auto",
-          }}
-        >
-          Payment Method
-        </Text>
-      </View>
-    );
-  }
+type AddPaymentScreenProps = NativeStackScreenProps<
+  StoreStackParamList,
+  "AddPayment"
+>;
 
-  function renderForm() {
-    const [isActive, setIsActive] = useState(false);
+export default function AddPaymentScreen({
+  navigation,
+}: Readonly<AddPaymentScreenProps>) {
+  const [isActive, setIsActive] = useState(false);
 
-    return (
-      <View style={{ marginTop: 191 }}>
+  return (
+    <ScrollView style={styles.container}>
+      <View style={styles.formContainer}>
         <Input
           label="Card Holder's Name"
           icon={<FormPerson />}
-          placeholder="John Doe"
-          width="100%"
+          inputProps={{
+            placeholder: "John Doe",
+            style: {
+              width: "94%",
+            },
+          }}
         />
         <Input
           label="Card Number"
           icon={<FormCard />}
-          placeholder="xxxx xxxx xxxx xxxx"
-          width="100%"
-        />
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            maxWidth: "50%",
+          inputProps={{
+            placeholder: "xxxx xxxx xxxx xxxx",
+            style: {
+              width: "94%",
+            },
           }}
-        >
+        />
+        <View style={styles.row}>
           <Input
             label="Expiry Date"
             icon={<FormCalendar />}
-            placeholder="mm/yy"
-            width="100%"
+            style={{ width: "50%" }}
+            inputProps={{
+              placeholder: "mm/yy",
+              style: {
+                width: "80%",
+              },
+            }}
           />
-          <View style={{ width: 4 }} />
           <Input
             label="CVC"
             icon={<FormLock />}
-            placeholder="xxx"
-            width="100%"
+            style={{ width: "50%" }}
+            inputProps={{
+              placeholder: "xxx",
+              style: {
+                width: "80%",
+              },
+            }}
           />
         </View>
 
         <TouchableOpacity
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-          }}
-          isActive={!isActive}
+          style={styles.checkbox}
           onPress={() => setIsActive((isActive) => !isActive)}
         >
           <AppCheckBox
             isActive={!isActive}
             onPress={() => setIsActive((isActive) => !isActive)}
           />
-          <Text
-            style={{
-              color: COLORS.dark02,
-              ...FONTS.body2,
-              fontWeight: "normal",
-              marginLeft: 12,
-            }}
-          >
-            Save Card Info for later
-          </Text>
+          <Text style={styles.saveText}>Save Card Info for later</Text>
         </TouchableOpacity>
       </View>
-    );
-  }
 
-  function renderSecureText() {
-    return (
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <FormLock
-          style={{
-            color: COLORS.dark04,
-            marginRight: 5.5,
-            alignSelf: "center",
-          }}
-        />
-        <Text
-          style={{ color: COLORS.dark04, ...FONTS.body3, fontWeight: "500" }}
-        >
-          Secured with SSL encryption
-        </Text>
-      </View>
-    );
-  }
-
-  return (
-    <View
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        paddingHorizontal: 20,
-        backgroundColor: COLORS.white,
-        width: "100%",
-        height: "100%",
-      }}
-    >
-      {/*  Back Button And Page Title */}
-      {renderHeader()}
-
-      {/* Form  */}
-      {renderForm()}
-
-      <LargeButton
+      <Button
         text="Pay Now"
-        style={{ marginBottom: 17, marginTop: 32, width: "100%" }}
         onPress={() => navigation.navigate("Invoice")}
+        style={styles.button}
       />
 
-      {/* Secure Text */}
-      {renderSecureText()}
-    </View>
+      <View style={styles.secureTextContainer}>
+        <FormLock style={styles.secureIcon} />
+        <Text style={styles.secureText}>Secured with SSL encryption</Text>
+      </View>
+    </ScrollView>
   );
-};
+}
 
-export default AddPayment;
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "column",
+    paddingHorizontal: screenWidth(24),
+    backgroundColor: COLORS.white,
+  },
+  formContainer: {
+    marginTop: screenHeight(192),
+    flexDirection: "column",
+    gap: screenHeight(20),
+  },
+  row: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: screenWidth(12),
+  },
+  saveText: {
+    color: COLORS.dark02,
+    ...FONTS.body2,
+    fontWeight: "normal",
+  },
+  checkbox: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: screenWidth(12),
+  },
+  button: {
+    marginBottom: screenHeight(16),
+    marginTop: screenHeight(32),
+    paddingVertical: screenHeight(12),
+  },
+  secureTextContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: screenWidth(4),
+  },
+  secureIcon: {
+    color: COLORS.dark04,
+    alignSelf: "center",
+  },
+  secureText: { color: COLORS.dark04, ...FONTS.body3, fontWeight: "500" },
+});
