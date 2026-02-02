@@ -1,10 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import {
-  AddPayment,
-  AddShipping,
-  Invoice,
-  PayOptions
-} from "../screens";
+import { AddPayment, AddShipping, Invoice, PayOptions } from "../screens";
 import CartScreen from "../store/screens/CartScreen";
 import CheckoutScreen from "../store/screens/CheckoutScreen";
 import ProductDetailScreen from "../store/screens/ProductDetailScreen";
@@ -32,7 +27,11 @@ const StoreScreenStack = () => {
         options={{ headerShown: true }}
         component={CartScreen}
       />
-      <StoreStack.Screen name="Checkout" component={CheckoutScreen} />
+      <StoreStack.Screen
+        name="Checkout"
+        options={{ headerShown: true, title: "Shipping Address" }}
+        component={CheckoutScreen}
+      />
       <StoreStack.Screen name="AddShipping" component={AddShipping} />
       <StoreStack.Screen name="PaymentOptions" component={PayOptions} />
       <StoreStack.Screen name="AddPayment" component={AddPayment} />

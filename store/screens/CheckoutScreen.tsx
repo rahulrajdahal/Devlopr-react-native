@@ -1,13 +1,12 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { useState } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { View } from "react-native";
 import {
   AddNewButton,
   LargeButton,
   ShippingAddressCard,
 } from "../../components";
-import { COLORS, FONTS, images } from "../../constants";
-import { ArrowLeft } from "../../constants/icons";
+import { COLORS, images } from "../../constants";
 import { StoreStackParamList } from "../../navigations/StoreStackScreen";
 
 type CheckoutScreenProps = NativeStackScreenProps<
@@ -18,41 +17,6 @@ type CheckoutScreenProps = NativeStackScreenProps<
 export default function CheckoutScreen({
   navigation,
 }: Readonly<CheckoutScreenProps>) {
-  function renderHeader() {
-    return (
-      <View
-        style={{
-          marginTop: 50,
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          marginBottom: 40,
-        }}
-      >
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <ArrowLeft
-            style={{
-              marginRight: 103,
-              color: COLORS.dark02,
-              alignSelf: "flex-start",
-            }}
-            width="16"
-            height="15.56"
-          />
-        </TouchableOpacity>
-        <Text
-          style={{
-            color: COLORS.dark01,
-            ...FONTS.h1,
-            fontWeight: "500",
-            alignSelf: "center",
-          }}
-        >
-          Shipping Address
-        </Text>
-      </View>
-    );
-  }
 
   function renderAddress() {
     const [isSelected, setIsSelected] = useState(false);
@@ -121,8 +85,7 @@ export default function CheckoutScreen({
         height: "100%",
       }}
     >
-      {/*  Back Button And Page Title */}
-      {renderHeader()}
+
       {/* Shipping Adresses */}
       {renderAddress()}
 
