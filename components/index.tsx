@@ -1,6 +1,7 @@
 import BottomNavTab from "../navigations/BotttomNavTab";
 import NotificationCard from "../notifications/components/NotificationCard";
 import StoreCard from "../store/components/ItemCard";
+import ShippingAddressCard from "../store/components/ShippingAddressCard";
 import AddNewButton from "./AddNewButton";
 import AppCheckBox from "./AppCheckBox";
 import IconCard from "./IconCard";
@@ -9,7 +10,6 @@ import LargeButton from "./LargeButton";
 import Navbar from "./Navbar";
 import PayCard from "./PayCard";
 import SelectCard from "./SelectCard";
-import ShippingAddressCard from "./ShippingAddressCard";
 import SmallButton from "./SmallButton";
 import TopCard from "./TopCard";
 
