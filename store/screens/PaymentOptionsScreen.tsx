@@ -1,7 +1,9 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React from "react";
+import { View } from "react-native";
 import { ScreenContainer } from "../../components";
 import { COLORS } from "../../constants";
+import { screenHeight } from "../../constants/theme";
 import { StoreStackParamList } from "../../navigations/StoreStackScreen";
 import AddNewButton from "../components/AddNewButton";
 import PaymentCard from "../components/PaymentCard";
@@ -31,14 +33,22 @@ export default function PaymentOptionsScreen({
 
   return (
     <ScreenContainer>
-      {paymentCards.map((paymentCard) => (
-        <PaymentCard
-          key={paymentCard.leadingPin}
-          card={paymentCard}
-          onPress={() => navigation.navigate("Invoice")}
-          bgColor={paymentCard.bgColor}
-        />
-      ))}
+      <View
+        style={{
+          flexDirection: "column",
+          gap: screenHeight(12),
+          marginBottom: screenHeight(38),
+        }}
+      >
+        {paymentCards.map((paymentCard) => (
+          <PaymentCard
+            key={paymentCard.leadingPin}
+            card={paymentCard}
+            onPress={() => navigation.navigate("Invoice")}
+            bgColor={paymentCard.bgColor}
+          />
+        ))}
+      </View>
 
       <AddNewButton
         text="Add New Payment Method"
