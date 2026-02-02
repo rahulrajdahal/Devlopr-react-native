@@ -2,11 +2,13 @@ import React from "react";
 import {
   Pressable,
   PressableProps,
+  StyleSheet,
   Text,
-  View
+  View,
 } from "react-native";
 import { COLORS, FONTS } from "../../constants";
 import { CirclesOverlap } from "../../constants/icons";
+import { screenHeight, screenWidth } from "../../constants/theme";
 
 type PaymentCardProps = PressableProps & {
   bgColor: string;
@@ -17,126 +19,93 @@ export default function PaymentCard({
   onPress,
   bgColor,
   card,
+  ...props
 }: PaymentCardProps) {
   const { leadingPin, trailingPin, expDate } = card;
 
   return (
     <Pressable
       onPress={onPress}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        justifyContent: "space-between",
-        paddingHorizontal: 24,
-        paddingVertical: 20,
-        minWidth: 327,
-        width: "100%",
-        maxHeight: 180,
-        height: "100%",
-        backgroundColor: bgColor,
-        borderRadius: 20,
-        marginBottom: 32,
-        elevation: 5,
-        shadowColor: COLORS.dark04,
-        shadowRadius: 55,
-      }}
+      style={StyleSheet.flatten([
+        styles.container,
+        {
+          backgroundColor: bgColor,
+        },
+        props.style,
+      ])}
     >
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          width: "100%",
-        }}
-      >
+      <View style={styles.topRow}>
         <CirclesOverlap />
-        <Text
-          style={{
-            color: COLORS.dark04,
-            ...FONTS.body3,
-            fontWeight: "600",
-          }}
-        >
-          MasterCard
-        </Text>
+        <Text style={styles.cardType}>MasterCard</Text>
       </View>
 
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          width: "100%",
-        }}
-      >
-        <Text
-          style={{
-            color: COLORS.Light04,
-            ...FONTS.h1,
-            fontWeight: "normal",
-          }}
-        >
-          {leadingPin}
-        </Text>
-        <Text
-          style={{
-            color: COLORS.Light04,
-            ...FONTS.h1,
-            fontWeight: "normal",
-          }}
-        >
-          ****
-        </Text>
-        <Text
-          style={{
-            color: COLORS.Light04,
-            ...FONTS.h1,
-            fontWeight: "normal",
-          }}
-        >
-          ****
-        </Text>
-        <Text
-          style={{
-            color: COLORS.Light04,
-            ...FONTS.h1,
-            fontWeight: "normal",
-          }}
-        >
-          {trailingPin}
-        </Text>
+      <View style={styles.pinContainer}>
+        <Text style={styles.pin}>{leadingPin}</Text>
+        <Text style={styles.hidden}>****</Text>
+        <Text style={styles.hidden}>****</Text>
+        <Text style={styles.pin}>{trailingPin}</Text>
       </View>
 
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-        }}
-      >
-        <Text
-          style={{
-            color: COLORS.Light04,
-            ...FONTS.body2,
-            fontWeight: "500",
-            textTransform: "uppercase",
-          }}
-        >
-          Mrs. Kelly Francise
-        </Text>
-        <Text
-          style={{
-            color: COLORS.dark04,
-            ...FONTS.body4,
-            fontWeight: "500",
-          }}
-        >
-          {expDate}
-        </Text>
+      <View style={styles.userInfo}>
+        <Text style={styles.user}>Mrs. Kelly Francise</Text>
+        <Text style={styles.expDate}>{expDate}</Text>
       </View>
     </Pressable>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "column",
+    alignItems: "flex-start",
+    justifyContent: "space-between",
+    paddingHorizontal: screenWidth(24),
+    paddingVertical: screenHeight(20),
+    gap: screenHeight(20),
+    borderRadius: screenWidth(20),
+    elevation: 5,
+    shadowColor: COLORS.dark04,
+    shadowRadius: screenWidth(56),
+  },
+  topRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: "100%",
+  },
+  cardType: {
+    color: COLORS.dark04,
+    ...FONTS.body3,
+    fontWeight: "600",
+  },
+  pinContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: screenWidth(20),
+  },
+  pin: {
+    color: COLORS.Light04,
+    ...FONTS.h1,
+    fontWeight: "normal",
+  },
+  hidden: {
+    color: COLORS.Light04,
+    ...FONTS.h1,
+    fontWeight: "normal",
+  },
+  userInfo: {
+    flexDirection: "column",
+    alignItems: "flex-start",
+  },
+  user: {
+    color: COLORS.Light04,
+    ...FONTS.body2,
+    fontWeight: "500",
+    textTransform: "uppercase",
+  },
+  expDate: {
+    color: COLORS.dark04,
+    ...FONTS.body4,
+    fontWeight: "500",
+  },
+});
