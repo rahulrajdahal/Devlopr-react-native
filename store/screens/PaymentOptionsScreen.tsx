@@ -1,11 +1,19 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
-import { ArrowLeft, CirclesOverlap } from "../constants/icons";
-import { COLORS, FONTS, images } from "../constants";
-import { AddNewButton, PayCard } from "../components";
-import { ScrollView } from "react-native-gesture-handler";
+import { Text, TouchableOpacity, View } from "react-native";
+import { AddNewButton, PayCard } from "../../components";
+import { COLORS, FONTS } from "../../constants";
+import { ArrowLeft } from "../../constants/icons";
+import { StoreStackParamList } from "../../navigations/StoreStackScreen";
 
-const PayOptions = ({ navigation }) => {
+type PaymentOptionsScreenProps = NativeStackScreenProps<
+  StoreStackParamList,
+  "PaymentOptions"
+>;
+
+export default function PaymentOptionsScreen({
+  navigation,
+}: Readonly<PaymentOptionsScreenProps>) {
   function renderHeader() {
     return (
       <View
@@ -85,6 +93,4 @@ const PayOptions = ({ navigation }) => {
       />
     </View>
   );
-};
-
-export default PayOptions;
+}
