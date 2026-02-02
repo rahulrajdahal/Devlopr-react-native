@@ -1,17 +1,23 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, Image } from "react-native";
-import { COLORS, FONTS, images } from "../constants";
+import { Text, TouchableOpacity, View } from "react-native";
 import {
-  ArrowLeft,
-  Check,
-  CheckActive,
-  Circle,
-  Tick,
-} from "../constants/icons";
-import { AddNewButton, LargeButton, ShippingAddressCard } from "../components";
-import { FlatList, ScrollView } from "react-native-gesture-handler";
+  AddNewButton,
+  LargeButton,
+  ShippingAddressCard,
+} from "../../components";
+import { COLORS, FONTS, images } from "../../constants";
+import { ArrowLeft } from "../../constants/icons";
+import { StoreStackParamList } from "../../navigations/StoreStackScreen";
 
-const Checkout = ({ navigation }) => {
+type CheckoutScreenProps = NativeStackScreenProps<
+  StoreStackParamList,
+  "Checkout"
+>;
+
+export default function CheckoutScreen({
+  navigation,
+}: Readonly<CheckoutScreenProps>) {
   function renderHeader() {
     return (
       <View
@@ -127,6 +133,4 @@ const Checkout = ({ navigation }) => {
       {renderPayButton()}
     </View>
   );
-};
-
-export default Checkout;
+}
