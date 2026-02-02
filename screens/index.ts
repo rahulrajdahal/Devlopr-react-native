@@ -1,9 +1,6 @@
-import Challenge from "../home/screens/ChallengeScreen";
-import Cart from "../store/screens/CartScreen";
 import AddPayment from "./AddPayment";
-import AddShipping from "./AddShipping";
 import Friends from "./Friends";
 import Invoice from "./Invoice";
 
-export { AddPayment, AddShipping, Cart, Challenge, Friends, Invoice };
+export { AddPayment, Friends, Invoice };
 

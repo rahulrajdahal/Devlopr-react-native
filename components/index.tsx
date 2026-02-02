@@ -6,7 +6,6 @@ import ShippingAddressCard from "../store/components/ShippingAddressCard";
 import AddNewButton from "./AddNewButton";
 import AppCheckBox from "./AppCheckBox";
 import IconCard from "./IconCard";
-import Input from "./Input";
 import LargeButton from "./LargeButton";
 import Navbar from "./Navbar";
 import SelectCard from "./SelectCard";
@@ -22,7 +21,6 @@ export {
   AppCheckBox,
   BottomNavTab,
   IconCard,
-  Input,
   LargeButton,
   Navbar,
   NotificationCard,
