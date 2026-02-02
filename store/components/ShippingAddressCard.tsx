@@ -37,7 +37,6 @@ export default function ShippingAddressCard({
     <Pressable
       {...props}
       style={StyleSheet.flatten([styles.container, props.style])}
-      
     >
       <Image
         source={address.image}
@@ -55,7 +54,7 @@ export default function ShippingAddressCard({
           <Tick />
         </View>
       ) : (
-        <Circle />
+        <Circle width={screenWidth(28)} height={screenWidth(28)} />
       )}
     </Pressable>
   );
