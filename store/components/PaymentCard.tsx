@@ -1,11 +1,27 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
-import { COLORS, FONTS } from "../constants";
-import { CirclesOverlap } from "../constants/icons";
+import {
+  Pressable,
+  PressableProps,
+  Text,
+  View
+} from "react-native";
+import { COLORS, FONTS } from "../../constants";
+import { CirclesOverlap } from "../../constants/icons";
 
-const PayCard = ({ onPress, bgColor, PinFirst, PinLast, expDate }) => {
+type PaymentCardProps = PressableProps & {
+  bgColor: string;
+  card: { leadingPin: string; trailingPin: string; expDate: string };
+};
+
+export default function PaymentCard({
+  onPress,
+  bgColor,
+  card,
+}: PaymentCardProps) {
+  const { leadingPin, trailingPin, expDate } = card;
+
   return (
-    <TouchableOpacity
+    <Pressable
       onPress={onPress}
       style={{
         display: "flex",
@@ -63,7 +79,7 @@ const PayCard = ({ onPress, bgColor, PinFirst, PinLast, expDate }) => {
             fontWeight: "normal",
           }}
         >
-          {PinFirst}
+          {leadingPin}
         </Text>
         <Text
           style={{
@@ -90,7 +106,7 @@ const PayCard = ({ onPress, bgColor, PinFirst, PinLast, expDate }) => {
             fontWeight: "normal",
           }}
         >
-          {PinLast}
+          {trailingPin}
         </Text>
       </View>
 
@@ -121,8 +137,6 @@ const PayCard = ({ onPress, bgColor, PinFirst, PinLast, expDate }) => {
           {expDate}
         </Text>
       </View>
-    </TouchableOpacity>
+    </Pressable>
   );
-};
-
-export default PayCard;
+}

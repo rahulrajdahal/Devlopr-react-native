@@ -12,7 +12,7 @@ import {
 import { COLORS, FONTS, SIZES } from "../../../constants";
 import { screenHeight, screenWidth } from "../../../constants/theme";
 
-type ButtonProps = PressableProps & {
+export type ButtonProps = PressableProps & {
   icon?: ImageSourcePropType;
   textProps?: TextProps;
   text: string;
