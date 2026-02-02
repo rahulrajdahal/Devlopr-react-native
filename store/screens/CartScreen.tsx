@@ -1,21 +1,22 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { Button, CircleImage, ScreenContainer } from "../../components";
-import { COLORS, FONTS, images } from "../../constants";
+import { Button, ScreenContainer } from "../../components";
+import { COLORS, FONTS } from "../../constants";
 import icons from "../../constants/icons";
 import { screenHeight, screenWidth } from "../../constants/theme";
 import { StoreStackParamList } from "../../navigations/StoreStackScreen";
 import CartItems from "../components/CartItems";
 import CouponCodeInput from "../components/CouponCodeInput";
+import DeliveryStatus from "../components/DeliveryStatus";
 import TotalPrice from "../components/TotalPrice";
 
 type CartScreenProps = NativeStackScreenProps<StoreStackParamList, "Cart">;
 
 export default function CartScreen({ navigation }: Readonly<CartScreenProps>) {
-  function renderCartItems() {
-    return (
+  return (
+    <ScreenContainer>
       <View
         style={{
           maxHeight: screenHeight(360),
@@ -23,55 +24,8 @@ export default function CartScreen({ navigation }: Readonly<CartScreenProps>) {
       >
         <CartItems />
 
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            marginVertical: screenHeight(24),
-            gap: screenWidth(20),
-          }}
-        >
-          <CircleImage
-            image={images.delivery}
-            imageProps={{
-              style: { width: screenWidth(32), height: screenWidth(32) },
-            }}
-          />
-          <View
-            style={{
-              flexDirection: "column",
-              alignItems: "flex-start",
-            }}
-          >
-            <Text
-              style={{
-                color: COLORS.dark01,
-                ...FONTS.h3,
-                fontWeight: "600",
-              }}
-            >
-              Delivery
-            </Text>
-            <Text
-              style={{
-                marginTop: 4,
-                color: COLORS.dark03,
-                ...FONTS.body2,
-                fontWeight: "300",
-              }}
-            >
-              FREE
-            </Text>
-          </View>
-        </View>
+        <DeliveryStatus />
       </View>
-    );
-  }
-
-  return (
-    <ScreenContainer>
-      {/* Cart Items */}
-      {renderCartItems()}
 
       <View style={styles.discountContainer}>
         <CouponCodeInput />
